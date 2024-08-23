@@ -307,4 +307,4 @@ TSWLatexianTemp*
 
 **/.DS_Store
 **.pdf
-!Assignment-*/files/*.pdf
+!*/Assignment-*/files/*.pdf
