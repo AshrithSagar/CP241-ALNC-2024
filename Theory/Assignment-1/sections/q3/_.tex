@@ -1,3 +1,26 @@
 \section*{Problem 3}
 
+A dynamical system is given by the following state-space and output equations with nominal input \( u = 0\):
+\begin{align*}
+    \begin{bmatrix}
+        \dot{x}_1 \\
+        \dot{x}_2 \\
+        \dot{x}_3
+    \end{bmatrix}
+      & =
+    \begin{bmatrix}
+        x_2 - 2 x_1^2    \\
+        x_3 + 3 x_1 x_2  \\
+        -x_1 - x_2^2 + u \\
+    \end{bmatrix}
+    \\
+    y & = x_1^2 + x_2
+\end{align*}
+
+\begin{enumerate}[label= (\alph*)]
+    \item Compute the equilibrium point(s) under zero input conditions.
+          Note that, at the equilibrium point, system behavior does not change over time.
+    \item Find the linearized system around all the equilibrium points.
+\end{enumerate}
+
 \subsection*{Solution}
