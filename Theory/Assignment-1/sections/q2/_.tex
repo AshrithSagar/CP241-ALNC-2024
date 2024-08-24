@@ -1,3 +1,15 @@
 \section*{Problem 2}
 
+Convert the following \(n\)-th order linear differential equation (\( y^{(j)} \) denotes the \(j\)-th derivative)
+\[
+    y^{(n)}(t) + a_{n-1}(t) y^{(n-1)}(t) + a_{n-2}(t) y^{(n-2)}(t) + \cdots + a_{1}(t) y^{(1)}(t) + a_{0}(t) y(t) = b_0(t) u(t) + b_1(t) u^{(1)}(t)
+\]
+into the following type of equation:
+\begin{align*}
+    \dot{x}(t) & = A(t) x(t) + B(t) u(t) \\
+    y(t)       & = C(t) x(t) + D(t) u(t)
+\end{align*}
+
+\textit{Hint:} Let, \( x^{(n)}(t) = y^{(n-1)}(t) - b_1(t)u(t) \)
+
 \subsection*{Solution}
