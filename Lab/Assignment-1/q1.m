@@ -15,39 +15,39 @@ tsamples = (0:h:t_end)';
 
 % State initialisation
 numSamples = length(tsamples);
-X = zeros(numSamples, 2);
+X = zeros(2, numSamples);
 
 % Initial state value
-x0 = [pi / 6, pi / 12];
-X(1, :) = x0;
+x0 = [pi / 6; pi / 12];
+X(:, 1) = x0;
 
 % State space representation
-f = @(t, x) [x(2), (-g / l * sin(x(1)) - b / (m * l * l) * x(2))];
+f = @(t, x) [x(2); (- (g / l) * sin(x(1)) - (b / (m * l * l)) * x(2))];
 
 %% Runge Kutta method | Order 4
 % Implementation
 tic
 
 for i = 1:numSamples - 1
-    k_1 = f(tsamples(i), X(i, :));
-    k_2 = f(tsamples(i) + h / 2, X(i, :) + k_1 / 2);
-    k_3 = f(tsamples(i) + h / 2, X(i, :) + k_2 / 2);
-    k_4 = f(tsamples(i) + h, X(i, :) + k_3);
-    X(i + 1, :) = X(i, :) + (h / 6) * f(tsamples(i), X(i, :));
+    k_1 = h * f(tsamples(i), X(:, i));
+    k_2 = h * f(tsamples(i) + h / 2, X(:, i) + k_1 / 2);
+    k_3 = h * f(tsamples(i) + h / 2, X(:, i) + k_2 / 2);
+    k_4 = h * f(tsamples(i) + h, X(:, i) + k_3);
+    X(:, i + 1) = X(:, i) + (1/6) * (k_1 + 2 * k_2 + 2 * k_3 + k_4);
 end
 
 toc
 
 %% Plots
 subplot(2, 1, 1);
-plot(tsamples, X(:, 1), "b", "DisplayName", "Angular position");
+plot(tsamples, X(1, :), "b", "DisplayName", "Angular position");
 ylabel("Angular position x_1(t)");
 xlabel("Time (seconds)");
 title('Angular position vs Time');
 legend();
 
 subplot(2, 1, 2);
-plot(tsamples, X(:, 2), "b", "DisplayName", "Angular velocity");
+plot(tsamples, X(2, :), "b", "DisplayName", "Angular velocity");
 ylabel("Angular velocity x_2(t)");
 xlabel("Time (seconds)");
 title('Angular velocity vs Time');
