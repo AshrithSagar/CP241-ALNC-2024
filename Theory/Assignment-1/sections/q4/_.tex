@@ -32,6 +32,13 @@ With \(s(t)\) as the state variable, we have the differential equations governin
     v(t)         & = \frac{L}{s(t)}\frac{di(t)}{dt} + R i(t)
 \end{align*}
 
+Taking \( x_1 = i, \ x_2 = s, \ x_3 = \dot s \), we can rewrite the above equations as
+\begin{align*}
+    \dot x_1 & = \frac{(v(t) - R x_1)}{L} x_2        \\
+    \dot x_2 & = x_3                                 \\
+    \dot x_3 & = \frac{K}{M} \frac{x_1^2}{x_2^2} - g
+\end{align*}
+
 \subsubsection*{(b) Equilibrium point(s) under input \(v(t)=V_{in}\)}
 
 Under input \( v(t)=V_{in} \), the equilibrium points are obtained by setting the time derivatives of the state variables to zero, i.e., \( \dot s(t) = 0 \).
