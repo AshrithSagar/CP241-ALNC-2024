@@ -27,12 +27,35 @@ The force produced by the magnet is given by \(\frac{K i^2(t)}{s^2(t)}\), where 
 Consider the upward direction to be the positive \(y\)-direction.
 With \(s(t)\) as the state variable, we have the differential equations as follows.
 \begin{align*}
-    \dot s(t) & = \frac{Ki^2}{s^2} - Mg \\
-    v(t)      & = \frac{L}{s} + Ri
+    \dot s(t) & = \frac{Ki^2}{s^2} - Mg         \\
+    v(t)      & = \frac{L}{s}\frac{di}{dt} + Ri
 \end{align*}
 
 \subsubsection*{(b) Equilibrium point(s) under input \(v(t)=V_{in}\)}
 
 Under input \( v(t)=V_{in} \), the equilibrium points are obtained by setting the time derivatives of the state variables to zero, i.e., \( \dot s(t) = 0 \).
+Thereby, we get
+\begin{align*}
+    \frac{Ki^2}{s^2} - Mg         & = 0      \\
+    \frac{L}{s}\frac{di}{dt} + Ri & = V_{in}
+\end{align*}
+\begin{equation*}
+    \implies
+    \frac{i}{s} = \sqrt{\frac{Mg}{K}}
+    \implies
+    s = i \sqrt{\frac{K}{Mg}}
+    \implies
+    \frac{ds}{dt} = \sqrt{\frac{K}{Mg}} \frac{di}{dt} = \dot s(t) = 0
+    \implies
+    \frac{di}{dt} = 0
+\end{equation*}
+\begin{align*}
+    \implies
+    i = \frac{V_{in}}{R}
+    \implies
+    \boxed{
+        s = \frac{V_{in}}{R} \sqrt{\frac{K}{Mg}}
+    }
+\end{align*}
 
 \subsubsection*{(c) Linearized system around all the equilibrium points}
