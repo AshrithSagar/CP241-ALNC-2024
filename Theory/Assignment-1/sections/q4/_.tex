@@ -26,7 +26,7 @@ The force produced by the magnet is given by \(\frac{K i^2(t)}{s^2(t)}\), where 
 
 Consider the upward direction to be the positive \(y\)-direction.
 The underlying laws are the Newton's laws of motion and Kirchoff's voltage law.
-With \(s(t)\) as the state variable, we have the differential equations governing the dynamics of the system as follows,
+We have the differential equations governing the dynamics of the system as follows,
 \begin{align*}
     M \ddot s(t) & = \frac{Ki^2(t)}{s^2(t)} - Mg             \\
     v(t)         & = \frac{L}{s(t)}\frac{di(t)}{dt} + R i(t)
@@ -44,31 +44,77 @@ Taking \( x_1 = i, \ x_2 = s, \ x_3 = \dot s \), we can rewrite the above equati
 Under input \( v(t)=V_{in} \), the equilibrium points are obtained by setting the time derivatives of the state variables to zero, i.e., \( \dot x_1(t) = 0, \ \dot x_2(t) = 0, \ \dot x_3(t) = 0 \).
 Thereby, we get
 \begin{align*}
-    \frac{Ki^2}{s^2} - Mg         & = 0      \\
-    \frac{L}{s}\frac{di}{dt} + Ri & = V_{in}
+    x_1(t) & = \frac{V_{in}}{R}                                                  \\
+    x_3(t) & = 0                                                                 \\
+    x_2(t) & = x_1(t) \sqrt{\frac{K}{Mg}} = \frac{V_{in}}{R} \sqrt{\frac{K}{Mg}}
 \end{align*}
-\begin{equation*}
-    \implies
-    \frac{i}{s} = \sqrt{\frac{Mg}{K}}
-    \implies
-    s = i \sqrt{\frac{K}{Mg}}
-    \implies
-    \frac{ds}{dt} = \sqrt{\frac{K}{Mg}} \frac{di}{dt} = \dot s(t) = 0
-    \implies
-    \frac{di}{dt} = 0
-\end{equation*}
-\begin{align*}
-    \implies
-    i = \frac{V_{in}}{R}
-    \implies
+
+Thus, the equilibrium point is
+\[
     \boxed{
-        s = \frac{V_{in}}{R} \sqrt{\frac{K}{Mg}}
+        \mathbf{x^*} =
+        \begin{bmatrix}
+            \cfrac{V_{in}}{R}                      \\
+            \\
+            \cfrac{V_{in}}{R} \sqrt{\cfrac{K}{Mg}} \\
+            \\
+            0
+        \end{bmatrix}
     }
-\end{align*}
+\]
 
 \subsubsection*{(c) Linearized system around all the equilibrium points}
 
-Given a non-linear system of the form \( \dot x(t) = f(t, x) \), we can linearise it around the equilibrium point \( \phi \) as follows:
+Given a non-linear system of the form \( \mathbf{\dot x}(t) = \mathbf{f}(x_1, x_2, x_3) \), we can linearise it around the equilibrium point \( \mathbf{x^*} \) as follows:
 \[
-    \dot x(t) = f(t, x) = f(\phi) + \left. \frac{\partial f}{\partial x} \right|_{\phi} (x - \phi)
+    \mathbf{\dot x}(t) = \mathbf{f}(x_1, x_2, x_3) \approx \mathbf{f}(\mathbf{x^*}) + \mathbf{f'}(\mathbf{x^*})\; (\mathbf{x} - \mathbf{x^*})
+\]
+where \(\mathbf{f'}\) denotes the Jacobian matrix of \(\mathbf{f}\).
+
+The Jacobian matrix of the system is
+\[
+    \mathbf{f'}(\mathbf{x}) =
+    \begin{bmatrix}
+        \cfrac{-R}{L}x_2(t)                    &  & \cfrac{V_{in} - R x_1(t)}{L}              &  & 0 \\
+        \\
+        0                                      &  & 0                                         &  & 1 \\
+        \\
+        \cfrac{2K}{M} \cfrac{x_1(t)}{x_2^2(t)} &  & \cfrac{-2K}{M} \cfrac{x_1^2(t)}{x_2^3(t)} &  & 0
+    \end{bmatrix}
+\]
+\[
+    \implies
+    \mathbf{f'}(\mathbf{x^*}) =
+    \begin{bmatrix}
+        \cfrac{-V_{in}}{L} \sqrt{\cfrac{K}{Mg}} &  & 0                                        &  & 0 \\
+        0                                       &  & 0                                        &  & 1 \\
+        \cfrac{2 R g}{V_{in}}                   &  & \cfrac{-2gR}{V_{in}}\sqrt{\cfrac{Mg}{K}} &  & 0
+    \end{bmatrix}
+\]
+Also, we have
+\[
+    \mathbf{f}(\mathbf{x^*}) =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}
+\]
+Thereby, we get
+\[
+    \boxed{
+        \mathbf{\dot x}(t) \approx
+        \begin{bmatrix}
+            \cfrac{-V_{in}}{L} \sqrt{\cfrac{K}{Mg}} &  & 0                                        &  & 0 \\
+            0                                       &  & 0                                        &  & 1 \\
+            \cfrac{2 R g}{V_{in}}                   &  & \cfrac{-2gR}{V_{in}}\sqrt{\cfrac{Mg}{K}} &  & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1(t) - \cfrac{V_{in}}{R}                      \\
+            \\
+            x_2(t) - \cfrac{V_{in}}{R} \sqrt{\cfrac{K}{Mg}} \\
+            \\
+            x_3(t)
+        \end{bmatrix}
+    }
 \]
