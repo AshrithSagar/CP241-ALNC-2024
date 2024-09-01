@@ -25,10 +25,11 @@ The force produced by the magnet is given by \(\frac{K i^2(t)}{s^2(t)}\), where 
 \subsubsection*{(a) Governing differential equations}
 
 Consider the upward direction to be the positive \(y\)-direction.
-With \(s(t)\) as the state variable, we have the differential equations as follows.
+The underlying laws are the Newton's laws of motion and Kirchoff's voltage law.
+With \(s(t)\) as the state variable, we have the differential equations governing the dynamics of the system as follows,
 \begin{align*}
-    \dot s(t) & = \frac{Ki^2}{s^2} - Mg         \\
-    v(t)      & = \frac{L}{s}\frac{di}{dt} + Ri
+    M \ddot s(t) & = \frac{Ki^2(t)}{s^2(t)} - Mg             \\
+    v(t)         & = \frac{L}{s(t)}\frac{di(t)}{dt} + R i(t)
 \end{align*}
 
 \subsubsection*{(b) Equilibrium point(s) under input \(v(t)=V_{in}\)}
@@ -59,3 +60,8 @@ Thereby, we get
 \end{align*}
 
 \subsubsection*{(c) Linearized system around all the equilibrium points}
+
+Given a non-linear system of the form \( \dot x(t) = f(t, x) \), we can linearise it around the equilibrium point \( \phi \) as follows:
+\[
+    \dot x(t) = f(t, x) = f(\phi) + \left. \frac{\partial f}{\partial x} \right|_{\phi} (x - \phi)
+\]
