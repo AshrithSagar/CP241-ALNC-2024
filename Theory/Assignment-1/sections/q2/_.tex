@@ -133,3 +133,56 @@ where
     \end{bmatrix}
     _{1 \times 1}
 \]
+
+Therefore,
+\[
+    \boxed{
+        \dot{x}(t)
+        =
+        \begin{bmatrix}
+            0       & 1       & 0       & \cdots & 0           \\
+            0       & 0       & 1       & \cdots & 0           \\
+            0       & 0       & 0       & \cdots & 0           \\
+            \vdots  & \vdots  & \vdots  & \ddots & 1           \\
+            -a_0(t) & -a_1(t) & -a_2(t) & \cdots & -a_{n-1}(t)
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1(t) \\
+            x_2(t) \\
+            x_3(t) \\
+            \vdots \\
+            x_n(t)
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0      \\
+            0      \\
+            0      \\
+            \vdots \\
+            b_1(t) \\
+            b_0(t) - a_{n-1}(t)b_1(t) - b_1^{(1)}(t)
+        \end{bmatrix}
+        u(t)
+    }
+\]
+\[
+    \boxed{
+        y(t)
+        =
+        \begin{bmatrix}
+            1 & 0 & 0 & \cdots & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1(t) \\
+            x_2(t) \\
+            x_3(t) \\
+            \vdots \\
+            x_n(t)
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0
+        \end{bmatrix}
+        u(t)
+    }
+\]
