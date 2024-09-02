@@ -80,10 +80,11 @@ where
 \[
     x(t) =
     \begin{bmatrix}
-        x_1    \\
-        x_2    \\
-        x_3    \\
-        \vdots \\
+        x_1     \\
+        x_2     \\
+        x_3     \\
+        \vdots  \\
+        x_{n-1} \\
         x_n
     \end{bmatrix}
     _{n \times 1}
@@ -101,7 +102,8 @@ where
         0      & 1      & 0      & \cdots & 0        \\
         0      & 0      & 1      & \cdots & 0        \\
         0      & 0      & 0      & \cdots & 0        \\
-        \vdots & \vdots & \vdots & \ddots & 1        \\
+        \vdots & \vdots & \vdots & \ddots & \vdots   \\
+        0      & 0      & 0      & \cdots & 1        \\
         -a_0   & -a_1   & -a_2   & \cdots & -a_{n-1}
     \end{bmatrix}
     _{n \times n}
@@ -143,14 +145,16 @@ Therefore,
             0       & 1       & 0       & \cdots & 0           \\
             0       & 0       & 1       & \cdots & 0           \\
             0       & 0       & 0       & \cdots & 0           \\
-            \vdots  & \vdots  & \vdots  & \ddots & 1           \\
+            \vdots  & \vdots  & \vdots  & \ddots & \vdots      \\
+            0       & 0       & 0       & \cdots & 1           \\
             -a_0(t) & -a_1(t) & -a_2(t) & \cdots & -a_{n-1}(t)
         \end{bmatrix}
         \begin{bmatrix}
-            x_1(t) \\
-            x_2(t) \\
-            x_3(t) \\
-            \vdots \\
+            x_1(t)     \\
+            x_2(t)     \\
+            x_3(t)     \\
+            \vdots     \\
+            x_{n-1}(t) \\
             x_n(t)
         \end{bmatrix}
         +
