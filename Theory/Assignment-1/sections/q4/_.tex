@@ -71,6 +71,16 @@ Given a non-linear system of the form \( \mathbf{\dot x}(t) = \mathbf{f}(x_1, x_
 \]
 where \(\mathbf{f'}\) denotes the Jacobian matrix of \(\mathbf{f}\).
 
+At the equilibrium points, we have
+\[
+    \mathbf{f}(\mathbf{x^*}) =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}
+\]
+
 The Jacobian matrix of the system is
 \[
     \mathbf{f'}(\mathbf{x}) =
@@ -91,15 +101,7 @@ The Jacobian matrix of the system is
         \cfrac{2 R g}{V_{in}}                   &  & \cfrac{-2gR}{V_{in}}\sqrt{\cfrac{Mg}{K}} &  & 0
     \end{bmatrix}
 \]
-Also, we have
-\[
-    \mathbf{f}(\mathbf{x^*}) =
-    \begin{bmatrix}
-        0 \\
-        0 \\
-        0
-    \end{bmatrix}
-\]
+
 Thereby, we get
 \[
     \boxed{
