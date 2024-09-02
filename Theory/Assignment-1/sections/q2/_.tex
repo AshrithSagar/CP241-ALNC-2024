@@ -70,15 +70,31 @@ Thus, we have
 
 Thus, we have
 \[
-    \boxed{
-        \begin{aligned}
-            \dot{x}(t) & = A(t) x(t) + B(t) u(t) \\
-            y(t)       & = C(t) x(t) + D(t) u(t)
-        \end{aligned}
-    }
+    \begin{aligned}
+        \dot{x}(t) & = A(t) x(t) + B(t) u(t) \\
+        y(t)       & = C(t) x(t) + D(t) u(t)
+    \end{aligned}
 \]
 
 where
+\[
+    x(t) =
+    \begin{bmatrix}
+        x_1    \\
+        x_2    \\
+        x_3    \\
+        \vdots \\
+        x_n
+    \end{bmatrix}
+    _{n \times 1}
+\]
+\[
+    u(t) =
+    \begin{bmatrix}
+        u
+    \end{bmatrix}
+    _{1 \times 1}
+\]
 \[
     A(t) =
     \begin{bmatrix}
@@ -88,26 +104,32 @@ where
         \vdots & \vdots & \vdots & \ddots & 1        \\
         -a_0   & -a_1   & -a_2   & \cdots & -a_{n-1}
     \end{bmatrix}
+    _{n \times n}
 \]
 \[
     B(t) =
     \begin{bmatrix}
-        0      \\
-        0      \\
-        0      \\
-        \vdots \\
-        b_0    \\
+        0                            \\
+        0                            \\
+        0                            \\
+        \vdots                       \\
+        0                            \\
+        b_1                          \\
+        b_0 - a_{n-1}b_1 - b_1^{(1)} \\
     \end{bmatrix}
+    _{n \times 1}
 \]
 \[
     C(t) =
     \begin{bmatrix}
         1 & 0 & 0 & \cdots & 0
     \end{bmatrix}
+    _{1 \times n}
 \]
 \[
     D(t) =
     \begin{bmatrix}
         0
     \end{bmatrix}
+    _{1 \times 1}
 \]
