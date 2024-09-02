@@ -20,6 +20,7 @@ The force produced by the magnet is given by \(\frac{K i^2(t)}{s^2(t)}\), where 
     }\label{fig:q4}
 \end{figure}
 
+\clearpage
 \subsection*{Solution}
 
 \subsubsection*{(a) Governing differential equations}
@@ -122,19 +123,37 @@ The Jacobian matrix of the system is
 
 Thereby, we get
 \[
+    \mathbf{\dot x}(t) \approx
+    \begin{bmatrix}
+        \cfrac{-V_{in}}{L} \sqrt{\cfrac{K}{Mg}} &  & 0                                        &  & 0 \\
+        0                                       &  & 0                                        &  & 1 \\
+        \cfrac{2 R g}{V_{in}}                   &  & \cfrac{-2gR}{V_{in}}\sqrt{\cfrac{Mg}{K}} &  & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1(t) - \cfrac{V_{in}}{R}                      \\
+        \\
+        x_2(t) - \cfrac{V_{in}}{R} \sqrt{\cfrac{K}{Mg}} \\
+        \\
+        x_3(t)
+    \end{bmatrix}
+\]
+\[
+    \implies
+    \mathbf{\dot x}(t) \approx
+    \begin{bmatrix}
+        \cfrac{-V_{in}}{L} \sqrt{\cfrac{K}{Mg}} \Bigg( x_1(t) - \cfrac{V_{in}}{R} \Bigg) \\
+        x_3(t)                                                                           \\
+        \cfrac{2 R g}{V_{in}} \Bigg( x_1(t) - \cfrac{V_{in}}{R} \Bigg) + \cfrac{-2gR}{V_{in}}\sqrt{\cfrac{Mg}{K}} \Bigg( x_2(t) - \cfrac{V_{in}}{R} \sqrt{\cfrac{K}{Mg}} \Bigg)
+    \end{bmatrix}
+\]
+\[
+    \therefore
     \boxed{
         \mathbf{\dot x}(t) \approx
         \begin{bmatrix}
-            \cfrac{-V_{in}}{L} \sqrt{\cfrac{K}{Mg}} &  & 0                                        &  & 0 \\
-            0                                       &  & 0                                        &  & 1 \\
-            \cfrac{2 R g}{V_{in}}                   &  & \cfrac{-2gR}{V_{in}}\sqrt{\cfrac{Mg}{K}} &  & 0
-        \end{bmatrix}
-        \begin{bmatrix}
-            x_1(t) - \cfrac{V_{in}}{R}                      \\
-            \\
-            x_2(t) - \cfrac{V_{in}}{R} \sqrt{\cfrac{K}{Mg}} \\
-            \\
-            x_3(t)
+            \cfrac{-V_{in}}{L} \sqrt{\cfrac{K}{Mg}} x_1(t) + \cfrac{V_{in}^2}{LR} \sqrt{\cfrac{K}{Mg}} \\
+            x_3(t)                                                                                     \\
+            \cfrac{2 R g}{V_{in}} x_1(t) + \cfrac{-2gR}{V_{in}} \sqrt{\cfrac{Mg}{K}} x_2(t) + 4g
         \end{bmatrix}
     }
 \]
