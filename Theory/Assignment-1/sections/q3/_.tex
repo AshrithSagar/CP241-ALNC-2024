@@ -70,7 +70,17 @@ Given a non-linear system of the form \( \mathbf{\dot x}(t) = \mathbf{f}(x_1, x_
 \]
 where \(\mathbf{f'}\) denotes the Jacobian matrix of \(\mathbf{f}\).
 
-For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \), we have the Jacobian matrix of the system as
+At the equilibrium points, we have
+\[
+    \mathbf{f}(\mathbf{x^*}) =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}
+\]
+
+Now, for the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \), we have the Jacobian matrix of the system as
 \[
     \mathbf{f'}(\mathbf{x}) =
     \begin{bmatrix}
@@ -78,8 +88,6 @@ For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bma
         3x_2  & 3x_1  & 1 \\
         -1    & -2x_2 & 0
     \end{bmatrix}
-\]
-\[
     \implies
     \mathbf{f'}(\mathbf{x^*}) =
     \begin{bmatrix}
@@ -89,29 +97,25 @@ For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bma
     \end{bmatrix}
 \]
 
-Also, we have
-\[
-    \mathbf{f}(\mathbf{x^*}) =
-    \begin{bmatrix}
-        0 \\
-        0 \\
-        0
-    \end{bmatrix}
-\]
-
 Thereby, we get
 \[
+    \mathbf{\dot x}(t) \approx
+    \begin{bmatrix}
+        0  & 1 & 0 \\
+        0  & 0 & 1 \\
+        -1 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1(t) \\
+        x_2(t) \\
+        x_3(t)
+    \end{bmatrix}
+    =
     \boxed{
-        \mathbf{\dot x}(t) \approx
         \begin{bmatrix}
-            0  & 1 & 0 \\
-            0  & 0 & 1 \\
-            -1 & 0 & 0
-        \end{bmatrix}
-        \begin{bmatrix}
-            x_1(t) \\
             x_2(t) \\
-            x_3(t)
+            x_3(t) \\
+            -x_1(t)
         \end{bmatrix}
     }
 \]
@@ -120,44 +124,38 @@ For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} -2^{-2/3} \\ 2^{-1/3
 \[
     \mathbf{f'}(\mathbf{x}) =
     \begin{bmatrix}
-        4x_1 & 1     & 0 \\
-        3x_2 & 3x_1  & 1 \\
-        -1   & -2x_2 & 0
+        -4x_1 & 1     & 0 \\
+        3x_2  & 3x_1  & 1 \\
+        -1    & -2x_2 & 0
     \end{bmatrix}
-\]
-\[
     \implies
     \mathbf{f'}(\mathbf{x^*}) =
     \begin{bmatrix}
-        -2^{-1/3} & 1 & 0 \\
-        2^{-1/3}  & 0 & 1 \\
-        -1        & 0 & 0
-    \end{bmatrix}
-\]
-
-Also, we have
-\[
-    \mathbf{f}(\mathbf{x^*}) =
-    \begin{bmatrix}
-        0 \\
-        0 \\
-        0
+        -2^{4/3} & 1 & 0 \\
+        2^{-1/3} & 0 & 1 \\
+        -1       & 0 & 0
     \end{bmatrix}
 \]
 
 Thereby, we get
 \[
+    \mathbf{\dot x}(t) \approx
+    \begin{bmatrix}
+        -2^{4/3} & 1 & 0 \\
+        2^{-1/3} & 0 & 1 \\
+        -1       & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1(t) - 2^{-2/3} \\
+        x_2(t) + 2^{-1/3} \\
+        x_3(t) - \frac{3}{2}
+    \end{bmatrix}
+    =
     \boxed{
-        \mathbf{\dot x}(t) \approx
         \begin{bmatrix}
-            -2^{-1/3} & 1 & 0 \\
-            2^{-1/3}  & 0 & 1 \\
-            -1        & 0 & 0
-        \end{bmatrix}
-        \begin{bmatrix}
-            x_1(t) - 2^{-2/3} \\
-            x_2(t) + 2^{-1/3} \\
-            x_3(t) - \frac{3}{2}
+            -2^{4/3}x_1(t) + x_2(t) \\
+            2^{-1/3}x_1(t) + x_3(t) \\
+            -x_1(t) - \frac{3}{2}
         \end{bmatrix}
     }
 \]
