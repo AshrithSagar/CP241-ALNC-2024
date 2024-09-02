@@ -27,23 +27,23 @@ A dynamical system is given by the following state-space and output equations wi
 
 \subsubsection*{(a) Equilibrium point(s) under zero input conditions}
 
-Under zero input conditions, for the equilibrium point, system behavior doesn't change over time, i.e., the time derivatives of the state variables are zero, i.e., \( \dot x_1 = 0, \ \dot x_2 = 0, \ \dot x_3 = 0 \).
+We have that for the equilibrium points, system behavior doesn't change over time, i.e., the time derivatives of the state variables are zero, i.e., \( \dot x_1 = 0, \ \dot x_2 = 0, \ \dot x_3 = 0 \).
 
-Thus, we have, with \( u = 0 \),
+Thus, we have, under zero input conditions with \( u = 0 \),
 \begin{align*}
     x_2 - 2 x_1^2   & = 0 \\
     x_3 + 3 x_1 x_2 & = 0 \\
     -x_1 - x_2^2    & = 0
 \end{align*}
 
-Solving the above equations, we get
+Solving the above equations, we get the following two real solutions for \( x_1 \):
 \[
     x_1(1 + 4x_1^3) = 0
     \implies
     x_1 \in \{ 0, \ -2^{-2/3} \}
 \]
 
-The equilibrium points are
+Hence, we get the equilibrium points as
 \[
     \boxed{
         \mathbf{x^*} =
@@ -56,7 +56,7 @@ The equilibrium points are
         \begin{bmatrix}
             -2^{-2/3} \\
             2^{-1/3}  \\
-            \frac{-3}{2}
+            3/2
         \end{bmatrix}
         \Bigg \}
     }
@@ -110,8 +110,9 @@ Thereby, we get
         x_2(t) \\
         x_3(t)
     \end{bmatrix}
-    =
+    \implies
     \boxed{
+        \mathbf{\dot x}(t) \approx
         \begin{bmatrix}
             x_2(t) \\
             x_3(t) \\
@@ -120,7 +121,7 @@ Thereby, we get
     }
 \]
 
-For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} -2^{-2/3} \\ 2^{-1/3} \\ \frac{-3}{2} \end{bmatrix} \), we have the Jacobian matrix of the system as
+For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} -2^{-2/3} \\ 2^{-1/3}  \\ 3/2 \end{bmatrix} \), we have the Jacobian matrix of the system as
 \[
     \mathbf{f'}(\mathbf{x}) =
     \begin{bmatrix}
@@ -131,31 +132,48 @@ For the equilibrium point \( \mathbf{x^*} = \begin{bmatrix} -2^{-2/3} \\ 2^{-1/3
     \implies
     \mathbf{f'}(\mathbf{x^*}) =
     \begin{bmatrix}
-        -2^{4/3} & 1 & 0 \\
-        2^{-1/3} & 0 & 1 \\
-        -1       & 0 & 0
+        2^{4/3}         & 1                & 0 \\
+        3\cdot 2^{-1/3} & -3\cdot 2^{-2/3} & 1 \\
+        -1              & -2^{2/3}         & 0
     \end{bmatrix}
 \]
 
 Thereby, we get
-\[
-    \mathbf{\dot x}(t) \approx
+\begin{align*}
+    \mathbf{\dot x}(t)
+     & \approx
     \begin{bmatrix}
-        -2^{4/3} & 1 & 0 \\
-        2^{-1/3} & 0 & 1 \\
-        -1       & 0 & 0
+        2^{4/3}         & 1                & 0 \\
+        3\cdot 2^{-1/3} & -3\cdot 2^{-2/3} & 1 \\
+        -1              & -2^{2/3}         & 0
     \end{bmatrix}
     \begin{bmatrix}
         x_1(t) + 2^{-2/3} \\
         x_2(t) - 2^{-1/3} \\
-        x_3(t) - \frac{3}{2}
+        x_3(t) - 3/2
+    \end{bmatrix} \\
+     & =
+    \begin{bmatrix}
+        2^{4/3}x_1(t) + 2^{4/3-2/3} + x_2(t) - 2^{-1/3}                                                          \\
+        3\cdot 2^{-1/3}x_1(t) + 3\cdot 2^{-1/3-2/3} - 3\cdot 2^{-2/3}x_2(t) + 3\cdot 2^{-2/3-1/3} + x_3(t) - 3/2 \\
+        -x_1(t) - 2^{-2/3} - 2^{2/3}x_2(t) + 2^{2/3-1/3}
     \end{bmatrix}
-    =
+\end{align*}
+\[
     \boxed{
+        \mathbf{\dot x}(t) \approx
         \begin{bmatrix}
-            -2^{4/3}x_1(t) + x_2(t) + 2^{-2/3} \\
-            2^{-1/3}x_1(t) + x_3(t) - 2^{-1/3} \\
-            -x_1(t) + \frac{3}{2}
+            2^{4/3}x_1(t) + x_2(t) + 2^{2/3} - 2^{-1/3}                  \\
+            3\cdot 2^{-1/3}x_1(t) - 3\cdot 2^{-2/3}x_2(t) + x_3(t) + 3/2 \\
+            -x_1(t) - 2^{2/3}x_2(t) + 2^{1/3} - 2^{-2/3}
         \end{bmatrix}
     }
+\]
+\[
+    \mathbf{\dot x}(t) \approx
+    \begin{bmatrix}
+        2.5198420998 x_1(t) + x_2(t) + 0.793700526              \\
+        2.381101578 x_1(t) - 1.8898815748 x_2(t) + x_3(t) + 0.5 \\
+        -x_1(t) - 1.587401052 x_2(t) + 0.6299605249
+    \end{bmatrix}
 \]
