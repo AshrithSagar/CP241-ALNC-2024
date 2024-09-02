@@ -24,20 +24,48 @@ Given the differential equation,
 
 Using the following substitutions, we have
 \begin{align*}
-    x_1 & = y                 \\
-    x_2 & = y^{(1)}           \\
-    x_3 & = y^{(2)}           \\
-        & \vdots              \\
-    x_n & = y^{(n-1)} - b_1 u
+    x_1     & = y                 \\
+    x_2     & = y^{(1)}           \\
+    x_3     & = y^{(2)}           \\
+            & \vdots              \\
+    x_{n-1} & = y^{(n-2)}         \\
+    x_n     & = y^{(n-1)} - b_1 u
 \end{align*}
 
 Thus, we have
 \begin{align*}
-    \dot x_1 & = x_2                                                                                   \\
-    \dot x_2 & = x_3                                                                                   \\
-    \dot x_3 & = x_4                                                                                   \\
-             & \vdots                                                                                  \\
-    \dot x_n & = y^{(n)} - b_1 u = -a_{n-1} x_n - a_{n-2} x_{n-1} - \cdots - a_1 x_2 - a_0 x_1 + b_0 u
+    \dot x_1
+     & =
+    x_2
+    \\
+    \dot x_2
+     & =
+    x_3
+    \\
+    \dot x_3
+     & =
+    x_4
+    \\
+     &
+    \vdots
+    \\
+    \dot x_{n-2}
+     & =
+    x_{n-1}
+    \\
+    \dot x_{n-1}
+     & =
+    x_n + b_1 u
+    \\
+    \dot x_n
+     & =
+    y^{(n)} - b_1 u^{(1)} - b_1^{(1)} u
+    \\
+     & =
+    b_0 u + \cancel{b_1 u^{(1)}} - a_{n-1} y^{(n-1)} - a_{n-2} y^{(n-2)} - \cdots - a_1 y^{(1)} - a_0 y - \cancel{b_1 u^{(1)}} - b_1^{(1)} u
+    \\
+     & =
+    b_0 u - a_{n-1} (x_n + b_1 u) - a_{n-2} x_{n-1} - \cdots - a_1 x_2 - a_0 x_1 - b_1^{(1)} u
 \end{align*}
 
 Thus, we have
