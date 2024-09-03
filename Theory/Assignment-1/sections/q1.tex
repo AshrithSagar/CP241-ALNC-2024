@@ -19,6 +19,7 @@ Assume that \(x_1(0), \dot x_1(0), x_2(0)\), and \(\dot x_2(0)\) are given.
 \textit{Hint}: Use \(p\) and \(q\) as your state variables in both cases.
 For derivation using Newton's law, mention the Free Body Diagram with all the forces and the direction taken as +ve direction.
 
+\clearpage
 \subsection*{Solution}
 
 \subsubsection*{Hamiltonian formulation}
@@ -31,7 +32,6 @@ For derivation using Newton's law, mention the Free Body Diagram with all the fo
     }\label{fig:q1-hamiltonian}
 \end{figure}
 
-\clearpage
 Let \(x_1\) and \(x_2\) be the displacements of the masses \(M_1\) and \(M_2\) respectively, from their equilibrium positions in the system, as shown in Figure~\ref{fig:q1-hamiltonian}.
 The given system contains no energy-dissipating elements, thereby it is a Conservative/Hamiltonian dynamical system.
 Taking the state variables as \(p\) and \(q\), we have, with \(n=2\),
@@ -80,7 +80,7 @@ Thereby, we can write the kinetic energy of the system as follows:
     + \frac{1}{2} \frac{p_2^2}{M_2}
     \tag{1.2}
 \end{align*}
-Similarly, for the potential energy of the system, we have
+Similarly, for the potential energy of the system, using Hooke's law, we have
 \[
     W(q) = \int_{0}^{q} {f(\eta)}^T \, d\eta
     = \int_{0}^{q_1} (-K_1 \eta)\, d\eta
@@ -143,3 +143,13 @@ Thereby, the state-space representation of the given system is as follows:
         Free body diagram for Newtonian formulation
     }\label{fig:q1-newtonian}
 \end{figure}
+
+The spring forces are given by Hooke's law, which relates the force exerted by a spring to the displacement of the spring from its equilibrium position.
+
+Thereby, the spring forces are given by
+\[
+    \begin{aligned}
+        F_1 & = -K_1 x_1 + K (x_2 - x_1) \\
+        F_2 & = -K (x_2 - x_1) - K_2 x_2
+    \end{aligned}
+\]
