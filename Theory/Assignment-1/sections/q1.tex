@@ -75,6 +75,9 @@ Thereby, we can write the kinetic energy of the system as follows:
     \\ & =
     \frac{1}{2} M_1 {\dot q_1}^2
     + \frac{1}{2} M_2 {\dot q_2}^2
+    \\ & =
+    \frac{1}{2} \frac{p_1^2}{M_1}
+    + \frac{1}{2} \frac{p_2^2}{M_2}
     \tag{1.2}
 \end{align*}
 Similarly, for the potential energy of the system, we have
@@ -92,7 +95,12 @@ Similarly, for the potential energy of the system, we have
 
 Thereby, from Equations (1.1), (1.2) and (1.3), we have the Hamiltonian function as
 \[
-    H(p,q) = \frac{1}{2} M_1 {\dot q_1}^2 + \frac{1}{2} M_2 {\dot q_2}^2 + \frac{1}{2} K_1 {q_1}^2 + \frac{1}{2} K {(q_2 - q_1)}^2 + \frac{1}{2} K_2 {q_2}^2
+    H(p,q) =
+    \frac{1}{2} \frac{p_1^2}{M_1}
+    + \frac{1}{2} \frac{p_2^2}{M_2}
+    + \frac{1}{2} K_1 {q_1}^2
+    + \frac{1}{2} K {(q_2 - q_1)}^2
+    + \frac{1}{2} K_2 {q_2}^2
     \tag{1.4}
 \]
 
@@ -107,11 +115,23 @@ The Hamiltonian system is then given by the system of \(2n\) ordinary differenti
 Thereby, we have for the given system as
 \[
     \begin{aligned}
-        \dot q_1 & = \frac{\partial H}{\partial p_1}(p,q) = M_1 \dot q_1                                                                                   \\
-        \dot q_2 & = \frac{\partial H}{\partial p_2}(p,q) = M_2 \dot q_2                                                                                   \\
-        \dot p_1 & = -\frac{\partial H}{\partial q_1}(p,q) = -\frac{\partial T}{\partial q_1} - \frac{\partial W}{\partial q_1} = -K_1 q_1 + K (q_2 - q_1) \\
-        \dot p_2 & = -\frac{\partial H}{\partial q_2}(p,q) = -\frac{\partial T}{\partial q_2} - \frac{\partial W}{\partial q_2} = -K (q_2 - q_1) - K_2 q_2
+        \dot q_1 & = \frac{\partial H}{\partial p_1}(p,q) = \frac{\partial T}{\partial p_1} = \frac{1}{2}\frac{2 p_1}{M_1} = \frac{p_1}{M_1} \\
+        \dot q_2 & = \frac{\partial H}{\partial p_2}(p,q) = \frac{\partial T}{\partial p_2} = \frac{1}{2}\frac{2 p_2}{M_2} = \frac{p_2}{M_2} \\
+        \dot p_1 & = -\frac{\partial H}{\partial q_1}(p,q) = - \frac{\partial W}{\partial q_1} = -K_1 q_1 + K (q_2 - q_1)                    \\
+        \dot p_2 & = -\frac{\partial H}{\partial q_2}(p,q) = - \frac{\partial W}{\partial q_2} = -K (q_2 - q_1) - K_2 q_2
     \end{aligned}
+\]
+Thereby, the state-space representation of the given system is as follows:
+\[
+    \boxed{
+        \begin{aligned}
+            \dot q_1 & = \frac{p_1}{M_1}          \\
+            \dot q_2 & = \frac{p_2}{M_2}          \\
+            \dot p_1 & = -K_1 q_1 + K (q_2 - q_1) \\
+            \dot p_2 & = -K (q_2 - q_1) - K_2 q_2
+        \end{aligned}
+    }
+    \tag{1.6}
 \]
 
 \subsubsection*{Newtonian formulation}
