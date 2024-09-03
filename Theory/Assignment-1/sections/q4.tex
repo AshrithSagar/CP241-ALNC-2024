@@ -27,29 +27,18 @@ The force produced by the magnet is given by \(\frac{K i^2(t)}{s^2(t)}\), where 
 
 Consider the upward direction to be the positive \(y\)-direction.
 The underlying laws are the Newton's laws of motion and Kirchoff's voltage law.
-The voltage across the coil is given by, with the magnetic flux as \( \Phi \),
-\[
-    v_L(t)
-    = -\frac{\Phi}{dt}
-    = -\frac{d\; \Big( L(s(t))\; i(t) \Big)}{dt}
-    = -\frac{L}{s(t)} \frac{d}{dt} i(t)
-    - i \frac{d}{dt} \frac{L}{s(t)}
-    = -\frac{L}{s(t)} \frac{d}{dt} i(t)
-    + \frac{Li(t)}{s^2(t)}
-\]
 We have the differential equations governing the dynamics of the system as follows,
 \begin{align*}
-    M \ddot s(t) & = \frac{Ki^2(t)}{s^2(t)} - Mg       \\
-    v(t)         & = -\frac{L}{s(t)} \frac{d}{dt} i(t)
-    + \frac{Li(t)}{s^2(t)} + R i(t)
+    M \ddot s(t) & = \frac{Ki^2(t)}{s^2(t)} - Mg             \\
+    v(t)         & = \frac{L}{s(t)}\frac{di(t)}{dt} + R i(t)
 \end{align*}
 
 Taking \( x_1 = i, \ x_2 = s, \ x_3 = \dot s \), we can rewrite the above equations as
 \[
     \boxed{
         \begin{aligned}
-            \dot x_1(t) & = \frac{-1}{L}\, x_2(t)\, \Big[ v(t) - R\, x_1(t) - L \frac{x_1(t)}{x_2^2(t)} \Big] \\
-            \dot x_2(t) & = x_3(t)                                                                            \\
+            \dot x_1(t) & = \frac{1}{L}\, x_2(t)\, \big[ v(t) - R\, x_1(t) \big] \\
+            \dot x_2(t) & = x_3(t)                                               \\
             \dot x_3(t) & = \frac{K}{M} \frac{x_1^2(t)}{x_2^2(t)} - g
         \end{aligned}
     }
@@ -172,3 +161,53 @@ Therefore, the linearised system around the equilibrium point \( \mathbf{x^*} \)
         \end{bmatrix}
     }
 \]
+
+\clearpage
+\subsection*{Solution (Additional)}
+
+Considering \( v_L(t) \) as follows:
+
+\subsubsection*{(a) Governing differential equations}
+
+Consider the upward direction to be the positive \(y\)-direction.
+The underlying laws are the Newton's laws of motion and Kirchoff's voltage law.
+The voltage across the coil is given by, with the magnetic flux as \( \Phi_B \),
+\[
+    v_L(t)
+    = -\frac{\Phi_B}{dt}
+    = -\frac{d\; \Big( L(s(t))\; i(t) \Big)}{dt}
+    = -\frac{L}{s(t)} \frac{d}{dt} i(t)
+    - i(t) \frac{d}{dt} \frac{L}{s(t)}
+    = -\frac{L}{s(t)} \frac{d}{dt} i(t)
+    + \frac{Li(t)}{s^2(t)}
+\]
+We have the differential equations governing the dynamics of the system as follows,
+\begin{align*}
+    M \ddot s(t) & = \frac{Ki^2(t)}{s^2(t)} - Mg       \\
+    v(t)         & = -\frac{L}{s(t)} \frac{d}{dt} i(t)
+    + \frac{Li(t)}{s^2(t)} + R i(t)
+\end{align*}
+
+Taking \( x_1 = i, \ x_2 = s, \ x_3 = \dot s \), we can rewrite the above equations as
+\[
+    \boxed{
+        \begin{aligned}
+            \dot x_1(t) & = \frac{-1}{L}\, x_2(t)\, \Big[ v(t) - R\, x_1(t) - L \frac{x_1(t)}{x_2^2(t)} \Big] \\
+            \dot x_2(t) & = x_3(t)                                                                            \\
+            \dot x_3(t) & = \frac{K}{M} \frac{x_1^2(t)}{x_2^2(t)} - g
+        \end{aligned}
+    }
+\]
+
+\subsubsection*{(b) Equilibrium point(s) under input \(v(t)=V_{in}\)}
+
+We have that for the equilibrium points, system behavior doesn't change over time, i.e., the time derivatives of the state variables are zero, i.e., \( \dot x_1(t) = 0, \ \dot x_2(t) = 0, \ \dot x_3(t) = 0 \).
+
+Thereby, under the input conditions \( v(t)=V_{in} \), we get
+\begin{align*}
+    x_1(t) & = \frac{V_{in}}{Rx_2^2(t)+L} = \frac{V_{in}}{Rx_2^2(t)+L} \\
+    x_3(t) & = 0                                                       \\
+    x_2(t) & = \pm x_1(t) \sqrt{\frac{K}{Mg}}                          \\
+\end{align*}
+
+Note that \( x_2(t) = 0 \) causes a singularity in the \( \dot x_3(t) \) equation.
