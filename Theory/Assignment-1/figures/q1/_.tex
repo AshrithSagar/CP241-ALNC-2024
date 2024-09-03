@@ -12,38 +12,46 @@
 
 \begin{tikzpicture}
 
-    %% Hamiltonian formulation
+  %% Hamiltonian formulation
 
-    % Walls
-    \draw[thick] (-5,0) -- (5,0);
-    \draw[thick] (-5,0) -- (-5,2);
-    \draw[thick] (5,0) -- (5,2);
-    \fill[pattern = north west lines] (-5,0) rectangle (-5.2,2);
-    \fill[pattern = north west lines] (5,0) rectangle (5.2,2);
-    \fill[pattern = north west lines] (-5.2,-0.2) rectangle (5.2,0);
+  % Walls
+  \draw[thick] (-5,0) -- (5,0);
+  \draw[thick] (-5,0) -- (-5,2);
+  \draw[thick] (5,0) -- (5,2);
+  \fill[pattern = north west lines] (-5,0) rectangle (-5.2,2);
+  \fill[pattern = north west lines] (5,0) rectangle (5.2,2);
+  \fill[pattern = north west lines] (-5.2,-0.2) rectangle (5.2,0);
 
-    % Masses
-    \draw[fill=black] (-2,1) circle (0.1) node[above, yshift=6] {\(M_1\)};
-    \draw[fill=black] (2,1) circle (0.1) node[above, yshift=6] {\(M_2\)};
+  % Masses
+  \draw[fill=black] (-2,1) circle (0.1) node[above, yshift=6] {\(M_1\)};
+  \draw[fill=black] (2,1) circle (0.1) node[above, yshift=6] {\(M_2\)};
 
-    % Springs
-    \draw[spring] (-5,1) -- (-2,1) node[midway, above, yshift=8] {\(K_1\)};
-    \draw[spring] (-2,1) -- (2,1) node[midway, above, yshift=8] {\(K\)};
-    \draw[spring] (2,1) -- (5,1) node[midway, above, yshift=8] {\(K_2\)};
+  % Springs
+  \draw[spring] (-5,1) -- (-2,1) node[midway, above, yshift=8] {\(K_1\)};
+  \draw[spring] (-2,1) -- (2,1) node[midway, above, yshift=8] {\(K\)};
+  \draw[spring] (2,1) -- (5,1) node[midway, above, yshift=8] {\(K_2\)};
+
+  % Displacements
+  \draw[|<->|] (-5+0.05,0.7) -- node[below, yshift=2] {\scriptsize \(x_1\)} (-2-0.05,0.7);
+  \draw[|<->|] (-5+0.05,0.35) -- node[below, yshift=2] {\scriptsize \(x_2\)} (2-0.05,0.35);
 
 \end{tikzpicture}
 
 \begin{tikzpicture}
 
-    %% Newtonian formulation
+  %% Newtonian formulation
 
-    % Masses
-    \draw[fill=black] (-2,1) circle (0.1) node[above, yshift=6] {\(M_1\)};
-    \draw[fill=black] (2,1) circle (0.1) node[above, yshift=6] {\(M_2\)};
+  % FBD of M_1
+  \draw[fill=black] (0,0) circle (0.1) node[above, yshift=6] {\(M_1\)};
+  \draw[->, line width=1.5pt] (0,0) -- (-1.5,0) node[midway, below] {\(K_1 x_1\)};
+  \draw[->, line width=1.5pt] (0,0) -- (2.5,0) node[midway, below] {\(K(x_2-x_1)\)};
 
-    % Forces
-    \draw[->, line width=1.5pt] (-2,1) -- (-2,0) node[midway, right] {\(M_1\mathbf{\vec{g}}\)};
-    \draw[->, line width=1.5pt] (2,1) -- (2,0) node[midway, right] {\(M_2\mathbf{\vec{g}}\)};
+  % FBD of M_2
+  \begin{scope}[xshift=6cm]
+    \draw[fill=black] (0,0) circle (0.1) node[above, yshift=6] {\(M_2\)};
+    \draw[->, line width=1.5pt] (0,0) -- (1.5,0) node[midway, below] {\(K_2 x_2\)};
+    \draw[->, line width=1.5pt] (0,0) -- (-2.5,0) node[midway, below] {\(K(x_1-x_2)\)};
+  \end{scope}
 
 \end{tikzpicture}
 
