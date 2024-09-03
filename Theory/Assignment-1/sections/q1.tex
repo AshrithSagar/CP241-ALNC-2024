@@ -124,12 +124,25 @@ Thereby, we have for the given system as
 Thereby, the state-space representation of the given system is as follows:
 \[
     \boxed{
-        \begin{aligned}
-            \dot q_1 & = \frac{p_1}{M_1}          \\
-            \dot q_2 & = \frac{p_2}{M_2}          \\
-            \dot p_1 & = -K_1 q_1 + K (q_2 - q_1) \\
-            \dot p_2 & = -K (q_2 - q_1) - K_2 q_2
-        \end{aligned}
+        \begin{bmatrix}
+            \dot{q}_1 \\
+            \dot{q}_2 \\
+            \dot{p}_1 \\
+            \dot{p}_2
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0          & 0          & 1/M_1 & 0     \\
+            0          & 0          & 0     & 1/M_2 \\
+            (-K_1 - K) & K          & 0     & 0     \\
+            K          & (-K_2 - K) & 0     & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            q_1 \\
+            q_2 \\
+            p_1 \\
+            p_2
+        \end{bmatrix}
     }
     \tag{1.6}
 \]
