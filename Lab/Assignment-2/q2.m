@@ -32,7 +32,7 @@ function r = control_input(t, x)
 end
 
 % State space model
-function f = system(t, x, u)
+function f = system(t, x, u_func)
 
     % Constants
     M = 5; % Mass of cart
@@ -41,7 +41,8 @@ function f = system(t, x, u)
     b = 10; % Friction coefficient
     g = 9.8; % Acceleration due to gravity
 
-    A = -b * x(2) - m * L * x(4) ^ 2 * sin(x(3)) + m * g * cos(x(3)) * sin(x(3)) + u(t, x);
+    u = u_func(t, x);
+    A = -b * x(2) - m * L * x(4) ^ 2 * sin(x(3)) + m * g * cos(x(3)) * sin(x(3)) + u;
     B = M + m * sin(x(3)) ^ 2;
 
     f_1 = x(2);
@@ -53,13 +54,13 @@ function f = system(t, x, u)
 end
 
 % Simulation using ode45
-[t, X] = ode45(@(t, x) system(t, x, control_input), t, X_0);
-u = arrayfun(@(ti) control_input(ti), t);
+[t, X] = ode45(@(t, x) system(t, x, @control_input), t, X_0);
+u = arrayfun(@(ti) control_input(ti, X(find(t == ti), :)), t);
 
 %% Plots
 figure;
 subplot(2, 1, 1);
-plot(t, u(t, x), 'r', 'LineWidth', 1.5, 'DisplayName', 'Control input');
+plot(t, u, 'r', 'LineWidth', 1.5, 'DisplayName', 'Control input');
 legend;
 grid on;
 
