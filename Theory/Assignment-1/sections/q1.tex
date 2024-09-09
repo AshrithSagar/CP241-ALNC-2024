@@ -163,10 +163,13 @@ The kinetic energy of the system is same as from previous, given by
 
 The potential energy of the system is given by
 \begin{align*}
+    W(q)
+     & =
+    \int_{0}^{q} {f(\eta)}^T \, d\eta
+    \\
+    \implies
     - W(q)
      & =
-    - \int_{0}^{q} {f(\eta)}^T \, d\eta
-    \\ & =
     \int_{0}^{q_1} \Big( -K_1 \eta + K (q_2 - \eta) \Big)\, d\eta
     + \int_{0}^{q_2} \Big( -K_2 \eta - K (\eta - q_1) \Big)\, d\eta
     \\ & =
