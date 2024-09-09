@@ -148,6 +148,47 @@ Thereby, the state-space representation of the given system is as follows:
 \]
 
 \clearpage
+\subsubsection*{Alternate formulation (Hamiltonian)}
+
+The kinetic energy of the system is same as from previous, given by
+\begin{equation*}
+    T(q, \dot q)
+    =
+    \frac{1}{2} M_1 {\dot q_1}^2
+    + \frac{1}{2} M_2 {\dot q_2}^2
+    =
+    \frac{1}{2} \frac{p_1^2}{M_1}
+    + \frac{1}{2} \frac{p_2^2}{M_2}
+\end{equation*}
+
+The potential energy of the system is given by
+\begin{align*}
+    - W(q)
+     & =
+    - \int_{0}^{q} {f(\eta)}^T \, d\eta
+    \\ & =
+    \int_{0}^{q_1} \Big( -K_1 \eta + K (q_2 - \eta) \Big)\, d\eta
+    + \int_{0}^{q_2} \Big( -K_2 \eta - K (\eta - q_1) \Big)\, d\eta
+    \\ & =
+    \int_{0}^{q_1} (-K_1 - K)\eta \, d\eta
+    + \int_{0}^{q_1} K q_2 \, d\eta
+    + \int_{0}^{q_2} (-K_2 - K)\eta \, d\eta
+    + \int_{0}^{q_2} K q_1 \, d\eta
+    \\ & =
+    (-K_1 - K) \frac{{q_1}^2}{2} + K q_2 q_1 + (-K_2 - K) \frac{{q_2}^2}{2} + K q_1 q_2
+    \\ & =
+    -\frac{1}{2} K_1 {q_1}^2 - \Big( \frac{1}{2} K {q_1}^2 - K q_1 q_2 + \frac{1}{2} K {q_2}^2 \Big) - \frac{1}{2} K_2 {q_2}^2
+    \\ & =
+    -\frac{1}{2} K_1 {q_1}^2 - \frac{1}{2} K {(q_2 - q_1)}^2 - \frac{1}{2} K_2 {q_2}^2
+    \\
+    \implies W(q)
+     & =
+    \frac{1}{2} K_1 {q_1}^2 + \frac{1}{2} K {(q_2 - q_1)}^2 + \frac{1}{2} K_2 {q_2}^2
+\end{align*}
+
+From here, we can continue with the Hamiltonian formulation as before.
+
+\clearpage
 \subsubsection*{Newtonian formulation}
 
 \begin{figure}[htb]
