@@ -59,22 +59,25 @@ u = arrayfun(@(ti) control_input(ti, X(t == ti, :)), t);
 
 %% Plots
 figure;
-plot(t, u, 'r', 'LineWidth', 1.5, 'DisplayName', 'Control input');
+plot(t, u, 'r', 'LineWidth', 1.5, 'DisplayName', 'u(t)');
 xlabel('Time [s]');
-ylabel('Control input');
-title('Control input vs Time');
+ylabel('Control input u(t)');
+title('Control input u(t) vs Time (t)');
 legend;
 grid on;
 
 figure;
-hold on;
-plot(t, X(:, 1), 'r', 'LineWidth', 1.5, 'DisplayName', 'x_1 [Position]');
-% plot(t, X(:, 2), 'g', 'LineWidth', 1.5, 'DisplayName', 'x_2 [Velocity]');
-plot(t, X(:, 3), 'b', 'LineWidth', 1.5, 'DisplayName', 'x_3 [Angle]');
-% plot(t, X(:, 4), 'm', 'LineWidth', 1.5, 'DisplayName', 'x_4 [Angular velocity]');
+subplot(2, 1, 1);
+plot(t, X(:, 1), 'r', 'LineWidth', 1.5, 'DisplayName', 'x(t)');
 xlabel('Time [s]');
-ylabel('States');
-title('States vs Time');
+ylabel('Position x(t)');
+title('Position x(t) vs Time (t)');
 legend;
 grid on;
-hold off;
+subplot(2, 1, 2);
+plot(t, X(:, 3), 'b', 'LineWidth', 1.5, 'DisplayName', '\theta(t)');
+xlabel('Time [s]');
+ylabel('Angle \theta(t)');
+title('Angle \theta(t) vs Time (t)');
+legend;
+grid on;
