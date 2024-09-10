@@ -162,11 +162,17 @@ The kinetic energy of the system is same as from previous, given by
 \end{equation*}
 
 The potential energy of the system is given by
-\begin{align*}
+\begin{equation*}
     W(q)
-     & =
+    =
     \int_{0}^{q} {f(\eta)}^T \, d\eta
-    \\
+\end{equation*}
+The generalised forces \(f_1\) and \(f_2\) are given by
+\begin{align*}
+    f_1 & = -K_1 q_1 + K (q_2 - q_1) \\
+    f_2 & = -K_2 q_2 - K (q_2 - q_1)
+\end{align*}
+\begin{align*}
     \implies
     - W(q)
      & =
