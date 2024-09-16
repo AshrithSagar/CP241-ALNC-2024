@@ -7,3 +7,46 @@ and mention the Lipschitz Constant:
 \( f (x) = -x + 4\sin(x) \)
 
 \subsection*{Solution}
+
+Given \( f(x) = -x + 4\sin(x) \).
+
+\begin{lemma}{Triangle inequality:}
+    For any \( x, y \in \mathbb{R} \), we have \( \lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert \).
+\end{lemma}
+
+\begin{lemma}
+    For any \( x, y \in \mathbb{R} \), we have \( \lvert \sin(x) - \sin(y) \rvert \leq \lvert x - y \rvert \).
+\end{lemma}
+
+\subsubsection*{Globally Lipschitz}
+
+To show that \( f(x) \) is globally Lipschitz, we need to show that there exists a constant \( L > 0 \) such that
+\[
+    \lvert f(x_1) - f(x_2) \rvert \leq L \lvert x_1 - x_2 \rvert
+\]
+for all \( x_1, x_2 \in \mathbb{R} \).
+
+We can see that
+\begin{align*}
+    \lvert f(x_1) - f(x_2) \rvert
+     & =
+    \lvert (-x_1 + 4\sin(x_1)) - (-x_2 + 4\sin(x_2)) \rvert
+    \\ & =
+    \lvert x_2 - x_1 + 4\sin(x_1) - 4\sin(x_2) \rvert
+    \\ & \leq
+    \lvert x_2 - x_1 \rvert + \lvert 4\sin(x_1) - 4\sin(x_2) \rvert
+    \\ & =
+    \lvert x_2 - x_1 \rvert + 4 \lvert \sin(x_1) - \sin(x_2) \rvert
+    \\ & \leq
+    \lvert x_2 - x_1 \rvert + 4 \lvert x_1 - x_2 \rvert
+    \\ & = 5 \lvert x_2 - x_1 \rvert
+\end{align*}
+where the first inequality follows from the triangle inequality for norms, and the second inequality follows from the lemma.
+
+Therefore, \( f(x) \) is globally Lipschitz with Lipschitz constant \( L = 5 \).
+
+\subsubsection*{Locally Lipschitz}
+
+To show that \( f(x) \) is locally Lipschitz, we need to show that for every \( x \in \mathbb{R} \), there exists a neighborhood \( U \) of \( x \) such that \( f(x) \) is Lipschitz on \( U \).
+
+Since the function is globally Lipschitz, it is also locally Lipschitz.
