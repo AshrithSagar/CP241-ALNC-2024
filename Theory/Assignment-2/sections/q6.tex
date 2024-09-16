@@ -14,16 +14,16 @@ Given \( f_1 : \mathbb{R} \rightarrow \mathbb{R} \) and \( f_2 : \mathbb{R} \rig
 \end{align*}
 where \( L_1 \) and \( L_2 \) are the Lipschitz constants for \( f_1 \) and \( f_2 \) respectively.
 
+\begin{lemma}{Triangle inequality for norms:}
+    For any \( x, y \in \mathbb{R} \), we have \( \lVert x + y \rVert \leq \lVert x \rVert + \lVert y \rVert \).
+\end{lemma}
+
 \subsubsection*{\( f_1 + f_2 \) is locally Lipschitz}
 
 Let \( f_3 = f_1 + f_2 \).
 We need to show that \( f_3 \) is locally Lipschitz.
 
-\begin{lemma}{Triangle inequality for norms:}
-    For any \( x, y \in \mathbb{R} \), we have \( \lVert x + y \rVert \leq \lVert x \rVert + \lVert y \rVert \).
-\end{lemma}
-
-Now, consider \( x_1, x_2 \in \mathbb{R} \).
+Consider \( x_1, x_2 \in \mathbb{R} \).
 We have
 \begin{align*}
     \lVert f_3(x_1) - f_3(x_2) \rVert
@@ -42,3 +42,22 @@ We have
 where the first inequality follows from the triangle inequality for norms.
 
 Therefore, \( f_3 = f_1 + f_2 \) is locally Lipschitz with Lipschitz constant \( L_3 = L_1 + L_2 \).
+
+\subsubsection*{\( f_2 \circ f_1 \) is locally Lipschitz}
+
+Let \( f_4 = f_2 \circ f_1 \).
+We need to show that \( f_4 \) is locally Lipschitz.
+
+Consider \( x_1, x_2 \in \mathbb{R} \).
+We have
+\begin{align*}
+    \lVert f_4(x_1) - f_4(x_2) \rVert
+     & =
+    \lVert f_2(f_1(x_1)) - f_2(f_1(x_2)) \rVert
+    \\ & \leq
+    L_2 \lVert f_1(x_1) - f_1(x_2) \rVert
+    \\ & \leq
+    L_2 L_1 \lVert x_1 - x_2 \rVert
+\end{align*}
+
+Therefore, \( f_4 = f_2 \circ f_1 \) is locally Lipschitz with Lipschitz constant \( L_4 = L_2 L_1 \).
