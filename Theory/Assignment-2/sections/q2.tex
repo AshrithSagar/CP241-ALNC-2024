@@ -16,3 +16,76 @@ Verify that, \( \phi_1(t) = [1/t^2, -1/t]^T \) and \( \phi_2(t) = [2/t^3, -1/t^2
 \end{enumerate}
 
 \subsection*{Solution}
+
+We can verify that \( \phi_1(t) \) and \( \phi_2(t) \) are solutions of the system as follows:
+
+\begin{align*}
+    \phi_1(t)
+     & =
+    \begin{bmatrix}
+        1/t^2 \\
+        -1/t
+    \end{bmatrix}
+    \implies
+    \dot \phi_1(t)
+    =
+    \begin{bmatrix}
+        -2/t^3 \\
+        1/t^2
+    \end{bmatrix}
+    \\
+    \implies
+    A(t)\phi_1(t)
+     & =
+    \begin{bmatrix}
+        \frac{-4}{t} & \frac{-2}{t^2} \\
+        1            & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1/t^2 \\
+        -1/t
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -2/t^3 \\
+        1/t^2
+    \end{bmatrix}
+    =
+    \dot \phi_1(t)
+\end{align*}
+\begin{align*}
+    \phi_2(t)
+     & =
+    \begin{bmatrix}
+        2/t^3 \\
+        -1/t^2
+    \end{bmatrix}
+    \implies
+    \dot \phi_2(t)
+    =
+    \begin{bmatrix}
+        -6/t^4 \\
+        2/t^3
+    \end{bmatrix}
+    \\
+    \implies
+    A(t)\phi_2(t)
+     & =
+    \begin{bmatrix}
+        \frac{-4}{t} & \frac{-2}{t^2} \\
+        1            & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        2/t^3 \\
+        -1/t^2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -6/t^4 \\
+        2/t^3
+    \end{bmatrix}
+    =
+    \dot \phi_2(t)
+\end{align*}
+
+Hence, \underline{\( \phi_1(t) \) and \( \phi_2(t) \) are solutions of the system}.
