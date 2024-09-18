@@ -89,3 +89,133 @@ We can verify that \( \phi_1(t) \) and \( \phi_2(t) \) are solutions of the syst
 \end{align*}
 
 Hence, \underline{\( \phi_1(t) \) and \( \phi_2(t) \) are solutions of the system}.
+
+\subsubsection*{(a) State transition matrix \( \Phi(t,\tau) \)}
+
+We can verify that the solutions \( \phi_1(t) \) and \( \phi_2(t) \) are linearly independent.
+\begin{equation*}
+    \det \begin{bmatrix}
+        \Phi_1(t) & \Phi_2(t)
+    \end{bmatrix}
+    =
+    \det \begin{bmatrix}
+        1/t^2 & 2/t^3  \\
+        -1/t  & -1/t^2
+    \end{bmatrix}
+    =
+    - \frac{1}{t^4} + \frac{2}{t^4}
+    =
+    \frac{1}{t^4}
+    \neq 0
+    \; \forall t \in \mathbb{R}/\{0\}
+\end{equation*}
+
+Thereby, the state transition matrix \( \Phi(t,\tau) \) is given by
+\begin{equation*}
+    \Phi(t,\tau)
+    =
+    \begin{bmatrix}
+        \phi_1(t) & \phi_2(t)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \phi_1(\tau) & \phi_2(\tau)
+    \end{bmatrix}^{-1}
+\end{equation*}
+\begin{equation*}
+    \implies
+    \begin{bmatrix}
+        \phi_1(\tau) & \phi_2(\tau)
+    \end{bmatrix}^{-1}
+    =
+    \tau^4
+    \begin{bmatrix}
+        -1/\tau^2 & -2/\tau^3 \\
+        1/\tau    & 1/\tau^2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -\tau^2 & -2\tau \\
+        \tau^3  & \tau^2
+    \end{bmatrix}
+\end{equation*}
+\begin{equation*}
+    \implies
+    \Phi(t,\tau)
+    =
+    \begin{bmatrix}
+        1/t^2 & 2/t^3  \\
+        -1/t  & -1/t^2
+    \end{bmatrix}
+    \begin{bmatrix}
+        -\tau^2 & -2\tau \\
+        \tau^3  & \tau^2
+    \end{bmatrix}
+\end{equation*}
+\begin{equation*}
+    \therefore
+    \boxed{
+        \Phi(t,\tau)
+        =
+        \begin{bmatrix}
+            \left( -\cfrac{\tau^2}{t^2} + \cfrac{2\tau^3}{t^3} \right)
+             &  &
+            \left( -\cfrac{2\tau}{t^2} + \cfrac{2\tau^2}{t^3}  \right)
+            \\ \\
+            \left( \cfrac{\tau^2}{t} - \cfrac{\tau^3}{t^2}  \right)
+             &  &
+            \left( \cfrac{2\tau}{t} - \cfrac{\tau^2}{t^2}  \right)
+        \end{bmatrix}
+    }
+\end{equation*}
+
+\subsubsection*{(b) Solution satisfying the initial condition \( x(1) = {[1, 1]}^T \)}
+
+We know that the solution is given by
+\begin{equation*}
+    x(t)
+    =
+    \Phi(t,\tau)x(\tau)
+\end{equation*}
+Given the initial condition \( x(1) = {[1, 1]}^T \), we have that \( \tau = 1 \) and \( x(1) = {[1, 1]}^T \), thereby
+\begin{align*}
+    \implies
+    x(t)
+     & =
+    \Phi(t,1)
+    \begin{bmatrix}
+        1 \\
+        1
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        \left( -\cfrac{1}{t^2} + \cfrac{2}{t^3} \right)
+         &  &
+        \left( -\cfrac{2}{t^2} + \cfrac{2}{t^3} \right)
+        \\ \\
+        \left( \cfrac{1}{t} - \cfrac{1}{t^2} \right)
+         &  &
+        \left( \cfrac{2}{t} - \cfrac{1}{t^2} \right)
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 \\
+        1
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        \left( -\cfrac{1}{t^2} + \cfrac{2}{t^3} -\cfrac{2}{t^2} + \cfrac{2}{t^3} \right)
+        \\ \\
+        \left( \cfrac{1}{t} - \cfrac{1}{t^2} + \cfrac{2}{t} - \cfrac{1}{t^2} \right)
+    \end{bmatrix}
+\end{align*}
+\begin{equation*}
+    \therefore
+    \boxed{
+        x(t)
+        =
+        \begin{bmatrix}
+            \left( -\cfrac{3}{t^2} + \cfrac{4}{t^3} \right)
+            \\ \\
+            \left( \cfrac{3}{t} - \cfrac{2}{t^2} \right)
+        \end{bmatrix}
+    }
+\end{equation*}
