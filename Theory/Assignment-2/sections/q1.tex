@@ -163,6 +163,8 @@ where we have the elements of the matrix as
     \sum_{k=0}^{\infty} \frac{1}{k!} {\left( \frac{-1}{2} \ln(1+t^2) \right)}^{k}
     =
     e^{\frac{-1}{2} \ln(1+t^2)}
+    =
+    {(1+t^2)}^{\frac{-1}{2}}
     \\
     c(t)
     & =
@@ -171,6 +173,8 @@ where we have the elements of the matrix as
     \sum_{k=0}^{\infty} \frac{1}{k!} {(-2 \ln(1+t^2))}^{k}
     =
     e^{-2 \ln(1+t^2)}
+    =
+    {(1+t^2)}^{-2}
     \\
     b(t)
     & =
@@ -202,13 +206,13 @@ Thereby, the state transition matrix is given by
     \Phi(t, 0)
     =
     \begin{bmatrix}
-        e^{\frac{-1}{2} \ln(1+t^2)}
-        &
+        {(1+t^2)}^{\frac{-1}{2}}
+        & &
         \frac{-2t}{3\ln(1+t^2)} \left( {(1+t^2)}^{2} - {(1+t^2)}^{\frac{1}{2}} \right)
         \\
         0
-        &
-        e^{-2 \ln(1+t^2)}
+        & &
+        {(1+t^2)}^{-2}
     \end{bmatrix}
 \end{equation*}
 and the solution is given by
@@ -218,15 +222,15 @@ and the solution is given by
     \Phi(t, 0) x_0
     =
     \boxed{
-    \begin{bmatrix}
-        e^{\frac{-1}{2} \ln(1+t^2)}
-        &
-        \frac{-2t}{3\ln(1+t^2)} \left( {(1+t^2)}^{2} - {(1+t^2)}^{\frac{1}{2}} \right)
-        \\
-        0
-        &
-        e^{-2 \ln(1+t^2)}
-    \end{bmatrix}
-    x_0
+        \begin{bmatrix}
+            {(1+t^2)}^{\frac{-1}{2}}
+            & &
+            \frac{-2t}{3\ln(1+t^2)} \left( {(1+t^2)}^{2} - {(1+t^2)}^{\frac{1}{2}} \right)
+            \\
+            0
+            & &
+            {(1+t^2)}^{-2}
+        \end{bmatrix}
+        x_0
     }
 \end{equation*}
