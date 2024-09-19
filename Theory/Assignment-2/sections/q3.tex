@@ -1,4 +1,5 @@
 \section*{Problem 3}
+\setcounter{section}{3}
 
 Consider the following system matrix:
 \begin{equation*}
@@ -33,11 +34,11 @@ Given the homogeneous linear time-varying system:
 \subsubsection*{(a) Computing \( \Phi(t, 0) \)}
 
 Define \( M(t, \tau) \) as follows:
-\begin{equation*}
+\begin{equation}\label{eq:M(t, tau)}
     M(t, \tau)
     \triangleq
     \int_{\tau}^{t} A(l) \, dl
-\end{equation*}
+\end{equation}
 Provided \( M(t, \tau) \) and \( A(t) \) commute, we have the state transition matrix as
 \begin{align*}
     \Phi(t, \tau)
@@ -50,8 +51,7 @@ Provided \( M(t, \tau) \) and \( A(t) \) commute, we have the state transition m
     I + M(t, \tau) + \frac{1}{2!} M^2(t, \tau) + \frac{1}{3!} M^3(t, \tau) + \ldots
 \end{align*}
 
-Here \( \tau = 0 \).
-Computing the first few powers of the matrix \( M(t, 0) \), we have
+Taking \( \tau = 0 \), and computing the first few powers of the matrix \( M(t, 0) \), we have
 \begin{align*}
     M(t, 0)
      & =
@@ -177,6 +177,97 @@ By inspection, we find that \( M^{k} (t, 0) \) for \( k = 1, 2, 3, \ldots \) is 
             1
              &  &
             (1 - \cos(t))
+            \\
+            0
+             &  &
+            1
+        \end{bmatrix}
+    }
+\end{equation*}
+
+\subsubsection*{(b) Computing \( \Phi(t, \tau) \)}
+
+We can compute \( \Phi(t, \tau) \) by the following semigroup property:
+\begin{equation}\label{eq:semigroup}
+    \Phi(t, \tau)
+    =
+    \Phi(t, \sigma) \, \Phi(\sigma, \tau)
+    \quad
+    \forall \, t, \sigma, \tau
+\end{equation}
+Taking \( \sigma = 0 \), we have
+\begin{equation*}
+    \Phi(t, \tau)
+    =
+    \Phi(t, 0) \, \Phi(0, \tau)
+\end{equation*}
+
+Now, from equation~\eqref{eq:M(t, tau)}, we can observe that
+\begin{align*}
+    M(0, \tau)
+    =
+    \int_{\tau}^{0} A(l) \, dl
+    =
+    -\int_{0}^{\tau} A(l) \, dl
+    =
+    - M(\tau, 0)
+    \implies
+    e^{M(0, \tau)}
+    =
+    e^{-M(\tau, 0)}
+\end{align*}
+Provided \( M(t, \tau) \) and \( A(t) \) commute, we can find using the previous equation, or by recomputing \( e^{M(0, \tau)} \) similarly as for \( e^{M(t, 0)} \) that
+\begin{equation*}
+    \implies
+    e^{M(0, \tau)}
+    =
+    e^{\tau}
+    \begin{bmatrix}
+        1
+         &  &
+        (\cos(\tau) - 1)
+        \\
+        0
+         &  &
+        1
+    \end{bmatrix}
+\end{equation*}
+\begin{align*}
+    \implies
+    \Phi(t, \tau)
+     & =
+    \Phi(t, 0) \, \Phi(0, \tau)
+    \\ & =
+    x(\tau) e^{-t} e^{\tau}
+    \begin{bmatrix}
+        1
+         &  &
+        (1 - \cos(t))
+        \\
+        0
+         &  &
+        1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1
+         &  &
+        (\cos(\tau) - 1)
+        \\
+        0
+         &  &
+        1
+    \end{bmatrix}
+\end{align*}
+\begin{equation*}
+    \implies
+    \boxed{
+        \Phi(t, \tau)
+        =
+        x(\tau) e^{-(t - \tau)}
+        \begin{bmatrix}
+            1
+             &  &
+            (-\cos(t) + \cos(\tau))
             \\
             0
              &  &
