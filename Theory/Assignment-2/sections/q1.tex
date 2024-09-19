@@ -31,13 +31,12 @@ Given the homogeneous linear time-varying system:
     \quad
     x(0) = x_0
 \end{equation*}
-
 Define \( M(t) \) as follows:
-\begin{equation}
+\begin{equation*}
     M(t)
     \triangleq
     \int_{0}^{t} A(l) \, dl
-\end{equation}
+\end{equation*}
 Provided \( M(t) \) and \( A(t) \) commute, we have the state transition matrix as
 \begin{align*}
     \Phi(t, 0)
@@ -179,5 +178,4 @@ By inspection, we find that \( M^{k} (t) \) for \( k = 1, 2, 3, \ldots \) is giv
         \displaystyle
         \sum_{k=0}^{\infty} \frac{1}{k!} {(-2 \ln(1+t^2))}^{k}
     \end{bmatrix}
-    \\ & =
 \end{align*}
