@@ -234,3 +234,20 @@ and the solution is given by
         x_0
     }
 \end{equation*}
+
+As \( t \rightarrow \infty \), we can see that the state transition matrix is
+\begin{equation*}
+    \lim_{t \rightarrow \infty} \Phi(t, 0)
+    =
+    \begin{bmatrix}
+        0
+        & &
+        \lim_{t \rightarrow \infty}
+        \frac{-2t}{3\ln(1+t^2)} \left( {(1+t^2)}^{2} - {(1+t^2)}^{\frac{1}{2}} \right)
+        \\
+        0
+        & &
+        0
+    \end{bmatrix}
+\end{equation*}
+where we can see that the matrix approaches zero as \(t\) approaches infinity.
