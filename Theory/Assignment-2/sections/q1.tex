@@ -16,12 +16,168 @@ Explain your answer.
 
 \subsection*{Solution}
 
-We have been given \( \dot x(t) = A(t) x(t) \), where
+Given the homogeneous linear time-varying system:
 \begin{equation*}
+    \dot{x}(t)
+    =
+    A(t) x(t),
+    \quad
     A(t)
     =
     \begin{bmatrix}
         \frac{-t}{1+t^2} & 1                 \\
         0                & \frac{-4t}{1+t^2}
+    \end{bmatrix},
+    \quad
+    x(0) = x_0
+\end{equation*}
+
+Define \( M(t) \) as follows:
+\begin{equation}
+    M(t)
+    \triangleq
+    \int_{0}^{t} A(l) \, dl
+\end{equation}
+Provided \( M(t) \) and \( A(t) \) commute, we have the state transition matrix as
+\begin{align*}
+    \Phi(t, 0)
+     & =
+    e^{M(t)} x_0
+    \\
+    \implies
+    e^{M(t)}
+     & =
+    I + M(t) + \frac{1}{2!} M^2(t) + \frac{1}{3!} M^3(t) + \ldots
+\end{align*}
+Computing the first few powers of the matrix \( M(t) \), we have
+\begin{align*}
+    \implies
+    M(t)
+        & =
+    \int_{0}^{t}
+    \begin{bmatrix}
+        \frac{-l}{1+l^2} & 1                 \\
+        0                & \frac{-4l}{1+l^2}
+    \end{bmatrix}
+    \, dl
+    =
+    \begin{bmatrix}
+        \int_{0}^{t} \frac{-l}{1+l^2} \, dl
+        &
+        \int_{0}^{t} 1 \, dl
+        \\
+        0
+        &
+        \int_{0}^{t} \frac{-4l}{1+l^2} \, dl
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        -\frac{1}{2} \ln(1+t^2)
+        &
+        t
+        \\
+        0
+        &
+        -2 \ln(1+t^2)
+    \end{bmatrix}
+    \\
+    \implies
+    M^2(t)
+    & =
+    M(t) \, M(t)
+    =
+    \begin{bmatrix}
+        \frac{1}{4} \ln^2(1+t^2)
+        & &
+        -\frac{5}{2} t \ln(1+t^2)
+        \\ \\
+        0
+        & &
+        4 \ln^2(1+t^2)
+    \end{bmatrix}
+    \\
+    \implies
+    M^3(t)
+    & =
+    M(t) \, M^2(t)
+    =
+    \begin{bmatrix}
+        -\frac{1}{8} \ln^3(1+t^2)
+        & &
+        \frac{21}{4} t \ln^2(1+t^2)
+        \\ \\
+        0
+        & &
+        -8 \ln^3(1+t^2)
+    \end{bmatrix}
+    \\
+    \implies
+    M^4(t)
+    & =
+    M(t) \, M^3(t)
+    =
+    \begin{bmatrix}
+        \frac{1}{16} \ln^4(1+t^2)
+        & &
+        -\frac{85}{8} t \ln^3(1+t^2)
+        \\ \\
+        0
+        & &
+        16 \ln^4(1+t^2)
+    \end{bmatrix}
+\end{align*}
+
+By inspection, we find that \( M^{k} (t) \) for \( k = 1, 2, 3, \ldots \) is given by,
+\begin{equation*}
+    M^{k} (t)
+    =
+    \begin{bmatrix}
+        \displaystyle
+        {(-1)}^{k} \frac{1}{2^k} \ln^{k}(1+t^2)
+        & & &
+        \displaystyle
+        {(-1)}^{k-1} \left( \frac{4^k-1}{3} \right) \frac{1}{2^{k-1}} t \ln^{k-1}(1+t^2)
+        \\ \\
+        0
+        & & &
+        \displaystyle
+        {(-1)}^{k} 2^{k} \ln^{k}(1+t^2)
     \end{bmatrix}
 \end{equation*}
+
+\begin{equation*}
+    \implies
+    e^{M(t)}
+      =
+    I + \sum_{k=1}^{\infty} \frac{1}{k!} M^{k} (t)
+\end{equation*}
+\begin{align*}
+    \implies
+    &
+    \begin{bmatrix}
+        \displaystyle
+        1 + \sum_{k=1}^{\infty} \frac{1}{k!} {(-1)}^{k} \frac{1}{2^k} \ln^{k}(1+t^2)
+        & & &
+        \displaystyle
+        \sum_{k=1}^{\infty} \frac{1}{k!} {(-1)}^{k-1} \left( \frac{4^k-1}{3} \right) \frac{1}{2^{k-1}} t \ln^{k-1}(1+t^2)
+        \\ \\
+        0
+        & & &
+        \displaystyle
+        1 + \sum_{k=1}^{\infty} \frac{1}{k!} {(-1)}^{k} 2^{k} \ln^{k}(1+t^2)
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        \displaystyle
+        \sum_{k=0}^{\infty} \frac{1}{k!} {\left( \frac{-1}{2} \ln(1+t^2) \right)}^{k}
+        & & &
+        \displaystyle
+        \frac{-2t}{3\ln(1+t^2)} \sum_{k=1}^{\infty} \frac{1}{k!} {\left( \frac{1}{2^{k}} \ln(1+t^2) \right)}^{k} (4^k - 1)
+        \\ \\
+        0
+        & & &
+        \displaystyle
+        \sum_{k=0}^{\infty} \frac{1}{k!} {(-2 \ln(1+t^2))}^{k}
+    \end{bmatrix}
+    \\ & =
+\end{align*}
