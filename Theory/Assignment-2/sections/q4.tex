@@ -65,3 +65,22 @@ We can see that
         e^{-A} e^{B} e^{-A} \; x(t_0)
     }
 \end{equation*}
+
+Now, if matrices \( P \) and \( Q \) commute, we know that \( e^P e^Q = e^{P + Q} \).
+
+Thereby, if \( A \) and \( B \) commute, then
+\begin{equation*}
+    \Phi(t, t_0)
+    =
+    e^{-A + B + A} \; x(t_0)
+    =
+    e^{B} \; x(t_0)
+\end{equation*}
+\begin{equation*}
+    \implies
+    \boxed{
+        \Phi(t, t_0)
+        =
+        e^{B} \; x(t_0)
+    }
+\end{equation*}
