@@ -216,10 +216,30 @@ Now, from equation~\eqref{eq:M(t, tau)}, we can observe that
     =
     e^{-M(\tau, 0)}
 \end{align*}
-Provided \( M(t, \tau) \) and \( A(t) \) commute, we can find using the previous equation, or by recomputing \( e^{M(0, \tau)} \) similarly as for \( e^{M(t, 0)} \) that
+Therby, we get the following property of the state transition matrix:
+\begin{equation*}
+    \Phi(0, t)
+    =
+    {(\Phi(t, 0))}^{-1},
+    \quad
+    \forall t
+\end{equation*}
 \begin{equation*}
     \implies
-    e^{M(0, \tau)}
+    \Phi(0, \tau)
+    =
+    {\left(
+    e^{-\tau}
+    \begin{bmatrix}
+        1
+            &  &
+        (1 - \cos(\tau))
+        \\
+        0
+            &  &
+        1
+    \end{bmatrix}
+    \right)}^{-1}
     =
     e^{\tau}
     \begin{bmatrix}
