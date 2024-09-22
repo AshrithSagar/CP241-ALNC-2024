@@ -37,7 +37,17 @@ Define \( M(t) \) as follows:
     \triangleq
     \int_{0}^{t} A(l) \, dl
 \end{equation*}
-Provided \( M(t) \) and \( A(t) \) commute, we have the state transition matrix as
+
+\clearpage
+\subsection*{(Initial) Solution}
+
+\textbf{Note}: Initially, it was assumed that the matrices \( M(t) \) and \( A(t) \) commute.
+This turns out to be incorrect.
+Below is the original solution based on this assumption, that is included here for the sake of demonstration.
+
+\vspace*{3em}
+Provided \( M(t) \) and \( A(t) \) commute
+(this doesn't hold), we have the state transition matrix
 \begin{align*}
     \Phi(t, 0)
      & =
@@ -94,7 +104,8 @@ Computing the first few powers of the matrix \( M(t) \), we have
          &  &
         4 \ln^2(1+t^2)
     \end{bmatrix}
-    \\
+\end{align*}
+\begin{align*}
     \implies
     M^3(t)
      & =
@@ -144,6 +155,7 @@ By inspection, we can see that \( M^{k} (t) \) for \( k = 1, 2, 3, \ldots \) is 
     \end{bmatrix}
 \end{equation*}
 
+\clearpage
 Now, we can compute \( e^{M(t)} \) as follows.
 Let
 \begin{equation*}
@@ -221,16 +233,14 @@ and the solution is given by
     =
     \Phi(t, 0) x_0
     =
-    \boxed{
-        \begin{bmatrix}
-            {(1+t^2)}^{\frac{-1}{2}}
-             &  &
-            \frac{-2t}{3\ln(1+t^2)} \left( {(1+t^2)}^{2} - {(1+t^2)}^{\frac{1}{2}} \right)
-            \\
-            0
-             &  &
-            {(1+t^2)}^{-2}
-        \end{bmatrix}
-        x_0
-    }
+    \begin{bmatrix}
+        {(1+t^2)}^{\frac{-1}{2}}
+         &  &
+        \frac{-2t}{3\ln(1+t^2)} \left( {(1+t^2)}^{2} - {(1+t^2)}^{\frac{1}{2}} \right)
+        \\
+        0
+         &  &
+        {(1+t^2)}^{-2}
+    \end{bmatrix}
+    x_0
 \end{equation*}

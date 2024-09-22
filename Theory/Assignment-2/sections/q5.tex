@@ -60,6 +60,17 @@ where the first inequality follows from the triangle inequality for norms, and t
 
 Therefore, \( f(x) \) \underline{is globally Lipschitz} with Lipschitz constant \( L = 5 \).
 
+\clearpage
+Alternatively, since \( f(x) \) is differentiable everywhere, we can directly find the Lipschitz constant as
+\[
+    L = \sup_{x \in \mathbb{R}} \lvert f'(x) \rvert
+    =
+    \sup_{x \in \mathbb{R}} \lvert -1 + 4\cos(x) \rvert
+    =
+    5
+\]
+which occurs when \( \cos(x) = -1 \).
+
 \subsubsection*{Locally Lipschitz}
 
 To show that \( f(x) \) is locally Lipschitz, we need to show that for every \( x \in \mathbb{R} \), there exists a neighborhood \( U \) of \( x \) such that \( f(x) \) is Lipschitz on \( U \).
