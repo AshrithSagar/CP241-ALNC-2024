@@ -38,6 +38,200 @@ Define \( M(t) \) as follows:
     \int_{0}^{t} A(l) \, dl
 \end{equation*}
 
+\begin{align*}
+    \implies
+    M(t)
+     & =
+    \int_{0}^{t}
+    \begin{bmatrix}
+        \frac{-l}{1+l^2} & 1                 \\
+        0                & \frac{-4l}{1+l^2}
+    \end{bmatrix}
+    \, dl
+    =
+    \begin{bmatrix}
+        \int_{0}^{t} \frac{-l}{1+l^2} \, dl
+         &
+        \int_{0}^{t} 1 \, dl
+        \\
+        0
+         &
+        \int_{0}^{t} \frac{-4l}{1+l^2} \, dl
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        -\frac{1}{2} \ln(1+t^2)
+         &
+        t
+        \\
+        0
+         &
+        -2 \ln(1+t^2)
+    \end{bmatrix}
+\end{align*}
+
+We check for the commutativity of \( M(t) \) and \( A(t) \) as follows
+\begin{align*}
+    \implies
+    M(t) A(t)
+     & =
+    \begin{bmatrix}
+        \frac{t \ln(1+t^2)}{2(1+t^2)} & -\frac{1}{2} \ln(1+t^2) - \frac{4t^2}{1+t^2} \\
+        0                             & \frac{8t \ln(1+t^2)}{1+t^2}
+    \end{bmatrix}
+    \\
+    \implies
+    A(t) M(t)
+     & =
+    \begin{bmatrix}
+        \frac{t \ln(1+t^2)}{2(1+t^2)} & -\frac{t^2}{1+t^2} - 2 \ln(1+t^2) \\
+        0                             & \frac{8t \ln(1+t^2)}{1+t^2}
+    \end{bmatrix}
+\end{align*}
+
+We find that \( M(t) \) and \( A(t) \) do not commute.
+
+\clearpage
+Now, let \( x(t) = {[x_1(t), x_2(t)]}^T \).
+We have the following set of equations
+\begin{align*}
+    \dot{x}_1(t)
+     & =
+    \frac{-t}{1+t^2} x_1(t) + x_2(t)
+    \\
+    \dot{x}_2(t)
+     & =
+    \frac{-4t}{1+t^2} x_2(t)
+\end{align*}
+
+We can observe that since \( A(t) \) is upper triangular, we have the system of equations decoupled and the second equation can be solved for \( x_2(t) \) independently.
+
+\begin{align*}
+    \frac{d x_2(t)}{dt}
+     & =
+    \frac{-4t}{1+t^2} x_2(t)
+    \implies
+    \frac{d x_2(t)}{x_2(t)}
+    =
+    \frac{-4t}{1+t^2} dt
+    \implies
+    \int \frac{d x_2(t)}{x_2(t)}
+    =
+    \int \frac{-4t}{1+t^2} dt
+    \\
+    \implies
+    \ln \lvert x_2(t) \rvert
+     & =
+    -2 \ln(1+t^2) + C
+    \implies
+    x_2(t)
+    =
+    \frac{C}{{(1+t^2)}^2}
+\end{align*}
+where we can see that \( C = x_2(0) \).
+
+Substituting \( x_2(t) \) back into the first equation to solve for \( x_1(t) \), we get
+\begin{align*}
+    \frac{d x_1(t)}{dt}
+     & =
+    \frac{-t}{1+t^2} x_1(t) + \frac{C}{{(1+t^2)}^2}
+    \implies
+    \frac{d x_1(t)}{dt}
+    +
+    P(t) x_1(t)
+    =
+    Q(t)
+\end{align*}
+which is a first-order linear ordinary differential equation, that can be solved using the integrating factor method.
+The integrating factor is
+\begin{align*}
+    \mu(t)
+     & =
+    e^{\int P(t) \, dt}
+    =
+    e^{\int \frac{t}{1+t^2} \, dt}
+    =
+    e^{\frac{1}{2} \ln(1+t^2)}
+        =
+        {(1+t^2)}^{\frac{1}{2}}
+    \\
+    \implies
+    \mu(t) \frac{d x_1(t)}{dt}
+     & +
+    \mu(t) P(t) x_1(t)
+    =
+    \mu(t) Q(t)
+    \implies
+    \frac{d}{dt} \left( \mu(t) x_1(t) \right)
+    =
+    \mu(t) Q(t)
+    \\
+    \implies
+    \mu(t) x_1(t)
+     & =
+    \int \mu(t) Q(t) \, dt
+    =
+    \int \frac{C}{{(1+t^2)}^2} \cdot {(1+t^2)}^{\frac{1}{2}} \, dt
+    =
+    C \int \frac{1}{{(1+t^2)}^{\frac{3}{2}}} \, dt
+\end{align*}
+Putting \( t = \tan \theta \), we have \( dt = \sec^2 \theta \, d\theta \), and
+\begin{align*}
+    \mu(t) x_1(t)
+     & =
+    C \int \frac{1}{{(1+\tan^2 \theta)}^{\frac{3}{2}}} \sec^2 \theta \, d\theta
+    =
+    C \int \frac{1}{{\sec^2 \theta}^{\frac{3}{2}}} \sec^2 \theta \, d\theta
+    \\ & =
+    C \int \cos \theta \, d\theta
+    =
+    C \sin \theta + D
+    =
+    C \frac{t}{\sqrt{1+t^2}} + D
+    \\
+    \implies
+    x_1(t)
+     & =
+    \frac{C t}{\mu(t) \sqrt{1+t^2}} + \frac{D}{\mu(t)}
+    =
+    \frac{C t}{(1+t^2)} + \frac{D}{\sqrt{1+t^2}}
+    =
+    \frac{x_2(0) t}{(1+t^2)} + \frac{x_1(0)}{\sqrt{1+t^2}}
+\end{align*}
+
+Thereby, the solution is given by
+\begin{equation*}
+    \boxed{
+        x(t)
+        =
+        \begin{bmatrix}
+            \frac{1}{\sqrt{1+t^2}}
+             & \frac{t}{(1+t^2)}
+            \\
+            0
+             & \frac{1}{{(1+t^2)}^2}
+        \end{bmatrix}
+        x_0
+    }
+\end{equation*}
+
+As \( t \rightarrow \infty \), the solution converges to
+\begin{equation*}
+    \lim_{{t \to \infty}} x(t)
+    =
+    \begin{bmatrix}
+        0 & 0 \\
+        0 & 0
+    \end{bmatrix}
+    x_0
+    =
+    \begin{bmatrix}
+        0 \\
+        0
+    \end{bmatrix}
+\end{equation*}
+i,e., the \underline{states decay towards the origin as \( t \rightarrow \infty \)}.
+
 \clearpage
 \subsection*{(Initial) Solution}
 
@@ -63,23 +257,6 @@ Computing the first few powers of the matrix \( M(t) \), we have
     \implies
     M(t)
      & =
-    \int_{0}^{t}
-    \begin{bmatrix}
-        \frac{-l}{1+l^2} & 1                 \\
-        0                & \frac{-4l}{1+l^2}
-    \end{bmatrix}
-    \, dl
-    =
-    \begin{bmatrix}
-        \int_{0}^{t} \frac{-l}{1+l^2} \, dl
-         &
-        \int_{0}^{t} 1 \, dl
-        \\
-        0
-         &
-        \int_{0}^{t} \frac{-4l}{1+l^2} \, dl
-    \end{bmatrix}
-    \\ & =
     \begin{bmatrix}
         -\frac{1}{2} \ln(1+t^2)
          &
