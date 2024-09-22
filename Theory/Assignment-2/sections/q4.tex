@@ -16,11 +16,11 @@ Given the homogeneous linear time-invariant system:
     \quad
     x(t_0) = x_0
 \end{equation*}
-We have the state transition matrix given by
+Since \( e^{-A} B e^A \) is a constant matrix, we have the state transition matrix given by
 \begin{align*}
     \Phi(t, t_0)
      & =
-    e^{e^{-A} B e^A} x_0
+    e^{e^{-A} B e^A (t - t_0)}
     \\
     \implies
     e^{e^{-A} B e^A}
@@ -49,11 +49,11 @@ We can see that
     \implies
     \Phi(t, t_0)
      & =
-    \sum_{k=0}^{\infty} \frac{1}{k!} {(e^{-A} B e^A)}^k
+    \sum_{k=0}^{\infty} \frac{1}{k!} {(e^{-A} B(t - t_0) e^A)}^k
     \\ & =
-    \sum_{k=0}^{\infty} \frac{1}{k!} e^{-A} B^k e^{-A}
+    \sum_{k=0}^{\infty} \frac{1}{k!} e^{-A} B^k e^{-A} {(t - t_0)}^k
     \\ & =
-    e^{-A} \left( \sum_{k=0}^{\infty} \frac{1}{k!} B^k \right) e^{-A}
+    e^{-A} \left( \sum_{k=0}^{\infty} \frac{1}{k!} {\left( B(t - t_0) \right)}^k \right) e^{-A}
     \\ & =
     e^{-A} e^{B} e^{-A}
 \end{align*}
@@ -62,7 +62,7 @@ We can see that
     \boxed{
         \Phi(t, t_0)
         =
-        e^{-A} e^{B} e^{-A} \; x(t_0)
+        e^{-A} e^{B(t - t_0)} e^{-A}
     }
 \end{equation*}
 
@@ -72,15 +72,15 @@ Thereby, if \( A \) and \( B \) commute, then
 \begin{equation*}
     \Phi(t, t_0)
     =
-    e^{-A + B + A} \; x(t_0)
+    e^{-A + B(t - t_0) + A}
     =
-    e^{B} \; x(t_0)
+    e^{B(t - t_0)}
 \end{equation*}
 \begin{equation*}
     \implies
     \boxed{
         \Phi(t, t_0)
         =
-        e^{B} \; x(t_0)
+        e^{B(t - t_0)}
     }
 \end{equation*}
