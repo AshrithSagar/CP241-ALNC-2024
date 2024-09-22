@@ -17,6 +17,21 @@ Given \( f(x) = -x + 4\sin(x) \).
 \begin{lemma}
     For any \( x, y \in \mathbb{R} \), we have \( \lvert \sin(x) - \sin(y) \rvert \leq \lvert x - y \rvert \).
 \end{lemma}
+\begin{proof}
+    It follows from the Mean Value Theorem.
+    Since \( \sin(x) \) is continuous and differentiable on \( \mathbb{R} \), there exists a \( c \) between \( x \) and \( y \) such that
+    \[
+        \sin'(c) = \cos(c) = \frac{\sin(x) - \sin(y)}{x - y}
+    \]
+    Since \( \lvert \cos(c) \rvert \leq 1 \) for all \( c \in \mathbb{R} \), we have
+    \[
+        \lvert \sin(x) - \sin(y) \rvert
+        =
+        \lvert \cos(c) \rvert \lvert x - y \rvert
+        \leq
+        \lvert x - y \rvert
+    \]
+\end{proof}
 
 \subsubsection*{Globally Lipschitz}
 
