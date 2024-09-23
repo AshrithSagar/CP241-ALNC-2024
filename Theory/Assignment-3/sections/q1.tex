@@ -1,3 +1,40 @@
 \section*{Problem 1}
 
+Consider a system is modeled by the following differential equation:
+\[
+    \ddot y - 2t\dot y - (2 - t^2)y = 0
+\]
+\begin{enumerate}[label= (\alph*)]
+    \item Show that the following are two equivalent state-space representations of the above system:
+          \begin{align*}
+              \dot x
+               & =
+              \begin{bmatrix}
+                  0       & 1  \\
+                  2 - t^2 & 2t
+              \end{bmatrix}
+              x
+              :=
+              A_1(t) x
+              \\
+              \dot z
+               & =
+              \begin{bmatrix}
+                  t & 1 \\
+                  1 & t
+              \end{bmatrix}
+              z
+              :=
+              A_2(t) z
+          \end{align*}
+          \textit{Hint:} \(x\) and \(z\) share a common component.
+    \item Using the easiest choice, compute the state transition matrix \(\Phi(t, 0)\)
+    \item Find \(P(t)\) such that \( z(t) = P(t)x(t) \).
+          What property should \(P(t)\) satisfy to be a meaningful transformation matrix?
+          Is it holding in this case?
+    \item Let, \( \dot{x}(t)=A(t) x+B(t) u \) be a LTV system, and \( z(t)=P(t) x(t) \) is a transformation with \( P(t) \geq 0, \forall t \geq t_{0} \).
+          Derive the LTV system that describes the dynamics of \( z \).
+    \item Verify your relations in part (d) using \( A_{1}(t), A_{2}(t), P(t) \) of the above example.
+\end{enumerate}
+
 \subsection*{Solution}
