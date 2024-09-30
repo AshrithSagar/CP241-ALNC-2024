@@ -1,13 +1,38 @@
 \section*{Problem 3}
 
 \begin{enumerate}[label= (\alph*)]
-    \item Prove that, \( \frac{d}{d t}\left(e^{A t}\right)=A e^{A t}=e^{A t} A \), where \( A \) is a constant state-matrix for the system \( \dot{x}=A x \).
-    \item Prove that, \( X(t)=e^{A t} C e^{F t} \) is a solution to the matrix equation \( \dot{X}=A X+X F \), where \( X(0)=C \).
-          Assume, \( A, C, F \) are constant matrices.
-    \item An LTV System is given by \( \dot{x}(t)=A(t) x(t) \). Let, \( P(t) \) be a transformation matrix such that \( z=P(t) x \).
-          If the transformation renders the system to an LTI system \( \dot{z}=F z \), then show that \( P(t)=e^{F t} P(0) e^{-M(t)} \), where \( M(t)=\int_{\tau=0}^{t} A(\tau) d \tau \).
-          Note that, \( F \) is a constant matrix.
-          Assume, \( M(t) \) and \( A(t) \) commute.
+      \item Prove that, \( \frac{d}{d t}\left(e^{A t}\right)=A e^{A t}=e^{A t} A \), where \( A \) is a constant state-matrix for the system \( \dot{x}=A x \).
+      \item Prove that, \( X(t)=e^{A t} C e^{F t} \) is a solution to the matrix equation \( \dot{X}=A X+X F \), where \( X(0)=C \).
+            Assume, \( A, C, F \) are constant matrices.
+      \item An LTV System is given by \( \dot{x}(t)=A(t) x(t) \). Let, \( P(t) \) be a transformation matrix such that \( z=P(t) x \).
+            If the transformation renders the system to an LTI system \( \dot{z}=F z \), then show that \( P(t)=e^{F t} P(0) e^{-M(t)} \), where \( M(t)=\int_{\tau=0}^{t} A(\tau) d \tau \).
+            Note that, \( F \) is a constant matrix.
+            Assume, \( M(t) \) and \( A(t) \) commute.
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) \( \frac{d}{d t}\left(e^{A t}\right)=A e^{A t}=e^{A t} A \)}
+
+\begin{proof}
+      We know that the matrix exponential is defined as:
+      \begin{equation*}
+            e^{A t}=\sum_{k=0}^{\infty} \frac{(A t)^{k}}{k !}
+      \end{equation*}
+      Differentiating \( e^{A t} \) with respect to \( t \), we get:
+      \begin{align*}
+            \frac{d}{d t}\left(e^{A t}\right)
+             & =
+            \frac{d}{d t}\left(\sum_{k=0}^{\infty} \frac{(A t)^{k}}{k !}\right)
+            =
+            \frac{d}{d t}\left(I + \sum_{k=1}^{\infty} \frac{(A t)^{k}}{k !}\right)
+            \\ & =
+            \sum_{k=1}^{\infty} \frac{d}{d t}\left(\frac{(A t)^{k}}{k !}\right)
+            =
+            \sum_{k=1}^{\infty} \frac{{(A t)}^{k-1}}{(k-1) !}
+            =
+            \sum_{k=0}^{\infty} \frac{{(A t)}^k}{k !}
+            =
+            A e^{A t}
+      \end{align*}
+\end{proof}
