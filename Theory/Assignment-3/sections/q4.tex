@@ -207,9 +207,54 @@ For \( k = 1 \), we can evaluate \( u(1) \) as
 \end{align*}
 We can similarly evaluate \( u(2), u(3), \ldots \) and so on.
 
-Therefore, the sequence of inputs \( u(i) \) is given by
+Therefore, the sequence of inputs \( u(k) \) is given by
 \[
     \boxed{
         u(k) = 2, \quad \forall k \geq 0
     }
 \]
+
+For evaluating the expression at \( k \), we can see that
+\begin{align*}
+    \sum_{i=0}^{k} A^{k - i} B u(i)
+     & =
+    \sum_{i=0}^{k}
+    \left[\begin{array}{cc}
+                  2^{k - i} & 0            \\
+                  0         & (-1)^{k - i}
+              \end{array}\right]
+    \left[\begin{array}{c}
+                  1 \\
+                  1
+              \end{array}\right]
+    u(i)
+    =
+    \sum_{i=0}^{k}
+    \left[\begin{array}{c}
+                  2^{k - i} \\
+                  (-1)^{k - i}
+              \end{array}\right]
+    u(i)
+    \\ & =
+    (I - A^{k + 1}) x_0
+    =
+    \left[\begin{array}{c}
+                  -2(1 - 2^{k + 1}) \\
+                  1 - (-1)^{k + 1}
+              \end{array}\right]
+    \\
+    \implies
+    \sum_{i=0}^{k}
+    \left[\begin{array}{c}
+                  2^{k - i} \\
+                  (-1)^{k - i}
+              \end{array}\right]
+    u(i)
+     & =
+    \left[\begin{array}{c}
+                  -2(1 - 2^{k + 1}) \\
+                  1 - (-1)^{k + 1}
+              \end{array}\right]
+\end{align*}
+
+Therefore, the sequence of inputs \( u(k) \) is given by \( u(k) = 2, \quad \forall k \geq 0 \).
