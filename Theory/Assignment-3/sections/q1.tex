@@ -373,3 +373,36 @@ Thereby, we get the transformation matrix as
 \subsubsection*{(d) LTV system for \( z \)}
 
 Given the LTV system \( \dot{x}(t)=A(t) x+B(t) u \) and the transformation \( z(t)=P(t) x(t) \), with \( P(t) \geq 0, \forall t \geq t_{0} \), we have
+\begin{align*}
+    \dot{z}(t)
+     & =
+    \frac{d}{dt} z(t)
+    =
+    \frac{d}{dt} (P(t) x(t))
+    =
+    \frac{d}{dt} \Big(P(t)\Big) x(t) + P(t) \frac{d}{dt} x(t)
+    \\
+     & =
+    \dot{P}(t) x(t) + P(t) \Big( A(t) x(t) + B(t) u(t) \Big)
+    \\ & =
+    \Big( \dot{P}(t) + P(t) A(t) \Big) x(t) + P(t) B(t) u(t)
+\end{align*}
+
+For an invertible matrix \( P(t) \), we can write \( x(t) = P^{-1}(t) z(t) \), thereby giving the LTV system for \( z \) as
+\[
+    \boxed{
+        \begin{aligned}
+            \dot{z}(t)
+             & =
+            \tilde{A}(t) z(t) + \tilde{B}(t) u(t), \quad \text{where}
+            \\
+            \tilde{A}(t)
+             & =
+            \dot{P}(t) P^{-1}(t) + P(t) A(t) P^{-1}(t)
+            \\
+            \tilde{B}(t)
+             & =
+            P(t) B(t)
+        \end{aligned}
+    }
+\]
