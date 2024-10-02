@@ -160,3 +160,155 @@ Thereby, the equilibrium points are
         \right \}
     }
 \end{equation*}
+
+\subsubsection*{(b) Type of Equilibrium Points}
+
+We can calulate the Jacobian matrix of the system by evaluating
+\begin{align*}
+    \frac{\partial f_1}{\partial x_1}
+     & =
+    -1 - b x_2
+     &
+    \frac{\partial f_1}{\partial x_2}
+     & =
+    a - b x_1 + 2 x_2
+    \\
+    \frac{\partial f_2}{\partial x_1}
+     & =
+    -(a + b) - x_2
+     &
+    \frac{\partial f_2}{\partial x_2}
+     & =
+    -x_1
+\end{align*}
+giving the Jacobian matrix as
+\begin{equation*}
+    J(x) =
+    \begin{bmatrix}
+        -1 - b x_2     & a - b x_1 + 2 x_2 \\
+        -(a + b) - x_2 & -x_1
+    \end{bmatrix}
+\end{equation*}
+For the equilibrium point \( x^* = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \implies J(x^*) =
+\begin{bmatrix}
+    -1 & a \\
+    -a & 0
+\end{bmatrix} \).\\
+The characteristic polynomial is
+\begin{align*}
+    \text{det} \left( J(x^*) - \lambda I \right)
+     & =
+    \text{det}
+    \begin{bmatrix}
+        -1 - \lambda & a        \\
+        -a           & -\lambda
+    \end{bmatrix}
+    =
+    (-1 - \lambda)(-\lambda) - a(-a)
+    =
+    \lambda^2 + \lambda + a^2
+\end{align*}
+The eigenvalues are threreby \( \lambda = \cfrac{-1 \pm \sqrt{1 - 4a^2}}{2} \).
+For \( a > \cfrac{1}{2} \), the eigenvalues are complex and the equilibrium point is a spiral sink.
+For \( a < \cfrac{1}{2} \), the eigenvalues are real and the equilibrium point is a saddle.
+For \( a = \cfrac{1}{2} \), the eigenvalues are real and the equilibrium point is a degenerate node.
+
+For the equilibrium point \( x^* = \begin{bmatrix} 0 \\ -a \end{bmatrix} \implies J(x^*) = \begin{bmatrix} -1 & -b \\ -a - b & 0 \end{bmatrix} \).\\
+The characteristic polynomial is
+\begin{align*}
+    \text{det} \left( J(x^*) - \lambda I \right)
+     & =
+    \text{det}
+    \begin{bmatrix}
+        -1 - \lambda & -b       \\
+        -a - b       & -\lambda
+    \end{bmatrix}
+    =
+    (-1 - \lambda)(-\lambda) - (-a - b)(-b)
+    =
+    \lambda^2 + \lambda - b(a + b)
+\end{align*}
+The eigenvalues are threreby \( \lambda = \cfrac{-1 \pm \sqrt{1 + 4b(a + b)}}{2} \).
+For \( b(a + b) > \cfrac{1}{4} \), the eigenvalues are complex and the equilibrium point is a spiral sink.
+For \( b(a + b) < \cfrac{1}{4} \), the eigenvalues are real and the equilibrium point is a saddle.
+For \( b(a + b) = \cfrac{1}{4} \), the eigenvalues are real and the equilibrium point is a degenerate node.
+
+For the equilibrium point \( x^* = \cfrac{a+b}{b^2 + 1} \begin{bmatrix} -1 \\ b \end{bmatrix} \implies J(x^*) = \begin{bmatrix} -1 & -b \\ -a - b & 2b \end{bmatrix} \).\\
+The characteristic polynomial is
+\begin{align*}
+    \text{det} \left( J(x^*) - \lambda I \right)
+     & =
+    \text{det}
+    \begin{bmatrix}
+        -1 - \lambda & -b           \\
+        -a - b       & 2b - \lambda
+    \end{bmatrix}
+    \\ & =
+    (-1 - \lambda)(2b - \lambda) - (-a - b)(-b)
+    \\ & =
+    \lambda^2 + \lambda - 2b - 2b^2 + ab
+\end{align*}
+The eigenvalues are threreby \( \lambda = \cfrac{-1 \pm \sqrt{1 + 8b + 8b^2 - 4ab}}{2} \).
+For \( 1 + 8b + 8b^2 - 4ab > 0 \), the eigenvalues are complex and the equilibrium point is a spiral sink.
+For \( 1 + 8b + 8b^2 - 4ab < 0 \), the eigenvalues are real and the equilibrium point is a saddle.
+For \( 1 + 8b + 8b^2 - 4ab = 0 \), the eigenvalues are real and the equilibrium point is a degenerate node.
+
+\subsubsection*{(c) Phase Portrait}
+
+\begin{enumerate}[label= (\roman*)]
+    \item For \( a = b = 1 \), the equilibrium points are
+          \begin{align*}
+              x^* =
+              \left \{ \;
+              \begin{bmatrix}
+                  0 \\
+                  0
+              \end{bmatrix}, \; \;
+              \begin{bmatrix}
+                  0 \\
+                  -1
+              \end{bmatrix}, \; \;
+              \begin{bmatrix}
+                  -1 \\
+                  1
+              \end{bmatrix} \;
+              \right \}
+          \end{align*}
+          The phase portrait is shown in Figure~\ref{fig:q2-1}.
+          \begin{figure}[!ht]
+              \centering
+              \includegraphics[width=0.85\textwidth]{figures/q2/q2-1.png}
+              \vspace*{-2.5em}
+              \caption{
+                  Phase Portrait for \( a = b = 1 \)
+              }\label{fig:q2-1}
+          \end{figure}
+
+    \item For \( a = 1, b = -\cfrac{1}{2} \), the equilibrium points are
+          \begin{align*}
+              x^* =
+              \left \{ \;
+              \begin{bmatrix}
+                  0 \\
+                  0
+              \end{bmatrix}, \; \;
+              \begin{bmatrix}
+                  0 \\
+                  -1
+              \end{bmatrix}, \; \;
+              \begin{bmatrix}
+                  -1/5 \\
+                  -3/5
+              \end{bmatrix} \;
+              \right \}
+          \end{align*}
+          The phase portrait is shown in Figure~\ref{fig:q2-2}.
+          \begin{figure}[!ht]
+              \centering
+              \includegraphics[width=0.85\textwidth]{figures/q2/q2-2.png}
+              \vspace*{-2.5em}
+              \caption{
+                  Phase Portrait for \( a = 1, b = -\cfrac{1}{2} \)
+              }\label{fig:q2-2}
+          \end{figure}
+\end{enumerate}
