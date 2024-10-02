@@ -202,7 +202,7 @@ Thereby, \( M(t) \) and \( A_2(t) \) commute, and the state transition matrix is
     =
     I + M(t) + \frac{1}{2!} {(M(t))}^2 + \frac{1}{3!} {(M(t))}^3 + \ldots
     =
-    I + \sum_{k=1}^{\infty} \frac{1}{k!} {(M(t))}^k
+    \sum_{k=0}^{\infty} \frac{1}{k!} {(M(t))}^k
 \end{equation*}
 We can diagonalise \( M(t) \) as follows.
 The eigenvalues can be found by solving the characteristic equation \( \text{det}(M(t) - \lambda I) = 0 \), as
@@ -368,3 +368,8 @@ Thereby, we get the transformation matrix as
         \end{bmatrix}
     }
 \end{equation*}
+
+\clearpage
+\subsubsection*{(d) LTV system for \( z \)}
+
+Given the LTV system \( \dot{x}(t)=A(t) x+B(t) u \) and the transformation \( z(t)=P(t) x(t) \), with \( P(t) \geq 0, \forall t \geq t_{0} \), we have
