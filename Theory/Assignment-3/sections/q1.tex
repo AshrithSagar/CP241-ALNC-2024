@@ -135,3 +135,63 @@ Thereby, the state-space representation of the system is equivalently given by
     :=
     A_2(t) z
 \end{align*}
+
+\subsubsection*{(b) State transition matrix}
+
+\subsubsection*{(c) Transformation matrix \( P(t) \)}
+
+Given the transformation matrix given by \( z(t) = P(t)x(t) \), and the expressions for \( x(t) \) and \( z(t) \) from section (a), we have
+\begin{align*}
+    \begin{bmatrix}
+        z_1 \\
+        z_2
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        p_{11} & p_{12} \\
+        p_{21} & p_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        p_{11} x_1 + p_{12} x_2 \\
+        p_{21} x_1 + p_{22} x_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        p_{11} y + p_{12} \dot y \\
+        p_{21} y + p_{22} \dot y
+    \end{bmatrix}
+    \\
+    \implies
+    z_1
+     & =
+    y
+    =
+    p_{11} y + p_{12} \dot y
+    \implies
+    p_{11} = 1, \quad p_{12} = 0
+    \\
+    \implies
+    z_2
+     & =
+    -t y + \dot y
+    =
+    p_{21} y + p_{22} \dot y
+    \implies
+    p_{21} = -t, \quad p_{22} = 1
+\end{align*}
+Thereby, we get the transformation matrix as
+\begin{equation*}
+    \boxed{
+        P(t)
+        =
+        \begin{bmatrix}
+            1  & 0 \\
+            -t & 1
+        \end{bmatrix}
+    }
+\end{equation*}
