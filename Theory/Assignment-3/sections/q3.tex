@@ -56,3 +56,22 @@
             = e^{A t} A
       \end{align*}
 \end{proof}
+
+\subsubsection*{(b) \( X(t)=e^{A t} C e^{F t} \) is a solution to \( \dot{X}=A X+X F \)}
+
+\begin{proof}
+      We are given that \( X(t)=e^{A t} C e^{F t} \).
+      Differentiating \( X(t) \) with respect to \( t \), we get:
+      \begin{align*}
+            \dot{X}(t)
+             & =
+            \frac{d}{d t}\left(e^{A t} C e^{F t}\right)
+            =
+            \frac{d}{d t}\left(e^{A t}\right) C e^{F t} + e^{A t} C \frac{d}{d t}\left(e^{F t}\right)
+            \\ & =
+            A e^{A t} C e^{F t} + e^{A t} C e^{F t} F
+            =
+            A X(t) + X(t) F
+      \end{align*}
+      \( \therefore X(t) \) is a solution to the matrix equation \( \dot{X}=A X+X F \), with constant matrices \( A, C, F \).
+\end{proof}
