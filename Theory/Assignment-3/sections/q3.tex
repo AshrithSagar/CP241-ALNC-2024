@@ -75,3 +75,72 @@
       \end{align*}
       \( \therefore X(t) \) is a solution to the matrix equation \( \dot{X}=A X+X F \), with constant matrices \( A, C, F \).
 \end{proof}
+
+\subsubsection*{(c) \( P(t)=e^{F t} P(0) e^{-M(t)} \)}
+
+\begin{proof}
+      Given the LTV system \( \dot{x}(t)=A(t) x(t) \), we have a transformation matrix \( z=P(t) x \) such that \( \dot{z}=F z \), where \( F \) is a constant matrix, which converts it to an LTI system.
+
+      The solution to the LTV system is given by, since \( M(t) \) and \( A(t) \) commute,
+      \begin{equation*}
+            \dot{x}(t)
+            =
+            A(t) x(t)
+            \implies
+            x(t)
+            =
+            e^{M(t)} x(0),
+            \quad
+            M(t)
+            =
+            \int_{\tau=0}^{t} A(\tau) d \tau
+      \end{equation*}
+      The solution to the LTI system is given by,
+      \begin{equation*}
+            \dot{z}(t)
+            =
+            F z(t)
+            \implies
+            z(t)
+            =
+            e^{F t} z(0)
+      \end{equation*}
+
+      Now, we can see that, since \( M(t) \) and \( (-M(t)) \) commute:
+      \begin{align*}
+            e^{-M(t)} x(t)
+             & =
+            e^{-M(t)} e^{M(t)} x(0)
+            =
+            e^{-M(t) + M(t)} x(0)
+            =
+            I x(0)
+            =
+            x(0)
+            \\
+            \implies
+            P(0) e^{-M(t)} x(t)
+             & =
+            P(0) x(0)
+            =
+            z(0)
+            \\
+            \implies
+            e^{F t} P(0) e^{-M(t)} x(t)
+             & =
+            e^{F t} z(0)
+            =
+            z(t)
+            =
+            P(t) x(t)
+      \end{align*}
+      which is true for all \( t \).
+      Thereby, we get
+      \begin{equation*}
+            \boxed{
+                  P(t)
+                  =
+                  e^{F t} P(0) e^{-M(t)}
+            }
+      \end{equation*}
+\end{proof}
