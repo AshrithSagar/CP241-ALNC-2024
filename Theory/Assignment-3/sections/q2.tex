@@ -20,3 +20,143 @@ where \( a>0, b \neq 0 \).
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) Equilibrium Points}
+
+The equilibrium points are obtained by setting state derivatives to zero.
+Starting with the second equation, we get
+\begin{align*}
+    \implies
+    \dot x_2
+     & =
+    0
+    =
+    -(a + b) x_1 + b x_1^2 - x_1 x_2
+    =
+    x_1 \left( b x_1 - x_2 - (a + b) \right)
+    =
+    0
+    \\
+    \implies
+    x_1
+     & =
+    0
+    \quad \text{or} \quad
+    b x_1 - x_2 - (a + b)
+    =
+    0
+\end{align*}
+Putting \( x_1 = 0 \) in the first equation, we get
+\begin{align*}
+    \implies
+    \dot x_1
+     & =
+    0
+    =
+    -x_1 + a x_2 - b x_1 x_2 + x_2^2
+    =
+    a x_2 + x_2^2
+    =
+    x_2 \left( a + x_2 \right)
+    =
+    0
+    \\
+    \implies
+    x_2
+     & =
+    0
+    \quad \text{or} \quad
+    a + x_2
+    =
+    0
+\end{align*}
+For the other equilibrium points, we can see that
+\begin{align*}
+    b x_1 - x_2 - (a + b)
+     & =
+    0
+    \\
+    \implies
+    x_2
+     & =
+    b x_1 - (a + b)
+\end{align*}
+Substituting this in the first equation, we get
+\begin{align*}
+    \implies
+    \dot x_1
+     & =
+    0
+    =
+    -x_1 + a \left( b x_1 - (a + b) \right) - b x_1 \left( b x_1 - (a + b) \right) + \left( b x_1 - (a + b) \right)^2
+    \\
+    \implies
+    0
+     & =
+    -x_1 + a b x_1 - a (a + b) - b x_1 \left( b x_1 - (a + b) \right) + \left( b x_1 - (a + b) \right)^2
+    \\
+    \implies
+    0
+     & =
+    -x_1 + a b x_1 - a (a + b) - \cancel{b^2 x_1^2} + b (a + b) x_1 + \cancel{b^2 x_1^2} - 2 b (a + b) x_1 + (a + b)^2
+    \\
+    \implies
+    0
+     & =
+    -x_1 + a b x_1 - b (a + b) x_1 + b(a + b)
+\end{align*}
+\begin{align*}
+    \implies
+    0
+     & =
+    x_1 \left( -1 + a b - b (a + b) \right) + b(a + b)
+    \\
+    \implies
+    0
+     & =
+    x_1 \left( -1 + \cancel{a b} - \cancel{b a} - b^2 \right) + b(a + b)
+    \\
+    \implies
+    x_1
+     & =
+    \frac{b(a + b)}{b^2 + 1}
+\end{align*}
+Putting this back in the equation for \( x_2 \), we get
+\begin{align*}
+    x_2
+     & =
+    b x_1 - (a + b)
+    =
+    b \left( \frac{b(a + b)}{b^2 + 1} \right) - (a + b)
+    \\ & =
+    \frac{b^2(a + b) - (a + b)(b^2 + 1)}{b^2 + 1}
+    =
+    \frac{\cancel{b^2 a} + \cancel{b^3} - \cancel{a b^2} - a - \cancel{b^3} - b}{b^2 + 1}
+    \\
+    \implies
+    x_1
+     & =
+    \frac{-(a+b)}{b^2 + 1}
+\end{align*}
+
+Thereby, the equilibrium points are
+\begin{equation*}
+    \boxed{
+        x^* =
+        \left \{ \;
+        \begin{bmatrix}
+            0 \\
+            0
+        \end{bmatrix}, \; \;
+        \begin{bmatrix}
+            0 \\
+            -a
+        \end{bmatrix}, \; \;
+        \frac{a+b}{b^2 + 1}
+        \begin{bmatrix}
+            -1 \\
+            b
+        \end{bmatrix} \;
+        \right \}
+    }
+\end{equation*}
