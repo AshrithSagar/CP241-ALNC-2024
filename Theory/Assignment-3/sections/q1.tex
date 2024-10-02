@@ -138,6 +138,179 @@ Thereby, the state-space representation of the system is equivalently given by
 
 \subsubsection*{(b) State transition matrix}
 
+For the system \( \dot z = A_2(t) z \), we can compute the state transition matrix, by first defining \( M(t) \) as
+\begin{equation*}
+    M(t)
+    =
+    \int_{0}^{t} A_2(\tau) d\tau
+    =
+    \int_{0}^{t} \begin{bmatrix}
+        \tau & 1    \\
+        1    & \tau
+    \end{bmatrix}
+    d\tau
+    =
+    \begin{bmatrix}
+        \int_{0}^{t} \tau d\tau & \int_{0}^{t} d\tau      \\
+        \int_{0}^{t} d\tau      & \int_{0}^{t} \tau d\tau
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{t^2}{2} & t             \\
+        t             & \frac{t^2}{2}
+    \end{bmatrix}
+\end{equation*}
+Checking for the commutativity of \( M(t) \) and \( A_2(t) \) as follows,
+\begin{align*}
+    A_2(t) M(t)
+     & =
+    \begin{bmatrix}
+        t & 1 \\
+        1 & t
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{t^2}{2} & t             \\
+        t             & \frac{t^2}{2}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{t^3}{2} + t & \frac{3t^2}{2}    \\
+        \frac{3t^2}{2}    & \frac{t^3}{2} + t
+    \end{bmatrix}
+    \\
+    M(t) A_2(t)
+     & =
+    \begin{bmatrix}
+        \frac{t^2}{2} & t             \\
+        t             & \frac{t^2}{2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        t & 1 \\
+        1 & t
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{t^3}{2} + t & \frac{3t^2}{2}    \\
+        \frac{3t^2}{2}    & \frac{t^3}{2} + t
+    \end{bmatrix}
+\end{align*}
+Thereby, \( M(t) \) and \( A_2(t) \) commute, and the state transition matrix is given by
+\begin{equation*}
+    \Phi(t, 0)
+    =
+    e^{M(t)}
+    =
+    I + M(t) + \frac{1}{2!} {(M(t))}^2 + \frac{1}{3!} {(M(t))}^3 + \ldots
+    =
+    I + \sum_{k=1}^{\infty} \frac{1}{k!} {(M(t))}^k
+\end{equation*}
+We can diagonalise \( M(t) \) as follows.
+The eigenvalues can be found by solving the characteristic equation \( \text{det}(M(t) - \lambda I) = 0 \), as
+\begin{align*}
+    \text{det}(M(t) - \lambda I)
+     & =
+    \text{det}\left(
+    \begin{bmatrix}
+            \frac{t^2}{2} - \lambda & t                       \\
+            t                       & \frac{t^2}{2} - \lambda
+        \end{bmatrix}
+    \right)
+    =
+    \left( \frac{t^2}{2} - \lambda \right)^2 - t^2
+    \\ & =
+    \lambda^2 - t^2 \lambda + \left(\frac{t^4}{4} - t^2\right)
+    =
+    0
+    \implies
+    \lambda
+    =
+    \frac{t^2}{2} \pm t
+\end{align*}
+The eigenvectors corresponding to the eigenvalues \( \frac{t^2}{2} + t \) and \( \frac{t^2}{2} - t \) can be calculated to be \( \begin{bmatrix} 1 \\ 1 \end{bmatrix} \) and \( \begin{bmatrix} 1 \\ -1 \end{bmatrix} \) respectively, giving
+\begin{equation*}
+    P = \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}
+    \implies
+    P^{-1} = \frac{1}{2} \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}
+\end{equation*}
+Thereby, the matrix \( M(t) \) can be diagonalised as
+\begin{equation*}
+    M(t)
+    =
+    PDP^{-1}
+    =
+    P
+    \begin{bmatrix}
+        \frac{t^2}{2} + t & 0                 \\
+        0                 & \frac{t^2}{2} - t
+    \end{bmatrix}
+    P^{-1}
+\end{equation*}
+From this, we can compute \( e^{M(t)} \) as
+\begin{align*}
+    e^{M(t)}
+     & =
+    \sum_{k=0}^{\infty} \frac{1}{k!} {(M(t))}^k
+    =
+    \sum_{k=0}^{\infty} \frac{1}{k!} P D^k P^{-1}
+    =
+    P \left( \sum_{k=0}^{\infty} \frac{1}{k!} D^k \right) P^{-1}
+    =
+    P e^D P^{-1}
+    \\
+     & =
+    \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        e^{\frac{t^2}{2} + t} & 0                     \\
+        0                     & e^{\frac{t^2}{2} - t}
+    \end{bmatrix}
+    \frac{1}{2}
+    \begin{bmatrix}
+        1 & 1  \\
+        1 & -1
+    \end{bmatrix}
+    \\
+     & =
+    \frac{1}{2}
+    \begin{bmatrix}
+        e^{\frac{t^2}{2} + t} + e^{\frac{t^2}{2} - t} & e^{\frac{t^2}{2} + t} - e^{\frac{t^2}{2} - t} \\
+        e^{\frac{t^2}{2} + t} - e^{\frac{t^2}{2} - t} & e^{\frac{t^2}{2} + t} + e^{\frac{t^2}{2} - t}
+    \end{bmatrix}
+    =
+    \frac{1}{2} e^{\frac{t^2}{2}}
+    \begin{bmatrix}
+        (e^t + e^{-t}) & (e^t - e^{-t}) \\
+        (e^t - e^{-t}) & (e^t + e^{-t})
+    \end{bmatrix}
+    \\
+     & =
+    e^{\frac{t^2}{2}}
+    \begin{bmatrix}
+        \cosh t & \sinh t \\
+        \sinh t & \cosh t
+    \end{bmatrix}
+\end{align*}
+Thereby, the state transition is given by
+\begin{equation*}
+    \boxed{
+        \Phi(t, 0)
+        =
+        e^{\frac{t^2}{2}}
+        \begin{bmatrix}
+            \cosh t & \sinh t \\
+            \sinh t & \cosh t
+        \end{bmatrix}
+    }
+\end{equation*}
+
 \subsubsection*{(c) Transformation matrix \( P(t) \)}
 
 Given the transformation matrix given by \( z(t) = P(t)x(t) \), and the expressions for \( x(t) \) and \( z(t) \) from section (a), we have
