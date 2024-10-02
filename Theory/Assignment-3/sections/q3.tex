@@ -17,22 +17,42 @@
 \begin{proof}
       We know that the matrix exponential is defined as:
       \begin{equation*}
-            e^{A t}=\sum_{k=0}^{\infty} \frac{(A t)^{k}}{k !}
+            e^{A t}
+            =
+            \sum_{k=0}^{\infty} \frac{{(A t)}^{k}}{k !}
+            =
+            I + \sum_{k=1}^{\infty} \frac{{(A t)}^{k}}{k !}
       \end{equation*}
-      Differentiating \( e^{A t} \) with respect to \( t \), we get:
+      Differentiating with respect to \( t \), we get:
       \begin{align*}
             \frac{d}{d t}\left(e^{A t}\right)
              & =
-            \frac{d}{d t}\left(\sum_{k=0}^{\infty} \frac{(A t)^{k}}{k !}\right)
+            \frac{d}{d t}\left(I + \sum_{k=1}^{\infty} \frac{{(A t)}^{k}}{k !}\right)
             =
-            \frac{d}{d t}\left(I + \sum_{k=1}^{\infty} \frac{(A t)^{k}}{k !}\right)
-            \\ & =
-            \sum_{k=1}^{\infty} \frac{d}{d t}\left(\frac{(A t)^{k}}{k !}\right)
+            \sum_{k=1}^{\infty} \frac{d}{d t}\left(\frac{{(A t)}^{k}}{k !}\right)
             =
-            \sum_{k=1}^{\infty} \frac{{(A t)}^{k-1}}{(k-1) !}
+            \sum_{k=1}^{\infty} A^k \frac{d}{d t}\left(\frac{t^k}{k !}\right)
             =
-            \sum_{k=0}^{\infty} \frac{{(A t)}^k}{k !}
+            \sum_{k=1}^{\infty} A^k \frac{t^{k-1}}{(k-1) !}
+      \end{align*}
+      Now, from here, we can see that
+      \begin{align*}
+            \frac{d}{d t}\left(e^{A t}\right)
+             & =
+            \sum_{k=1}^{\infty} A^k \frac{t^{k-1}}{(k-1) !}
             =
-            A e^{A t}
+            A \left( \sum_{k=1}^{\infty} \frac{{(A t)}^{k-1}}{(k-1) !} \right)
+            =
+            A \left( \sum_{k=0}^{\infty} \frac{{(A t)}^{k}}{k !} \right)
+            = A e^{A t}
+            \\
+            \frac{d}{d t}\left(e^{A t}\right)
+             & =
+            \sum_{k=1}^{\infty} A^k \frac{t^{k-1}}{(k-1) !}
+            =
+            \sum_{k=0}^{\infty} \frac{{(A t)}^{k}}{k !} A
+            =
+            \left( \sum_{k=0}^{\infty} \frac{{(A t)}^{k}}{k !} \right) A
+            = e^{A t} A
       \end{align*}
 \end{proof}
