@@ -38,3 +38,100 @@ Consider a system is modeled by the following differential equation:
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) Two equivalent state-space representations}
+
+Given the differential equation \( \ddot y - 2t\dot y - (2 - t^2)y = 0 \),
+let \( x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} y \\ \dot y \end{bmatrix} \).
+Then, we have
+\begin{align*}
+    \implies
+    \dot x_1
+     & =
+    \dot y = x_2
+    \\
+    \implies
+    \dot x_2
+     & =
+    \ddot y = 2t\dot y + (2 - t^2)y = 2tx_2 + (2 - t^2)x_1
+\end{align*}
+Therefore, the state-space representation of the system is given by
+\begin{align*}
+    \begin{bmatrix}
+        \dot x_1 \\
+        \dot x_2
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        0       & 1  \\
+        2 - t^2 & 2t
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+    \implies
+    \dot x
+    =
+    \begin{bmatrix}
+        0       & 1  \\
+        2 - t^2 & 2t
+    \end{bmatrix}
+    x
+    :=
+    A_1(t) x
+\end{align*}
+
+Now, consider \( z = \begin{bmatrix} z_1 \\ z_2 \end{bmatrix} = \begin{bmatrix} y \\ -t y + \dot y \end{bmatrix} \).
+Then, we have
+\begin{align*}
+    \implies
+    \dot z_1
+     & =
+    \dot y = z_2 + t y
+    =
+    z_2 + t z_1
+    \\
+    \implies
+    \dot z_2
+     & =
+    \frac{d}{dt} (-t y + \dot y)
+    =
+    (-t \dot y - y) + \ddot y
+    \\ & =
+    (-t \dot y - y) + \left( 2t \dot y + (2 - t^2)y \right)
+    \\ & =
+    t \dot y + y - t^2 y
+    \\ & =
+    t (z_2 + t z_1) + z_1 - t^2 z_1
+    \\ & =
+    t z_2 + \cancel{t^2 z_1} + z_1 - \cancel{t^2 z_1}
+    \\ & =
+    t z_2 + z_1
+\end{align*}
+Thereby, the state-space representation of the system is equivalently given by
+\begin{align*}
+    \begin{bmatrix}
+        \dot z_1 \\
+        \dot z_2
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        t & 1 \\
+        1 & t
+    \end{bmatrix}
+    \begin{bmatrix}
+        z_1 \\
+        z_2
+    \end{bmatrix}
+    \implies
+    \dot z
+    =
+    \begin{bmatrix}
+        t & 1 \\
+        1 & t
+    \end{bmatrix}
+    z
+    :=
+    A_2(t) z
+\end{align*}
