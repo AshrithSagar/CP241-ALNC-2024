@@ -18,3 +18,198 @@ Apply your method to the specific case:
 \]
 
 \subsection*{Solution}
+
+The state equation is given by \( x(k+1)=A x(k)+B u(k) \).
+We can see that
+\begin{align*}
+    x(1)
+     & =
+    A x(0)+B u(0)
+    \\
+    x(2)
+     & =
+    A x(1)+B u(1)
+    =
+    A^{2} x(0)+A B u(0)+B u(1)
+    \\
+    x(3)
+     & =
+    A x(2)+B u(2)
+    =
+    A^{3} x(0)+A^{2} B u(0)+A B u(1)+B u(2)
+    \\
+     & \vdots
+    \\
+    x(k + 1)
+     & =
+    A^{k + 1} x(0)+A^{k} B u(0)+A^{k - 1} B u(1)+\cdots+B u(k)
+    \\ & =
+    A^{k + 1} x(0)+\sum_{i=0}^{k} A^{k - i} B u(i)
+\end{align*}
+Given that \( x(k)=x_{0} \; \forall k \geq 0 \), we get
+\begin{align*}
+    x_0
+    =
+    A^{k + 1} x_0 + \sum_{i=0}^{k} A^{k - i} B u(i)
+    \implies
+    \sum_{i=0}^{k} A^{k - i} B u(i) = (I - A^{k + 1}) x_0, \quad \forall k \geq 0
+\end{align*}
+Thereby, the sequence of inputs \( u(i) \) is determined from
+\begin{equation*}
+    \boxed{
+        \sum_{i=0}^{k} A^{k - i} B u(i) = (I - A^{k + 1}) x_0, \quad \forall k \geq 0
+    }
+\end{equation*}
+
+For the given system, we have
+\[
+    A=\left[\begin{array}{cc}
+            2 & 0  \\
+            0 & -1
+        \end{array}\right], B=\left[\begin{array}{l}
+            1 \\
+            1
+        \end{array}\right], x_{0}=\left[\begin{array}{c}
+            -2 \\
+            1
+        \end{array}\right]
+\]
+\begin{align*}
+    \implies
+    I - A^{k + 1}
+     & =
+    \left[\begin{array}{cc}
+                  1 & 0 \\
+                  0 & 1
+              \end{array}\right]
+    -
+    \left[\begin{array}{cc}
+                  2^{k + 1} & 0            \\
+                  0         & (-1)^{k + 1}
+              \end{array}\right]
+    =
+    \left[\begin{array}{cc}
+                  1 - 2^{k + 1} & 0                \\
+                  0             & 1 - (-1)^{k + 1}
+              \end{array}\right]
+    \\
+    \implies
+    (I - A^{k + 1}) x_0
+     & =
+    \left[\begin{array}{cc}
+                  1 - 2^{k + 1} & 0                \\
+                  0             & 1 - (-1)^{k + 1}
+              \end{array}\right]
+    \left[\begin{array}{c}
+                  -2 \\
+                  1
+              \end{array}\right]
+    =
+    \left[\begin{array}{c}
+                  -2(1 - 2^{k + 1}) \\
+                  1 - (-1)^{k + 1}
+              \end{array}\right]
+\end{align*}
+For \( k = 0 \), we can evaluate \( u(0) \) as
+\begin{align*}
+    B u(0)
+     & =
+    \left[\begin{array}{c}
+                  1 \\
+                  1
+              \end{array}\right]
+    u(0)
+    =
+    (I - A) x_0
+    =
+    \left[\begin{array}{c}
+                  -2(1 - 2^{0 + 1}) \\
+                  1 - (-1)^{0 + 1}
+              \end{array}\right]
+    =
+    \left[\begin{array}{c}
+                  2 \\
+                  2
+              \end{array}\right]
+    \implies
+    u(0)
+    =
+    2
+\end{align*}
+For \( k = 1 \), we can evaluate \( u(1) \) as
+\begin{align*}
+    A B u(0) + B u(1)
+     & =
+    \left[\begin{array}{cc}
+                  2 & 0  \\
+                  0 & -1
+              \end{array}\right]
+    \left[\begin{array}{c}
+                  1 \\
+                  1
+              \end{array}\right]
+    2
+    +
+    \left[\begin{array}{c}
+                  1 \\
+                  1
+              \end{array}\right]
+    u(1)
+    =
+    \left[\begin{array}{c}
+                  4 \\
+                  -2
+              \end{array}\right]
+    +
+    \left[\begin{array}{c}
+                  1 \\
+                  1
+              \end{array}\right]
+    u(1)
+    \\ & =
+    (I - A^2) x_0
+    =
+    \left[\begin{array}{c}
+                  -2(1 - 2^{1 + 1}) \\
+                  1 - (-1)^{1 + 1}
+              \end{array}\right]
+    =
+    \left[\begin{array}{c}
+                  6 \\
+                  0
+              \end{array}\right]
+    \\
+    \implies
+    \left[\begin{array}{c}
+                  1 \\
+                  1
+              \end{array}\right]
+    u(1)
+     & =
+    \left[\begin{array}{c}
+                  6 \\
+                  0
+              \end{array}\right]
+    -
+    \left[\begin{array}{c}
+                  4 \\
+                  -2
+              \end{array}\right]
+    =
+    \left[\begin{array}{c}
+                  2 \\
+                  2
+              \end{array}\right]
+    \implies
+    u(1)
+    =
+    2
+\end{align*}
+We can similarly evaluate \( u(2), u(3), \ldots \) and so on.
+
+Therefore, the sequence of inputs \( u(i) \) is given by
+\[
+    \boxed{
+        u(k) = 2, \quad \forall k \geq 0
+    }
+\]
