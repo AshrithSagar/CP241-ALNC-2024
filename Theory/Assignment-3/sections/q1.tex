@@ -406,3 +406,108 @@ For an invertible matrix \( P(t) \), we can write \( x(t) = P^{-1}(t) z(t) \), t
         \end{aligned}
     }
 \]
+
+\subsubsection*{(e) Verification}
+
+For the given system, we have
+\[
+    A_1(t) =
+    \begin{bmatrix}
+        0       & 1  \\
+        2 - t^2 & 2t
+    \end{bmatrix}, \quad
+    A_2(t) =
+    \begin{bmatrix}
+        t & 1 \\
+        1 & t
+    \end{bmatrix}, \quad
+    P(t) =
+    \begin{bmatrix}
+        1  & 0 \\
+        -t & 1
+    \end{bmatrix}
+\]
+\begin{align*}
+    \implies
+    \dot{P}(t)
+     & =
+    \begin{bmatrix}
+        0  & 0 \\
+        -1 & 0
+    \end{bmatrix}
+    , \quad
+    P^{-1}(t)
+    =
+    \begin{bmatrix}
+        1 & 0 \\
+        t & 1
+    \end{bmatrix}
+    \\
+    \implies
+    \tilde{A}(t)
+     & =
+    \begin{bmatrix}
+        0  & 0 \\
+        -1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 \\
+        t & 1
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        1  & 0 \\
+        -t & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        0       & 1  \\
+        2 - t^2 & 2t
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 \\
+        t & 1
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        0  & 0 \\
+        -1 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        1  & 0 \\
+        -t & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        t                & 1  \\
+        (2 - t^2 + 2t^2) & 2t
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        0  & 0 \\
+        -1 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        t                                                  & 1        \\
+        (-\cancel{t^2} + 2 - \cancel{t^2} + \cancel{2t^2}) & (2t - t)
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        0  & 0 \\
+        -1 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        t & 1 \\
+        2 & t
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        t & 1 \\
+        1 & t
+    \end{bmatrix}
+    =
+    A_2(t)
+\end{align*}
+as required.
+Hence, it stands verified.
