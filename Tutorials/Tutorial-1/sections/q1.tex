@@ -7,3 +7,127 @@ Show that \( f(x) \) is Lipschitz on any compact subset of \( \mathbb{R}^{n} . f
 Here, \( g: \mathbb{R}^{n} \rightarrow \mathbb{R} \) is locally Lipschitz and nonnegative, \( K \) is a constant matrix and \( \mu>0 \).
 
 \subsection*{Solution}
+
+Let \( B \) be a compact subset of \( \mathbb{R}^{n} \).
+We need to show that there exists a constant \( L \) such that
+\begin{equation*}
+    \|f(x)-f(y)\| \leq L\|x-y\|, \quad \forall x, y \in B
+\end{equation*}
+We can alternatively note that \( f(x) \) is given by
+\begin{equation*}
+    f(x)
+    =
+    \left( \min \left \{ \frac{1}{\|K x\|}, \frac{g(x)}{\mu} \right \} \right) K x
+\end{equation*}
+Let \( x, y \in B \).
+We have
+\begin{align*}
+    \|f(x)-f(y)\|
+     & =
+    \left \|
+    \left( \min \left \{ \frac{1}{\|K x\|}, \frac{g(x)}{\mu} \right \} \right) K x
+    -
+    \left( \min \left \{ \frac{1}{\|K y\|}, \frac{g(y)}{\mu} \right \} \right) K y
+    \right \|
+\end{align*}
+Let \( \alpha = \min \left \{ \frac{1}{\|K x\|}, \frac{g(x)}{\mu} \right \} \) and \( \beta = \min \left \{ \frac{1}{\|K y\|}, \frac{g(y)}{\mu} \right \} \).
+Then, we have
+\begin{align*}
+    \|f(x)-f(y)\|
+     & =
+    \left \|
+    \alpha K x - \beta K y
+    \right \|
+    \\
+     & =
+    \left \|
+    \alpha K x - \alpha K y + \alpha K y - \beta K y
+    \right \|
+    \\
+     & =
+    \left \|
+    \alpha K (x - y) + (\alpha - \beta) K y
+    \right \|
+    \\
+     & \leq
+    \left \|
+    \alpha K (x - y)
+    \right \|
+    +
+    \left \|
+    (\alpha - \beta) K y
+    \right \|
+    \\
+     & \leq
+    \left \|
+    \alpha K
+    \right \|
+    \left \|
+    x - y
+    \right \|
+    +
+    \left \|
+    (\alpha - \beta) K
+    \right \|
+    \left \|
+    y
+    \right \|
+\end{align*}
+Since \( B \) is compact, \( y \) is bounded.
+Let \( M = \max_{y \in B} \|y\| \).
+Then, we have
+\begin{align*}
+    \|f(x)-f(y)\|
+     & \leq
+    \left \|
+    \alpha K
+    \right \|
+    \left \|
+    x - y
+    \right \|
+    +
+    \left \|
+    (\alpha - \beta) K
+    \right \|
+    M
+\end{align*}
+Since \( g \) is locally Lipschitz, there exists a constant \( L_{g} \) such that
+\begin{equation*}
+    |g(x) - g(y)| \leq L_{g} \|x - y\|
+\end{equation*}
+Now, we have
+\begin{align*}
+    \| (\alpha - \beta)K \|
+     & =
+    \left |
+    \min \left \{ \frac{1}{\|K x\|}, \frac{g(x)}{\mu} \right \}
+    -
+    \min \left \{ \frac{1}{\|K y\|}, \frac{g(y)}{\mu} \right \}
+    \right | \|K\|
+    \\ & \leq
+    \frac{1}{\mu} \left| g(x) - g(y) \right| \|K\|
+    \leq
+    \frac{L_{g}}{\mu} \|x - y\| \|K\|
+\end{align*}
+\begin{align*}
+    \implies
+    \|f(x)-f(y)\|
+     & \leq
+    \left \|
+    \alpha K
+    \right \|
+    \left \|
+    x - y
+    \right \|
+    +
+    \left \|
+    (\alpha - \beta) K
+    \right \|
+    M
+    \\ & \leq
+    \|K\| \left( \frac{1}{\|K x\|} \right) \|x - y\| + \frac{L_{g}}{\mu} \|K\| M \|x - y\|
+    \\ & \leq
+    \left( \|K\| + \frac{L_{g}}{\mu} \|K\| M \right) \|x - y\|
+    \\ & \leq
+    L \|x - y\|
+\end{align*}
