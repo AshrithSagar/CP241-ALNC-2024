@@ -1,3 +1,19 @@
 \section*{Problem 2}
 
+Prove the following result:
+If the system \( \dot{x}=A x \) is Asymptotically Stable, then for any \( C<0 \), the unique solution to the matrix equation \( A^{\top} P+P A=C \) is given by:
+\begin{equation*}\label{eq:1}
+    P=-\int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} d t \tag{1}
+\end{equation*}
+Also, the solution \( P \) is positive definite and symmetric.
+Show the proof systematically using the following steps:
+\begin{enumerate}[label= (\alph*)]
+    \item Show that the Integral~\ref{eq:1} is finite.
+    \item Show that the Matrix P in 1 satisfies Lyapunov Equation
+    \item Show that the Matrix P in 1 is symmetric.
+    \item Show that the Matrix P in 1 is positive definite.
+    \item Show that, if \( \dot{x}=A x \) is asymptotically stable, then the Lyapunov equation has a unique solution. \\
+          \textit{Hint:} Use contradiction method. Assume another solution \( \bar{P} \) and show \( \bar{P}=P \)
+\end{enumerate}
+
 \subsection*{Solution}
