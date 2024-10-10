@@ -10,3 +10,41 @@ Consider the system
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) Verification of solution \( x(t) = {[t, 1]}^\top \)}
+
+Given the system
+\begin{align*}
+    \dot{x}_{1}
+     & =
+    x_2
+    \\
+    \dot{x}_{2}
+     & =
+    2 x_{1} x_{2} + 3 t + 2 - 3 x_{1} - 2(t + 1) x_{2}
+\end{align*}
+We can see that \( x(t) = {[t, 1]}^\top \) is a solution of the system by substituting the values of \( x_1 \) and \( x_2 \) in the above system, thereby we have
+\begin{align*}
+    \implies
+    \dot{x}_{1}
+     & =
+    \frac{d}{dt} t
+    =
+    1
+    =
+    x_2
+    \\
+    \implies
+    2 x_{1} x_{2} + 3 t + 2 - 3 x_{1} - 2(t + 1) x_{2}
+     & =
+    2 t \cdot 1 + 3 t + 2 - 3 t - 2(t + 1) \cdot 1
+    \\ & =
+    2 t + 3 t + 2 - 3 t - 2 t - 2
+    \\ & =
+    0
+    =
+    \frac{d}{dt} 1
+    =
+    \dot{x}_{2}
+\end{align*}
+Thus, we have verified that \( x(t) = {[t, 1]}^\top \) is indeed a solution of the system.
