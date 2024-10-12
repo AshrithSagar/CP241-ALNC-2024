@@ -58,4 +58,28 @@ We can substitute the value of \( P \) from the given equation~\eqref{eq:1} and 
     =
     C
 \end{align*}
-Thus, the matrix \( P \) satisfies the Lyapunov equation.
+Thus, the matrix \underline{\( P \) satisfies the Lyapunov equation}.
+
+\subsubsection*{(c) \( P \) is symmetric}
+
+We can see that
+\begin{align*}
+    P^\top
+     & =
+    {\left( -\int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} d t \right)}^\top
+    =
+    -\int_{t=0}^{\infty} {\left( e^{A^{\top} t} C e^{A t} \right)}^\top d t
+    \\ & =
+    -\int_{t=0}^{\infty} {\left( e^{A t} \right)}^\top C^\top {\left( e^{A^{\top} t} \right)}^\top d t
+    =
+    -\int_{t=0}^{\infty} e^{A^\top t} C^\top e^{A t} d t
+    \\ & =
+    - \int_{t=0}^{\infty} e^{A^\top t} C e^{A t} d t
+    =
+    P
+    \implies
+    \boxed{
+        P^\top = P
+    }
+\end{align*}
+Thus, the matrix \underline{\( P \) is symmetric}.
