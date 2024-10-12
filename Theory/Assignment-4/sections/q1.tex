@@ -14,3 +14,52 @@ where \( u=1+x_{1}^{2} \). Let, \( V(x)=x_{1}^{2} /\left(1+x_{1}^{2}\right)+x_{2
 \textit{Hint:} In part (b), show that \( \dot{x}_{2} / \dot{x}_{1}=-1 /\left(1+2 \sqrt{2} x_{1}+2 x_{1}^{2}\right) \) on the hyperbola, and compare with the slope of the tangents to the hyperbola.
 
 \subsection*{Solution}
+
+\subsubsection*{(a) \( V(x) > 0 \) and \( \dot{V}(x) < 0 \) for all \( x \in \mathbb{R}^2 - \{ 0 \} \)}
+
+Given the function \( \displaystyle V(x) = \frac{x_1^2}{1 + x_1^2} + x_2^2 \), we can see that \( V(x) > 0 \) for all \( x \in \mathbb{R}^2 - \{ 0 \} \) as
+\begin{align*}
+     &
+    x_1 \neq 0
+    \implies
+    x_1^2 > 0
+    \implies
+    \frac{x_1^2}{1 + x_1^2} > 0
+    \\ &
+    x_2 \neq 0
+    \implies
+    x_2^2 > 0
+    \\ &
+    \implies
+    V(x) =
+    \frac{x_1^2}{1 + x_1^2} + x_2^2
+    > 0
+\end{align*}
+Now, we can see that
+\begin{align*}
+    \dot{V}(x)
+     & =
+    \frac{\partial V}{\partial x_1} \dot{x}_1 + \frac{\partial V}{\partial x_2} \dot{x}_2
+    \\
+    \frac{\partial V}{\partial x_1}
+     & =
+    \frac{\partial}{\partial x_1} \frac{- 6 x_{1}}{{(1 + x_{1}^{2})}^2}
+    =
+    \frac{- 6{(1 + x_{1}^{2})}^2 + 6 x_1 \cdot 2 x_1 \cdot 2(1 + x_{1}^{2})}
+    {{(1 + x_{1}^{2})}^4}
+    =
+    \frac{- 6 + 18 x_1^2}
+    {{(1 + x_{1}^{2})}^3}
+    \\
+    \frac{\partial V}{\partial x_2}
+     & =
+    2 x_2
+\end{align*}
+\begin{align*}
+    \implies
+    \dot{V}(x)
+     & =
+    \frac{- 6 + 18 x_1^2}{u^3} \left( -\frac{6 x_{1}}{u^{2}} + 2 x_{2} \right) + 2 x_2 \left( -\frac{2(x_{1} + x_{2})}{u^{2}} \right)
+    \\ & =
+    \frac{- 6 + 18 x_1^2}{u^3} \left( -\frac{6 x_{1} + 2 u^{2} x_{2}}{u^{2}} \right) - \frac{4 x_2(x_{1} + x_{2})}{u^{2}}
+\end{align*}
