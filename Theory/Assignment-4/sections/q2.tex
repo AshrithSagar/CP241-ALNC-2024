@@ -123,3 +123,61 @@ Thus, we have
     \end{cases}
 \end{align*}
 thereby, \underline{\( P \) is positive definite}.
+
+\subsubsection*{(e) The Lyapunov equation has a unique solution}
+
+Let \( P \) and \( \bar{P} \) be two solutions to the Lyapunov equation, i.e.,
+\begin{align*}
+    A^\top P + P A
+     & =
+    C
+    \\
+    A^\top \bar{P} + \bar{P} A
+     & =
+    C
+\end{align*}
+Then, we can see that
+\begin{align*}
+     &
+    C
+    =
+    A^\top P + P A
+    =
+    A^\top \bar{P} + \bar{P} A
+    \implies
+    A^\top (P - \bar{P}) + (P - \bar{P}) A
+    =
+    0
+    \\
+    \implies
+     &
+    A^\top Q + Q A
+    =
+    0,
+    \quad \text{where } Q = (P - \bar{P})
+\end{align*}
+Since the system \( \dot x = A x \) is asymptotically stable, if we consider the Lyapunov function to be \( V(x) = x^\top Q x \), then we have
+\begin{align*}
+    \implies
+    \dot V(x)
+     & =
+    \frac{d}{dt} \left( x^\top Q x \right)
+    =
+    \frac{d}{dt} \left( x^\top \right) Q x + x^\top Q \frac{d}{dt} \left( x \right)
+    =
+    {\left(\frac{d}{dt} x \right)}^\top Q x + x^\top Q {\left(\frac{d}{dt} x \right)}
+    \\ & =
+    {\dot x}^\top Q x + x^\top Q \dot x
+    =
+    {\left( A x \right)}^\top Q x + x^\top Q \left( A x \right)
+    =
+    \left( x^\top A^\top \right) Q x + x^\top Q \left( A x \right)
+    \\ & =
+    x^\top A^\top Q x + x^\top Q A x
+    =
+    x^\top \left( A^\top Q + Q A \right) x
+    =
+    x^\top \left( 0 \right) x
+    =
+    0
+\end{align*}
