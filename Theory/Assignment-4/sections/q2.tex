@@ -17,3 +17,16 @@ Show the proof systematically using the following steps:
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) The integral \( \displaystyle \int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} d t \) is finite}
+
+We can see that the integral is for a matrix, and thereby, we consider bounds usings matrix norms, which are defined by
+\begin{equation*}
+    \left \| A \right \| = \max_{\left \| x \right \| = 1} \left \| A x \right \|
+\end{equation*}
+Now,
+\begin{align*}
+    \left \| e^{A^{\top} t} C e^{A t} \right \|
+     & \leq
+    \left \| e^{A^{\top} t} \right \| \left \| C \right \| \left \| e^{A t} \right \|
+\end{align*}
