@@ -84,3 +84,42 @@ We can see that
 \end{align*}
 where we used the properties that \( {(AB)}^\top = B^\top A^\top \); \( {(A^\top)}^\top = A \); \( {(e^{A t})}^\top = e^{A^\top t} \), which can be obtained by expanding through the matrix exponential equation; and \( C^\top = C \), i.e., \( C \) is symmetric.
 Thus, the matrix \underline{\( P \) is symmetric}.
+
+\subsubsection*{(d) \( P \) is positive definite}
+
+For \( P \) to be positive definite, we need to show that \( x^\top P x > 0 \) for all \( x \neq 0 \).
+We can see that
+\begin{align*}
+    x^\top P x
+     & =
+    x^\top \left( -\int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} d t \right) x
+    =
+    -\int_{t=0}^{\infty} x^\top e^{A^{\top} t} C e^{A t} x d t
+    \\ & =
+    -\int_{t=0}^{\infty} {(e^{A t} x)}^\top C {(e^{A t} x)} d t
+    =
+    -\int_{t=0}^{\infty} y^\top C y d t
+\end{align*}
+where \( y = e^{A t} x \).
+Since \( C < 0 \), i.e., \( C \) is negative definite, we have
+\begin{align*}
+    y^\top C y
+     &
+    \begin{cases}
+        < 0 & \text{if } y \neq 0
+        \\
+        = 0 & \text{if } y = 0
+    \end{cases}
+\end{align*}
+Now, we can see that \( x \neq 0 \iff y = e^{A t} x \neq 0 \; \forall t > 0 \).
+Thus, we have
+\begin{align*}
+    x^\top P x
+     &
+    \begin{cases}
+        > 0 & \text{if } x \neq 0
+        \\
+        = 0 & \text{if } x = 0
+    \end{cases}
+\end{align*}
+thereby, \underline{\( P \) is positive definite}.
