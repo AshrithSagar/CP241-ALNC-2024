@@ -30,3 +30,32 @@ Now,
      & \leq
     \left \| e^{A^{\top} t} \right \| \left \| C \right \| \left \| e^{A t} \right \|
 \end{align*}
+
+\subsubsection*{(b) \( P \) satisfies the Lyapunov equation}
+
+Given the system \( \dot x = A x \), the corresponding Lyapunov equation is given by
+\begin{equation*}
+    A^{\top} P + P A = C
+\end{equation*}
+where \( C < 0 \), i.e., \( C \) is a negative definite matrix.
+We can substitute the value of \( P \) from the given equation~\eqref{eq:1} and verify if it satisfies the Lyapunov equation.
+\begin{align*}
+    A^\top P + P A
+     & =
+    A^\top \left( -\int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} d t \right) + \left( -\int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} d t \right) A
+    \\ & =
+    -\int_{t=0}^{\infty} A^\top e^{A^{\top} t} C e^{A t} d t - \int_{t=0}^{\infty} e^{A^{\top} t} C e^{A t} A d t
+    \\ & =
+    -\int_{t=0}^{\infty} \left( \left( \frac{d}{dt} e^{A^{\top} t} \right) C e^{A t} + e^{A^{\top} t} C \left( \frac{d}{dt} e^{A t} \right) \right) d t
+    \\ & =
+    -\int_{t=0}^{\infty} \frac{d}{dt} \left( e^{A^{\top} t} C e^{A t} \right) d t
+    =
+    - e^{A^{\top} t} C e^{A t} \Big|_{t=0}^{\infty}
+    \\ & =
+    - \lim_{t \to \infty} e^{A^{\top} t} C e^{A t} + e^{A^{\top} 0} C e^{A 0}
+    =
+    - 0 + C
+    =
+    C
+\end{align*}
+Thus, the matrix \( P \) satisfies the Lyapunov equation.
