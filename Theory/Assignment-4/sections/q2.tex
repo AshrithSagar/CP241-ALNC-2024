@@ -126,16 +126,12 @@ thereby, \underline{\( P \) is positive definite}.
 
 \subsubsection*{(e) The Lyapunov equation has a unique solution}
 
-Let \( P \) and \( \bar{P} \) be two solutions to the Lyapunov equation, i.e.,
-\begin{align*}
-    A^\top P + P A
-     & =
-    C
-    \\
-    A^\top \bar{P} + \bar{P} A
-     & =
-    C
-\end{align*}
+Let \( P \) and \( \bar{P} \) be two solutions to the Lyapunov equation, i.e., we have
+\begin{equation*}
+    A^\top P + P A = C,
+    \quad
+    A^\top \bar{P} + \bar{P} A = C
+\end{equation*}
 Then, we can see that
 \begin{align*}
      &
@@ -156,7 +152,7 @@ Then, we can see that
     0,
     \quad \text{where } Q = (P - \bar{P})
 \end{align*}
-Since the system \( \dot x = A x \) is asymptotically stable, if we consider the Lyapunov function to be \( V(x) = x^\top Q x \), then we have
+Since the system \( \dot x = A x \) is asymptotically stable, if we consider \( V(x) = x^\top Q x \), then we can see that \( V(x) \) is a Lyapunov function, by
 \begin{align*}
     \implies
     \dot V(x)
