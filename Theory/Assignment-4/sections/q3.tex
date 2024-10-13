@@ -11,6 +11,46 @@ Investigate Input-to-State Stability for the following systems:
 
 \subsubsection*{(a) System:\( \quad \dot{x}=-(1+u) x^{3} \)}
 
+Given the system \( \dot{x}=-(1+u) x^{3} \), we will first check if the corresponding system with zero input is globally asymptotically stable, i.e.
+\begin{equation*}
+    \dot{x}=-x^{3}
+\end{equation*}
+Consider the Lyapunov candidate function as \( V(x)=\frac{1}{2} x^{2} \).
+We can see that \( V(x) > 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), since
+\begin{equation*}
+    x \neq 0
+    \implies
+    x^2 > 0
+    \implies
+    V(x)
+    =
+    \frac{1}{2} x^2 > 0
+\end{equation*}
+Now, we can see that
+\begin{equation*}
+    \dot{V}(x)
+    =
+    \frac{\partial V}{\partial x} \dot{x}
+    =
+    x \dot{x}
+    =
+    -x x^3
+    =
+    -x^4
+\end{equation*}
+We can see that \( \dot{V}(x) < 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), since
+\begin{equation*}
+    x \neq 0
+    \implies
+    x^4 > 0
+    \implies
+    \dot{V}(x)
+    =
+    -x^4 < 0
+\end{equation*}
+Thus, the zero-input system \( \dot{x}=-x^{3} \) is globally asymptotically stable.
+Now, we will check if the system \( \dot{x}=-(1+u) x^{3} \) is Input-to-State Stable.
+
 \subsubsection*{(b) System:\( \quad \dot{x}_{1}=-x_{1}+x_{1}^{2} x_{2}, \quad \dot{x}_{2}=-x_{1}^{3}-x_{2}+u \)}
 
 \subsubsection*{(c) System:\( \quad \dot{x}_{1}=-x_{1}-x_{2}+u_{1}, \quad \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \)}
