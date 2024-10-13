@@ -77,28 +77,9 @@ using the fact that \( -a^2 < 0 \) for all \( a \in \mathbb{R} - \{ 0 \} \).
 
 Hence, \( V(x) > 0 \) and \( \dot{V}(x) < 0 \) for all \( x \in \mathbb{R}^2 - \{ 0 \} \).
 
-\subsubsection*{(b) Trajectories to the right of the branch in the first quadrant cannot cross that branch}
+\subsubsection*{(b) Trajectories to the right of the branch in the first quadrant for the hyperbola \( x_2 = 2 / (x_1 - \sqrt{2}) \) cannot cross that branch}
 
-Given the hyperbola \( x_2 = 2 / (x_1 - \sqrt{2}) \), we can see that
-\begin{align*}
-    \frac{\dot{x}_2}{\dot{x}_1}
-     & =
-    \frac{-2 (x_1 + x_2)}{u^2} \cdot \frac{u^2}{-6 x_1 + 2 x_2}
-    =
-    \frac{2 (x_1 + x_2)}{3 x_1 - x_2}
-    =
-    \frac{2 \left( x_1 + \frac{2}{x_1 - \sqrt{2}} \right)}{3 x_1 - \frac{2}{x_1 - \sqrt{2}}}
-    =
-    \frac{2 \left( x_1 (x_1 - \sqrt{2}) + 2 \right)}{3 x_1 (x_1 - \sqrt{2}) - 2}
-    \\ & =
-    \frac{2 x_1^2 - 2 \sqrt{2} x_1 + 4}{3 x_1^2 - 3 \sqrt{2} x_1 - 2}
-    =
-    \frac{2 (x_1^2 - \sqrt{2} x_1 + 2)}{3 (x_1^2 - \sqrt{2} x_1) - 2}
-    =
-    \frac{2 (x_1^2 - \sqrt{2} x_1 + 2)}{3 x_1^2 - 3 \sqrt{2} x_1 - 2}
-\end{align*}
-on the hyperbola.
-Now, we can see that the slope of the tangent to the hyperbola is given by
+Given the hyperbola \( x_2 = 2 / (x_1 - \sqrt{2}) \), we can see that the slope of the tangent to the hyperbola is given by
 \begin{align*}
     \frac{d x_2}{d x_1}
      & =
@@ -110,10 +91,46 @@ Now, we can see that the slope of the tangent to the hyperbola is given by
     =
     -\frac{2}{(x_1 - \sqrt{2})^2}
 \end{align*}
-Now, we can see that the slope of the tangent to the hyperbola is given by \( -1 / (1 + 2 \sqrt{2} x_1 + 2 x_1^2) \) on the hyperbola.
-Comparing the slope of the tangent to the hyperbola with the slope of the vector field, we can see that the trajectories to the right of the branch in the first quadrant cannot cross that branch.
+For the system, we can see that computing \( \frac{\dot{x}_2}{\dot{x}_1} \) corresponds to \( \frac{dx_2}{dt} \frac{dt}{d x_1} = \frac{dx_2}{d x_1} \) for the trajectories of the system.
+\begin{align*}
+    \implies
+    \frac{\dot{x}_2}{\dot{x}_1}
+     & =
+    \frac{-2\left(x_{1}+x_{2}\right)}{\cancel{u^{2}}}
+    \cdot
+    \frac{\cancel{u^{2}}}{-6 x_{1}+2 x_{2} u^2}
+    =
+    \frac{\left(x_{1}+x_{2}\right)}{3 x_{1} - 2 x_{2} u^2}
+\end{align*}
+On the hyperbola, we can see this to be
+\begin{align*}
+    \frac{\left(x_{1}+x_{2}\right)}{3 x_{1} - 2 x_{2} u^2}
+     & =
+    \frac{x_1 + 2 / (x_1 - \sqrt{2})}{3 x_1 - 2 \left( 2 / (x_1 - \sqrt{2}) \right) (1+x_1^2)^2}
+    \\ & =
+    \frac{x_1 (x_1 - \sqrt{2}) + 2}{3 x_1 (x_1 - \sqrt{2}) - 4 (1+x_1^2)^2}
+    =
+    \frac{x_1^2 - \sqrt{2} x_1 + 2}{3 x_1^2 - 3 \sqrt{2} x_1 - 4 - x_1^4 - 8 x_1^2}
+    \\ & =
+    \frac{x_1^2 - \sqrt{2} x_1 + 2}{-x_1^4 - 5 x_1^2 - 3 \sqrt{2} x_1 - 4}
+    =
+    \frac{-1}{\left(1+2 \sqrt{2} x_{1}+2 x_{1}^{2}\right)}
+    =
+    -\frac{1}{(\sqrt{2} x_{1}+ 1)^2}
+\end{align*}
+Now, comparing the slopes, we find that the slope of the tangent to the hyperbola is always greater than the slope of the trajectories of the system, as seen in the plot in Figure~\ref{fig:q1b}.
+Thereby, the trajectories to the right of the branch in the first quadrant cannot cross that branch.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figures/images/q1b.png}
+    \caption{
+        Vector field on the boundary of the hyperbola
+    }\label{fig:q1b}
+\end{figure}
+
+\newpage
 \subsubsection*{(c) The origin is not globally asymptotically stable}
 
 Since the trajectories to the right of the branch in the first quadrant cannot cross that branch, we can see that if we start from any point in the first quadrant, we will never reach the origin.
-Hence, the origin is not globally asymptotically stable.
+Since there exists atleast one point which doesn't go to the origin as time goes to infinity, the origin is not globally asymptotically stable.
