@@ -76,3 +76,39 @@ Now, we can see that
 using the fact that \( a^2 > 0 \) for all \( a \in \mathbb{R} - \{ 0 \} \).
 
 Hence, \( V(x) > 0 \) and \( \dot{V}(x) < 0 \) for all \( x \in \mathbb{R}^2 - \{ 0 \} \).
+
+\subsubsection*{(b) Trajectories to the right of the branch in the first quadrant cannot cross that branch}
+
+Given the hyperbola \( x_2 = 2 / (x_1 - \sqrt{2}) \), we can see that
+\begin{align*}
+    \frac{\dot{x}_2}{\dot{x}_1}
+     & =
+    \frac{-2 (x_1 + x_2)}{u^2} \cdot \frac{u^2}{-6 x_1 + 2 x_2}
+    =
+    \frac{2 (x_1 + x_2)}{3 x_1 - x_2}
+    =
+    \frac{2 \left( x_1 + \frac{2}{x_1 - \sqrt{2}} \right)}{3 x_1 - \frac{2}{x_1 - \sqrt{2}}}
+    =
+    \frac{2 \left( x_1 (x_1 - \sqrt{2}) + 2 \right)}{3 x_1 (x_1 - \sqrt{2}) - 2}
+    \\ & =
+    \frac{2 x_1^2 - 2 \sqrt{2} x_1 + 4}{3 x_1^2 - 3 \sqrt{2} x_1 - 2}
+    =
+    \frac{2 (x_1^2 - \sqrt{2} x_1 + 2)}{3 (x_1^2 - \sqrt{2} x_1) - 2}
+    =
+    \frac{2 (x_1^2 - \sqrt{2} x_1 + 2)}{3 x_1^2 - 3 \sqrt{2} x_1 - 2}
+\end{align*}
+on the hyperbola.
+Now, we can see that the slope of the tangent to the hyperbola is given by
+\begin{align*}
+    \frac{d x_2}{d x_1}
+     & =
+    \frac{d}{d x_1} \left( \frac{2}{x_1 - \sqrt{2}} \right)
+    =
+    \frac{d}{d x_1} \left( 2 (x_1 - \sqrt{2})^{-1} \right)
+    =
+    -2 (x_1 - \sqrt{2})^{-2}
+    =
+    -\frac{2}{(x_1 - \sqrt{2})^2}
+\end{align*}
+Now, we can see that the slope of the tangent to the hyperbola is given by \( -1 / (1 + 2 \sqrt{2} x_1 + 2 x_1^2) \) on the hyperbola.
+Comparing the slope of the tangent to the hyperbola with the slope of the vector field, we can see that the trajectories to the right of the branch in the first quadrant cannot cross that branch.
