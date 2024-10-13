@@ -30,6 +30,24 @@ Now,
      & \leq
     \left \| e^{A^{\top} t} \right \| \left \| C \right \| \left \| e^{A t} \right \|
 \end{align*}
+by the properties of matrix norms.
+Since \( A \) is asymptotically stable, we have \( \left \| e^{A t} \right \| \leq M e^{-\lambda t} \) for some \( M, \lambda > 0 \).
+Thus, we have
+\begin{align*}
+    \int_{t=0}^{\infty} \left \| e^{A^{\top} t} C e^{A t} \right \| d t
+     & \leq
+    \int_{t=0}^{\infty} \left \| e^{A^{\top} t} \right \| \left \| C \right \| \left \| e^{A t} \right \| d t
+    \\ & \leq
+    \int_{t=0}^{\infty} M e^{-\lambda t} \left \| C \right \| M e^{-\lambda t} d t
+    =
+    M^2 \left \| C \right \| \int_{t=0}^{\infty} e^{-2 \lambda t} d t
+    \\ & =
+    M^2 \left \| C \right \| \left( \frac{1}{2 \lambda} \right)
+    =
+    \frac{M^2 \left \| C \right \|}{2 \lambda}
+    <
+    \infty
+\end{align*}
 
 \subsubsection*{(b) \( P \) satisfies the Lyapunov equation}
 
