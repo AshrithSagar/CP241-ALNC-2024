@@ -41,16 +41,18 @@ Now, we can see that
      & =
     \frac{\partial V}{\partial x_1} \dot{x}_1 + \frac{\partial V}{\partial x_2} \dot{x}_2
     \\
+    \implies
     \frac{\partial V}{\partial x_1}
      & =
-    \frac{\partial}{\partial x_1} \frac{- 6 x_{1}}{{(1 + x_{1}^{2})}^2}
+    \frac{2 x_1 (1 + x_1^2) - x_1^2 (2 x_1)}{(1 + x_1^2)^2}
     =
-    \frac{- 6{(1 + x_{1}^{2})}^2 + 6 x_1 \cdot 2 x_1 \cdot 2(1 + x_{1}^{2})}
-    {{(1 + x_{1}^{2})}^4}
+    \frac{2 x_1 + \cancel{2 x_1^3} - \cancel{2 x_1^3}}{(1 + x_1^2)^2}
     =
-    \frac{- 6 + 18 x_1^2}
-    {{(1 + x_{1}^{2})}^3}
+    \frac{2 x_1}{(1 + x_1^2)^2}
+    =
+    \frac{2 x_1}{u^2}
     \\
+    \implies
     \frac{\partial V}{\partial x_2}
      & =
     2 x_2
@@ -59,7 +61,18 @@ Now, we can see that
     \implies
     \dot{V}(x)
      & =
-    \frac{- 6 + 18 x_1^2}{u^3} \left( -\frac{6 x_{1}}{u^{2}} + 2 x_{2} \right) + 2 x_2 \left( -\frac{2(x_{1} + x_{2})}{u^{2}} \right)
+    \frac{2 x_1}{u^2} \left( -\frac{6 x_1}{u^2} + 2 x_2 \right) + 2 x_2 \left( -\frac{2 (x_1 + x_2)}{u^2} \right)
     \\ & =
-    \frac{- 6 + 18 x_1^2}{u^3} \left( -\frac{6 x_{1} + 2 u^{2} x_{2}}{u^{2}} \right) - \frac{4 x_2(x_{1} + x_{2})}{u^{2}}
+    \frac{2 x_1}{u^2} \left( -\frac{6 x_1}{u^2} + 2 x_2 \right) - \frac{4 x_2 (x_1 + x_2)}{u^2}
+    \\ & =
+    -\frac{12 x_1^2}{u^4} + \cancel{\frac{4 x_1 x_2}{u^2}} - \cancel{\frac{4 x_1 x_2}{u^2}} - \frac{4 x_2^2}{u^2}
+    \\ & =
+    \left( -12 \left( \frac{x_1}{u^2} \right)^2 - 4 \left( \frac{x_2}{u} \right)^2 \right)
+    <
+    0,
+    \quad
+    \forall x \in \mathbb{R}^2 - \{ 0 \}
 \end{align*}
+using the fact that \( a^2 > 0 \) for all \( a \in \mathbb{R} - \{ 0 \} \).
+
+Hence, \( V(x) > 0 \) and \( \dot{V}(x) < 0 \) for all \( x \in \mathbb{R}^2 - \{ 0 \} \).
