@@ -9,6 +9,12 @@ Investigate Input-to-State Stability for the following systems:
 
 \subsection*{Solution}
 
+For the system to be Input-to-State Stable, it should satisfy
+\begin{equation*}
+    \left| x(t) \right| \leq \beta( \| x(0) \|, t ) + \gamma( \sup_{s \in [0, t]} \left| u(s) \right| )
+\end{equation*}
+for some class-\( \mathcal{KL} \) function \( \beta \) and class-\( \mathcal{K} \) function \( \gamma \).
+
 \subsubsection*{(a) System:\( \quad \dot{x}=-(1+u) x^{3} \)}
 
 Given the system \( \dot{x}=-(1+u) x^{3} \), we will first check if the corresponding system with zero input is globally asymptotically stable.
@@ -36,11 +42,6 @@ Now, we have,
     -(1 + u) x^4
 \end{equation*}
 For the zero-input condition, we can see that \( \dot{V}(x) = -x^4 < 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), thereby, the system is globally asymptotically stable under the zero input condition.
-For the system to be Input-to-State Stable, it should satisfy
-\begin{equation*}
-    \left| x(t) \right| \leq \beta( \| x(0) \|, t ) + \gamma( \sup_{s \in [0, t]} \left| u(s) \right| )
-\end{equation*}
-for some class-\( \mathcal{KL} \) function \( \beta \) and class-\( \mathcal{K} \) function \( \gamma \).
 
 \subsubsection*{(b) System:\( \quad \dot{x}_{1}=-x_{1}+x_{1}^{2} x_{2}, \quad \dot{x}_{2}=-x_{1}^{3}-x_{2}+u \)}
 
