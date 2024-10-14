@@ -79,6 +79,34 @@ Now, we have,
 \end{align*}
 For the zero-input condition, we can see that \( \dot{V}(x) = -x_1^2 - x_2^2 < 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), thereby, the system is globally asymptotically stable under the zero input condition.
 
+Now, by Young's inequality, we can see that for any \( a, b \in \mathbb{R} \) and \( \epsilon > 0 \), we have
+\begin{equation*}
+    \left| a b \right|
+    \leq
+    \frac{1}{2 \epsilon} a^2 + \frac{\epsilon}{2} b^2
+\end{equation*}
+Putting \( a = u \), \( b = x_2 \) and \( \epsilon = 1 \), we have
+\begin{equation*}
+    u x_2 \leq \left| u x_2 \right|
+    \leq
+    \frac{1}{2} u^2 + \frac{1}{2} x_2^2
+\end{equation*}
+Now, we have
+\begin{align*}
+    \dot{V}(x)
+     & =
+    -x_1^2 - x_2^2 + u x_2
+    \\ & \leq
+    -x_1^2 - x_2^2 + \frac{1}{2} u^2 + \frac{1}{2} x_2^2
+    \\ & =
+    \left( -x_1^2 - \frac{1}{2} x_2^2 \right) + \left( \frac{1}{2} u^2 \right)
+    =
+    - \alpha_3(|x|) + \alpha_4(|u|)
+\end{align*}
+where \( \alpha_3(|x|) = x_1^2 + \frac{1}{2} x_2^2 \) and \( \alpha_4(|u|) = \frac{1}{2} u^2 \) are class-\( \mathcal{K} \) functions.
+
+Thereby, the \underline{system is Input-to-State Stable}.
+
 \subsubsection*{(c) System:\( \quad \dot{x}_{1}=-x_{1}-x_{2}+u_{1}, \quad \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \)}
 
 Given the system \( \dot{x}_{1}=-x_{1}-x_{2}+u_{1} \) and \( \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \), we will first check if the corresponding system with zero input is globally asymptotically stable.
