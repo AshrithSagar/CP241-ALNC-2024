@@ -100,19 +100,22 @@ For the system, we can see that computing \( \frac{\dot{x}_2}{\dot{x}_1} \) corr
     \cdot
     \frac{\cancel{u^{2}}}{-6 x_{1}+2 x_{2} u^2}
     =
-    \frac{\left(x_{1}+x_{2}\right)}{3 x_{1} - 2 x_{2} u^2}
+    \frac{\left(x_{1}+x_{2}\right)}{3 x_{1} - x_{2} u^2}
 \end{align*}
 On the hyperbola, we can see this to be
 \begin{align*}
-    \frac{\left(x_{1}+x_{2}\right)}{3 x_{1} - 2 x_{2} u^2}
+    \implies
+    \frac{\dot{x}_2}{\dot{x}_1}
      & =
-    \frac{x_1 + 2 / (x_1 - \sqrt{2})}{3 x_1 - 2 \left( 2 / (x_1 - \sqrt{2}) \right) (1+x_1^2)^2}
-    \\ & =
-    \frac{x_1 (x_1 - \sqrt{2}) + 2}{3 x_1 (x_1 - \sqrt{2}) - 4 (1+x_1^2)^2}
+    \frac{\left(x_{1}+x_{2}\right)}{3 x_{1} - x_{2} u^2}
     =
-    \frac{x_1^2 - \sqrt{2} x_1 + 2}{3 x_1^2 - 3 \sqrt{2} x_1 - 4 - x_1^4 - 8 x_1^2}
+    \frac{x_1 + 2 / (x_1 - \sqrt{2})}{3 x_1 - \left( 2 / (x_1 - \sqrt{2}) \right) (1+x_1^2)^2}
     \\ & =
-    \frac{x_1^2 - \sqrt{2} x_1 + 2}{-x_1^4 - 5 x_1^2 - 3 \sqrt{2} x_1 - 4}
+    \frac{x_1 (x_1 - \sqrt{2}) + 2}{3 x_1 (x_1 - \sqrt{2}) - 2 (1+x_1^2)^2}
+    =
+    \frac{x_1^2 - \sqrt{2} x_1 + 2}{3 x_1^2 - 3 \sqrt{2} x_1 - 2 - 2 x_1^4 - 4 x_1^2}
+    \\ & =
+    \frac{x_1^2 - \sqrt{2} x_1 + 2}{-2 x_1^4 - x_1^2 - 3 \sqrt{2} x_1 - 2}
     =
     \frac{-1}{\left(1+2 \sqrt{2} x_{1}+2 x_{1}^{2}\right)}
     =
