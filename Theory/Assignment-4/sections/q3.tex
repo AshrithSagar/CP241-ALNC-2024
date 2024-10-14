@@ -139,3 +139,35 @@ Now, we have,
     -x_1^2 - \cancel{x_1 x_2} + u_1 x_1 + \cancel{x_1 x_2} - x_2^4 + u_2 x_2
 \end{align*}
 For the zero-input condition, we can see that \( \dot{V}(x) = -x_1^2 - x_2^4 < 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), thereby, the system is globally asymptotically stable under the zero input condition.
+
+Now, by Young's inequality, we can see that for any \( a, b \in \mathbb{R} \) and \( \epsilon > 0 \), we have
+\begin{equation*}
+    \left| a b \right|
+    \leq
+    \frac{1}{2 \epsilon} a^2 + \frac{\epsilon}{2} b^2
+\end{equation*}
+Putting \( a = u \), \( b = x_2 \) and \( \epsilon = 1 \), we have
+\begin{align*}
+    u x_1 \leq \left| u x_1 \right|
+     & \leq
+    \frac{1}{2} u^2 + \frac{1}{2} x_1^2
+    \\
+    u x_2 \leq \left| u x_2 \right|
+     & \leq
+    \frac{1}{2} u^2 + \frac{1}{2} x_2^2
+\end{align*}
+Now, we have
+\begin{align*}
+    \dot{V}(x)
+     & =
+    -x_1^2 - x_2^4 + u_1 x_1 + u_2 x_2
+    \\ & \leq
+    -x_1^2 - x_2^4 + \frac{1}{2} u_1^2 + \frac{1}{2} x_1^2 + \frac{1}{2} u_2^2 + \frac{1}{2} x_2^2
+    \\ & =
+    \left( - \frac{1}{2} x_1^2 -x_2^4 - \frac{1}{2} x_2^2 \right) + \left( \frac{1}{2} u_1^2 + \frac{1}{2} u_2^2 \right)
+    \\ & =
+    - \alpha_3(|x|) - \alpha_4(|u|)
+\end{align*}
+where \( \alpha_3(|x|) = \frac{1}{2} x_1^2 + x_2^4 + \frac{1}{2} x_2^2 \) and \( \alpha_4(|u|) = \frac{1}{2} u_1^2 + \frac{1}{2} u_2^2 \) are class-\( \mathcal{K} \) functions.
+
+Thereby, the \underline{system is Input-to-State Stable}.
