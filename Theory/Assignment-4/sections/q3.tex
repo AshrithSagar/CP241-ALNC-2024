@@ -40,9 +40,37 @@ Now, we have,
     -x (1 + u) x^3
     =
     -(1 + u) x^4
+    =
+    -x^4 - u x^4
 \end{equation*}
 For the zero-input condition, we can see that \( \dot{V}(x) = -x^4 < 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), thereby, the system is globally asymptotically stable under the zero input condition.
 
+Now, by Young's inequality, we can see that for any \( a, b \in \mathbb{R} \) and \( \epsilon > 0 \), we have
+\begin{equation*}
+    \left| a b \right|
+    \leq
+    \frac{1}{2 \epsilon} a^2 + \frac{\epsilon}{2} b^2
+\end{equation*}
+Putting \( a = u \), \( b = x_2^4 \) and \( \epsilon = 1 \), we have
+\begin{equation*}
+    - u x^4 \leq \left| u x^4 \right|
+    \leq
+    \frac{1}{2} u^2 + \frac{1}{2} x_2^8
+\end{equation*}
+Now, we have
+\begin{align*}
+    \dot{V}(x)
+     & =
+    -x^4 - u x^4
+    \\ & \leq
+    -x^4 + \frac{1}{2} u^2 + \frac{1}{2} x^8
+    \\ & =
+    \left( -x^4 + \frac{1}{2} x^8 \right) + \left( \frac{1}{2} u^2 \right)
+\end{align*}
+
+The system is probably not Input-to-State Stable.
+
+\clearpage
 \subsubsection*{(b) System:\( \quad \dot{x}_{1}=-x_{1}+x_{1}^{2} x_{2}, \quad \dot{x}_{2}=-x_{1}^{3}-x_{2}+u \)}
 
 Given the system \( \dot{x}_{1}=-x_{1}+x_{1}^{2} x_{2} \) and \( \dot{x}_{2}=-x_{1}^{3}-x_{2}+u \), we will first check if the corresponding system with zero input is globally asymptotically stable.
@@ -107,6 +135,7 @@ where \( \alpha_3(|x|) = x_1^2 + \frac{1}{2} x_2^2 \) and \( \alpha_4(|u|) = \fr
 
 Thereby, the \underline{system is Input-to-State Stable}.
 
+\clearpage
 \subsubsection*{(c) System:\( \quad \dot{x}_{1}=-x_{1}-x_{2}+u_{1}, \quad \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \)}
 
 Given the system \( \dot{x}_{1}=-x_{1}-x_{2}+u_{1} \) and \( \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \), we will first check if the corresponding system with zero input is globally asymptotically stable.
