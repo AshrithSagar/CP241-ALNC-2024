@@ -117,13 +117,28 @@ On the hyperbola, we can see this to be
     \\ & =
     \frac{x_1^2 - \sqrt{2} x_1 + 2}{-2 x_1^4 - x_1^2 - 3 \sqrt{2} x_1 - 2}
     =
-    \frac{-1}{\left(1+2 \sqrt{2} x_{1}+2 x_{1}^{2}\right)}
+    \frac{\cancel{(x_1^2 - \sqrt{2} x_1 + 2)}}{-(\sqrt{2} x_{1}+ 1)^2 \cancel{(x_1^2 - \sqrt{2} x_1 + 2)}}
     =
-    -\frac{1}{(\sqrt{2} x_{1}+ 1)^2}
+    \frac{-1}{\left(1+2 \sqrt{2} x_{1}+2 x_{1}^{2}\right)}
 \end{align*}
 Now, comparing the slopes, we find that the slope of the tangent to the hyperbola is always greater than the slope of the trajectories of the system, as seen in the plot in Figure~\ref{fig:q1b}.
-Thereby, the trajectories to the right of the branch in the first quadrant cannot cross that branch.
+\begin{align*}
+     &
+    -\frac{1}{(\sqrt{2} x_{1}+ 1)^2}
+    >
+    -\frac{2}{(x_1 - \sqrt{2})^2}
+    \implies
+    \frac{1}{(\sqrt{2} x_{1}+ 1)^2}
+    <
+    \frac{2}{(x_1 - \sqrt{2})^2}
+    \\ &
+    \implies
+    x_1  > 0
+    \implies
+    |\text{Slope of the tangent to the hyperbola}| > |\text{Slope of the trajectories}|
+\end{align*}
 
+\newpage
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/images/q1b.png}
@@ -132,8 +147,10 @@ Thereby, the trajectories to the right of the branch in the first quadrant canno
     }\label{fig:q1b}
 \end{figure}
 
-\newpage
+Thereby, the trajectories to the right of the branch in the first quadrant cannot cross that branch.
+
 \subsubsection*{(c) The origin is not globally asymptotically stable}
 
 Since the trajectories to the right of the branch in the first quadrant cannot cross that branch, we can see that if we start from any point in the first quadrant, we will never reach the origin.
-Since there exists atleast one point which doesn't go to the origin as time goes to infinity, the origin is not globally asymptotically stable.
+Since there exists atleast one point which doesn't go to the origin as time goes to infinity, the
+\underline{origin is not globally asymptotically stable}.
