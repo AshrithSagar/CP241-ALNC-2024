@@ -1,3 +1,30 @@
 \section*{Problem 1}
 
+Consider the discrete-time state equation
+\begin{align*}
+    x[k+1]
+     & =
+    \begin{bmatrix}
+        1 & 1 & -2 \\
+        0 & 1 & 1  \\
+        0 & 0 & 1
+    \end{bmatrix}
+    x[k] +
+    \begin{bmatrix}
+        1 \\
+        0 \\
+        1
+    \end{bmatrix}
+    y[k]
+     & =
+    \begin{bmatrix}
+        2 & 0 & 0
+    \end{bmatrix}
+    x[k]
+\end{align*}
+\begin{enumerate}[label= (\alph*)]
+    \item Find the state feedback gain so that the resulting system has all eigenvalues at \( \mathrm{z}=0 \).
+    \item Show that for any initial state, the zero-input response of the feedback system becomes identically zero for \( k \geq 0 \).
+\end{enumerate}
+
 \subsection*{Solution}

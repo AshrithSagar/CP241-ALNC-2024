@@ -1,3 +1,29 @@
 \section*{Problem 3}
 
+An inverted pendulum of mass \( m \), is hinged at A.
+A gyro with spin angular momentum, \( h \), is attached to the pendulum but is free to rotate about the pendulum axis \( (\phi) \) as shown in Figure~\ref{fig:q3}.
+A control torque, \( Q \), can be applied to the gyro from the pendulum.
+The equations of motion are
+\vspace*{-1em}
+\begin{align*}
+    I \ddot{\theta} & =m g l \theta-h \dot{\phi} \\
+    J \ddot{\phi}   & =h \dot{\theta}+Q
+\end{align*}
+
+\vspace*{-0.5em}
+where \( I= \) moment of inertia of the pendulum plus gyro about \( A, J= \) moment of inertia of the gyro about axis \( A C \), and \( C= \) mass centre of the pendulum plus gyro.
+\begin{enumerate}[label= (\alph*), topsep=3pt, itemsep=-0.25em]
+    \item Show that the system is controllable by \( Q \).
+    \item Show that the system is always unstable.
+\end{enumerate}
+\vspace*{-1.5em}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\linewidth]{figures/images/q3.jpg}
+    \caption{
+        Inverted pendulum
+    }\label{fig:q3}
+\end{figure}
+\vspace*{-3em}
+
 \subsection*{Solution}
