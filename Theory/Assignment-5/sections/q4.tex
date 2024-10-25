@@ -127,3 +127,111 @@ The eigenvalues are given by
     \frac{1-k_2}{2} \pm \frac{1}{2} \sqrt{k_2^2 + 2k_2 - 4k_1 + 5}
 \end{align*}
 For the system to be stabilisable, the real parts of the eigenvalues must be negative.
+
+\subsubsection*{(b)}
+
+We will first linearize the system around the origin.\\
+The Jacobian matrix of the system is given by
+\begin{align*}
+    J(x)
+     & =
+    \begin{bmatrix}
+        \frac{\partial f_{1}}{\partial x_{1}} & \frac{\partial f_{1}}{\partial x_{2}} & \frac{\partial f_{1}}{\partial x_{3}} \\
+        \frac{\partial f_{2}}{\partial x_{1}} & \frac{\partial f_{2}}{\partial x_{2}} & \frac{\partial f_{2}}{\partial x_{3}} \\
+        \frac{\partial f_{3}}{\partial x_{1}} & \frac{\partial f_{3}}{\partial x_{2}} & \frac{\partial f_{3}}{\partial x_{3}}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1       & 1       & 0 \\
+        x_2^2+1 & 2x_1x_2 & 1 \\
+        0       & 0       & 0
+    \end{bmatrix}
+    \implies
+    A
+    =
+    J(0)
+    =
+    \begin{bmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 0 & 0
+    \end{bmatrix}
+\end{align*}
+Thereby, the linearized system is given by
+\begin{align*}
+    \dot{x}
+     & =
+    \begin{bmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 0 & 0
+    \end{bmatrix}
+    x
+    +
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        1
+    \end{bmatrix}
+    u
+    \implies
+    \dot x = Ax + Bu
+\end{align*}
+The state feedback gain \( K \) is given by
+\(
+K =
+\begin{bmatrix}
+    k_{1} & k_{2} & k_{3}
+\end{bmatrix}
+\)
+and we have
+\begin{equation*}
+    A - BK
+    =
+    A
+    -
+    \begin{bmatrix}
+        0 \\ 0 \\ 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        k_{1} & k_{2} & k_{3}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 0 & 0
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        0   & 0   & 0   \\
+        0   & 0   & 0   \\
+        k_1 & k_2 & k_3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1    & 1    & 0    \\
+        1    & 0    & 1    \\
+        -k_3 & -k_1 & -k_2
+    \end{bmatrix}
+\end{equation*}
+The characteristic equation of the closed-loop system is given by
+\begin{align*}
+     &
+    \det(sI-(A-BK))
+    =
+    \det
+    \begin{bmatrix}
+        s-1   & -1    & 0       \\
+        -1    & s     & -1      \\
+        k_{3} & k_{1} & s+k_{2}
+    \end{bmatrix}
+    =
+    0
+    \\ &
+    \implies
+    (s-1)(s(s+k_2) + k_1) + (-s-k_2 + k_3) = 0
+    \\ &
+    \implies
+    s^3 + s^2 (k_2 - 1) + s (k_1 - k_2 - 1) + (-k_1 - k_2 + k_3) = 0
+\end{align*}
