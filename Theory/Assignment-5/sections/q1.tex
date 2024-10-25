@@ -82,8 +82,9 @@ and we have
 \end{equation*}
 The characteristic equation of the system is given by
 \begin{align*}
+     &
     \det(zI - (A - BK))
-     & =
+    =
     \begin{vmatrix}
         z - 1 + k_1 & -1 + k_2 & 2 + k_3     \\
         0           & z - 1    & -1          \\
@@ -91,54 +92,84 @@ The characteristic equation of the system is given by
     \end{vmatrix}
     =
     0
-    \\ & =
-    (z - 1 + k_1)
-    \begin{vmatrix}
-        z - 1 & -1          \\
-        k_2   & z - 1 + k_3
-    \end{vmatrix}
-    +
-    (k_1)
-    \begin{vmatrix}
-        -1 + k_2 & 2 + k_3 \\
-        z - 1    & -1
-    \end{vmatrix}
-    \\ & =
-    (z - 1 + k_1)
-    \Big[
-        (z - 1)(z - 1 + k_3) - (-1)(k_2)
-        \Big]
-    \\ & \quad +
-    (k_1)
-    \Big[
-        (-1 + k_2)(-1) - (2 + k_3)(z - 1)
-        \Big]
-    \\ & =
-    (z - 1 + k_1)
-    \Big[ z^2 + z(k_3 - 1) + (1 - k_3 + k_2) \Big]
-    \\ & \quad +
-    (k_1)
-    \Big[ (2 + k_3)z + (1 - k_2 + 2 + k_3) \Big]
+    \\ &
+    \implies
+    z^3 + z^2 (k_1 + k_3 - 3) + z (k_2 - 4k_1 - 2k_3 + 3) + (4k_1 - k_2 + k_3 - 1) = 0
+\end{align*}
+For the system to have all eigenvalues at \( z = 0 \), all the coefficients of the characteristic equation must be zero.
+Thus, we have
+\begin{align*}
+    k_1 + k_3 - 3         & = 0 \\
+    k_2 - 4k_1 - 2k_3 + 3 & = 0 \\
+    4k_1 - k_2 + k_3 - 1  & = 0
 \end{align*}
 \begin{align*}
     \implies
-    z^3
-     & +
-    z^2(k_3 - 1 - 1 + k_1)
-    +
-    z(1 - k_3 + k_2 - k_3 + 1 + k_1 k_3 - k_1 + 2k_1 + k_1 k_3)
-    \\ & +
-    (- 1 + k_3 - k_2 + k_1 - k_1 k_2 + 2 k_1 + k_1 k_3)
-    = 0
+    \begin{bmatrix}
+        1  & 0  & 1  \\
+        -4 & 1  & -2 \\
+        4  & -1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        k_1 \\
+        k_2 \\
+        k_3
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        3  \\
+        -3 \\
+        1
+    \end{bmatrix}
+    \implies
+    \begin{bmatrix}
+        k_1 \\
+        k_2 \\
+        k_3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1  & 0  & 1  \\
+        -4 & 1  & -2 \\
+        4  & -1 & 1
+    \end{bmatrix}^{-1}
+    \begin{bmatrix}
+        3  \\
+        -3 \\
+        1
+    \end{bmatrix}
     \\
     \implies
-    z^3
-     & +
-    z^2(k_1 + k_3 - 2)
-    +
-    z(k_1 + k_2 - 2k_3 + 2 k_1 k_3 + 2)
-    \\ & +
-    (3k_1 - k_2 + k_3 - k_1 k_2 + k_1 k_3 - 1)
-    = 0
+    \begin{bmatrix}
+        k_1 \\
+        k_2 \\
+        k_3
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        1 & 1  & 1  \\
+        4 & 3  & 2  \\
+        0 & -1 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        3  \\
+        -3 \\
+        1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 \\
+        5 \\
+        -2
+    \end{bmatrix}
 \end{align*}
-For the system to have all eigenvalues at \( z = 0 \), all the coefficients of the characteristic equation must be zero.
+Thus, the state feedback gain is given by
+\begin{equation*}
+    \boxed{
+        K
+        =
+        \begin{bmatrix}
+            1 & 5 & -2
+        \end{bmatrix}
+    }
+\end{equation*}
