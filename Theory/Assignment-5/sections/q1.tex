@@ -15,6 +15,8 @@ Consider the discrete-time state equation
         0 \\
         1
     \end{bmatrix}
+    u[k]
+    \\
     y[k]
      & =
     \begin{bmatrix}
@@ -23,8 +25,120 @@ Consider the discrete-time state equation
     x[k]
 \end{align*}
 \begin{enumerate}[label= (\alph*)]
-    \item Find the state feedback gain so that the resulting system has all eigenvalues at \( \mathrm{z}=0 \).
+    \item Find the state feedback gain so that the resulting system has all eigenvalues at \( z=0 \).
     \item Show that for any initial state, the zero-input response of the feedback system becomes identically zero for \( k \geq 0 \).
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) Finding the state feedback gain}
+
+Given the system, we have
+\begin{align*}
+    A
+     & =
+    \begin{bmatrix}
+        1 & 1 & -2 \\
+        0 & 1 & 1  \\
+        0 & 0 & 1
+    \end{bmatrix}
+    ,
+    B
+    =
+    \begin{bmatrix}
+        1 \\
+        0 \\
+        1
+    \end{bmatrix}
+\end{align*}
+The state feedback gain \( K \) is given by
+\(
+K =
+\begin{bmatrix}
+    k_1 & k_2 & k_3
+\end{bmatrix}
+\)
+and we have
+\begin{equation*}
+    A - BK
+    =
+    \begin{bmatrix}
+        1 & 1 & -2 \\
+        0 & 1 & 1  \\
+        0 & 0 & 1
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        k_1 & k_2 & k_3 \\
+        0   & 0   & 0   \\
+        k_1 & k_2 & k_3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1-k_1 & 1-k_2 & -2-k_3 \\
+        0     & 1     & 1      \\
+        -k_1  & -k_2  & 1-k_3
+    \end{bmatrix}
+\end{equation*}
+The characteristic equation of the system is given by
+\begin{align*}
+    \det(zI - (A - BK))
+     & =
+    \begin{vmatrix}
+        z - 1 + k_1 & -1 + k_2 & 2 + k_3     \\
+        0           & z - 1    & -1          \\
+        k_1         & k_2      & z - 1 + k_3
+    \end{vmatrix}
+    =
+    0
+    \\ & =
+    (z - 1 + k_1)
+    \begin{vmatrix}
+        z - 1 & -1          \\
+        k_2   & z - 1 + k_3
+    \end{vmatrix}
+    +
+    (k_1)
+    \begin{vmatrix}
+        -1 + k_2 & 2 + k_3 \\
+        z - 1    & -1
+    \end{vmatrix}
+    \\ & =
+    (z - 1 + k_1)
+    \Big[
+        (z - 1)(z - 1 + k_3) - (-1)(k_2)
+        \Big]
+    \\ & \quad +
+    (k_1)
+    \Big[
+        (-1 + k_2)(-1) - (2 + k_3)(z - 1)
+        \Big]
+    \\ & =
+    (z - 1 + k_1)
+    \Big[ z^2 + z(k_3 - 1) + (1 - k_3 + k_2) \Big]
+    \\ & \quad +
+    (k_1)
+    \Big[ (2 + k_3)z + (1 - k_2 + 2 + k_3) \Big]
+\end{align*}
+\begin{align*}
+    \implies
+    z^3
+     & +
+    z^2(k_3 - 1 - 1 + k_1)
+    +
+    z(1 - k_3 + k_2 - k_3 + 1 + k_1 k_3 - k_1 + 2k_1 + k_1 k_3)
+    \\ & +
+    (- 1 + k_3 - k_2 + k_1 - k_1 k_2 + 2 k_1 + k_1 k_3)
+    = 0
+    \\
+    \implies
+    z^3
+     & +
+    z^2(k_1 + k_3 - 2)
+    +
+    z(k_1 + k_2 - 2k_3 + 2 k_1 k_3 + 2)
+    \\ & +
+    (3k_1 - k_2 + k_3 - k_1 k_2 + k_1 k_3 - 1)
+    = 0
+\end{align*}
+For the system to have all eigenvalues at \( z = 0 \), all the coefficients of the characteristic equation must be zero.
