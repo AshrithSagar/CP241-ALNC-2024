@@ -26,7 +26,7 @@ Consider the discrete-time state equation
 \end{align*}
 \begin{enumerate}[label= (\alph*)]
     \item Find the state feedback gain so that the resulting system has all eigenvalues at \( z=0 \).
-    \item Show that for any initial state, the zero-input response of the feedback system becomes identically zero for \( k \geq 0 \).
+    \item Show that for any initial state, the zero-input response of the feedback system becomes identically zero for \( k \geq 3 \).
 \end{enumerate}
 
 \subsection*{Solution}
@@ -175,3 +175,75 @@ Thus, the state feedback gain is given by
 \end{equation*}
 
 \subsubsection*{(b) Zero-input response of the feedback system}
+
+For the zero-input response of the system, we have
+\begin{equation*}
+    x[k+1] = (A - BK) x[k]
+\end{equation*}
+
+Now, with the value of \( K \) obtained in part (a), we have
+\begin{align*}
+    A - BK
+     & =
+    \begin{bmatrix}
+        1 & 1 & -2 \\
+        0 & 1 & 1  \\
+        0 & 0 & 1
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        1 & 5 & 2 \\
+        0 & 0 & 0 \\
+        1 & 5 & 2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0  & -4 & -4 \\
+        0  & 1  & 1  \\
+        -1 & -5 & -1
+    \end{bmatrix}
+    \\
+    \implies
+    (A - BK)^2
+     & =
+    \begin{bmatrix}
+        0  & -4 & -4 \\
+        0  & 1  & 1  \\
+        -1 & -5 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        0  & -4 & -4 \\
+        0  & 1  & 1  \\
+        -1 & -5 & -1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        4  & 16 & 0 \\
+        -1 & -4 & 0 \\
+        1  & 4  & 0
+    \end{bmatrix}
+    \\
+    \implies
+    (A - BK)^3
+     & =
+    \begin{bmatrix}
+        4  & 16 & 0 \\
+        -1 & -4 & 0 \\
+        1  & 4  & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0  & -4 & -4 \\
+        0  & 1  & 1  \\
+        -1 & -5 & -1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}
+\end{align*}
+
+As we can see from above, \( {(A - BK)}^3 = 0 \), thereby the matrix \( (A - BK) \) is nilpotent of order 3, which gives that \( {(A - BK)}^k = 0 \) for \( k \geq 3 \).
+
+Thereby, the \underline{state variables become identically zero for \( k \geq 0 \)}.
