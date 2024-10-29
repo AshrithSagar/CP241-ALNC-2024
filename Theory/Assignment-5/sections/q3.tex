@@ -27,3 +27,143 @@ where \( I= \) moment of inertia of the pendulum plus gyro about \( A, J= \) mom
 \vspace*{-3em}
 
 \subsection*{Solution}
+
+We can form the state-space representation of the system by using \( x_1=\theta, x_2=\dot{\theta}, x_3=\phi, x_4=\dot{\phi} \).
+The state-space representation of the system then, is
+\begin{align*}
+    \begin{bmatrix}
+        \dot{x}_1 \\ \dot{x}_2 \\ \dot{x}_3 \\ \dot{x}_4
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        0               & 1           & 0 & 0            \\
+        \frac{m g l}{I} & 0           & 0 & -\frac{h}{I} \\
+        0               & 0           & 0 & 1            \\
+        0               & \frac{h}{J} & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0 \\ 0 \\ 0 \\ \frac{1}{J}
+    \end{bmatrix} Q
+    \\
+    \implies
+    \dot X
+     & =
+    A X + B Q
+\end{align*}
+
+\clearpage
+\subsubsection*{(a) Controllability of the system by \( Q \)}
+
+The controllability matrix is given by
+\begin{equation*}
+    \mathcal{C}
+    =
+    \begin{bmatrix}
+        B & AB & A^{2}B & A^{3}B
+    \end{bmatrix}
+\end{equation*}
+\begin{align*}
+    \implies
+    AB
+     & =
+    \begin{bmatrix}
+        0               & 1           & 0 & 0            \\
+        \frac{m g l}{I} & 0           & 0 & -\frac{h}{I} \\
+        0               & 0           & 0 & 1            \\
+        0               & \frac{h}{J} & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\ 0 \\ 0 \\ \frac{1}{J}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0              \\
+        - \frac{h}{IJ} \\
+        \frac{1}{J}    \\
+        0
+    \end{bmatrix}
+    \\
+    \implies
+    A^{2}B
+     & =
+    \begin{bmatrix}
+        \frac{m g l}{I} & 0                              & 0 & -\frac{h}{I}    \\
+        0               & \frac{m g l}{I}-\frac{h^2}{IJ} & 0 & 0               \\
+        0               & \frac{h}{J}                    & 0 & 0               \\
+        \frac{mglh}{IJ} & 0                              & 0 & -\frac{h^2}{IJ}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\ 0 \\ 0 \\ \frac{1}{J}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -\frac{h}{IJ} \\
+        0             \\
+        0             \\
+        -\frac{h^2}{IJ^2}
+    \end{bmatrix}
+    \\
+    \implies
+    A^{3}B
+     & =
+    \begin{bmatrix}
+        0                                               & \frac{m g l}{I}-\frac{h^2}{IJ}        & 0 & 0                                     \\
+        \frac{m^2 g^2 l^2}{I^2}-\frac{m g l h^2}{I^2 J} & 0                                     & 0 & \frac{h^3}{I^2 J}-\frac{m g l h}{I^2} \\
+        \frac{m g l h}{IJ}                              & 0                                     & 0 & -\frac{h^2}{IJ}                       \\
+        0                                               & -\frac{h^3}{I J^2}+\frac{m g l h}{IJ} & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\ 0 \\ 0 \\ \frac{1}{J}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0                                         \\
+        \frac{h^3}{I^2 J^2}-\frac{m g l h}{I^2 J} \\
+        -\frac{h^2}{IJ^2}                         \\
+        0
+    \end{bmatrix}
+    \\
+    \implies
+    \mathcal{C}
+     & =
+    \begin{bmatrix}
+        0           & 0             & -\frac{h}{IJ}     & 0                                         \\
+        0           & -\frac{h}{IJ} & 0                 & \frac{h^3}{I^2 J^2}-\frac{m g l h}{I^2 J} \\
+        0           & \frac{1}{J}   & 0                 & -\frac{h^2}{IJ^2}                         \\
+        \frac{1}{J} & 0             & -\frac{h^2}{IJ^2} & 0
+    \end{bmatrix}
+\end{align*}
+For the system to be controllable, the rank of the controllability matrix should be equal to the number of states, i.e., it should be full rank.
+
+We can compute the determinant of the controllability matrix as
+\begin{align*}
+    \text{det}(\mathcal{C})
+     & =
+    \begin{vmatrix}
+        0           & 0             & -\frac{h}{IJ}     & 0                                         \\
+        0           & -\frac{h}{IJ} & 0                 & \frac{h^3}{I^2 J^2}-\frac{m g l h}{I^2 J} \\
+        0           & \frac{1}{J}   & 0                 & -\frac{h^2}{IJ^2}                         \\
+        \frac{1}{J} & 0             & -\frac{h^2}{IJ^2} & 0
+    \end{vmatrix}
+    =
+    -\frac{h}{IJ}
+    \begin{vmatrix}
+        0           & -\frac{h}{IJ} & \frac{h^3}{I^2 J^2}-\frac{m g l h}{I^2 J} \\
+        0           & \frac{1}{J}   & -\frac{h^2}{IJ^2}                         \\
+        \frac{1}{J} & 0             & 0
+    \end{vmatrix}
+    \\ & =
+    \left( -\frac{h}{IJ} \right) \left[ \left( \frac{h}{IJ} \right) \left( \frac{h^2}{I J^3} \right) + \left( \frac{h^3}{I^2 J^2}-\frac{m g l h}{I^2 J} \right) \left( -\frac{1}{J^2} \right) \right]
+    \\ & =
+    \left( -\frac{h}{IJ} \right) \left[ \cancel{\frac{h^3}{I^2 J^4}} - \cancel{\frac{h^3}{I^2 J^4}} + \frac{m g l h}{I^2 J^3} \right]
+    =
+    -\frac{m g l h^2}{I^3 J^4}
+\end{align*}
+
+Since the determinant of the controllability matrix \( \det(\mathcal{C}) \) is non-zero in the general case for non-zero values of \( m, g, l, h, I, J \), thereby the controllability matrix is full rank.
+
+Hence, the system is \underline{controllable} by \( Q \).
