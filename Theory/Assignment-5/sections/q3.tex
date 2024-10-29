@@ -167,3 +167,47 @@ We can compute the determinant of the controllability matrix as
 Since the determinant of the controllability matrix \( \det(\mathcal{C}) \) is non-zero in the general case for non-zero values of \( m, g, l, h, I, J \), thereby the controllability matrix is full rank.
 
 Hence, the system is \underline{controllable} by \( Q \).
+
+\clearpage
+\subsubsection*{(b) Stability of the system}
+
+The characteristic equation of the system is given by
+\begin{align*}
+    \text{det}(sI-A)
+     & =
+    \begin{vmatrix}
+        s                & -1           & 0 & 0           \\
+        -\frac{m g l}{I} & s            & 0 & \frac{h}{I} \\
+        0                & 0            & s & -1          \\
+        0                & -\frac{h}{J} & 0 & s
+    \end{vmatrix}
+    =
+    s
+    \begin{vmatrix}
+        s            & 0 & \frac{h}{I} \\
+        0            & s & -1          \\
+        -\frac{h}{J} & 0 & s
+    \end{vmatrix}
+    +
+    \begin{vmatrix}
+        -\frac{m g l}{I} & 0 & \frac{h}{I} \\
+        0                & s & -1          \\
+        0                & 0 & s
+    \end{vmatrix}
+    \\ & =
+    s
+    \left( s^3 + \frac{h^2 s}{I J} \right)
+    -
+    \frac{m g l s^2}{I}
+    =
+    s^4 + \frac{h^2 s^2}{I J} - \frac{m g l s^2}{I}
+    \\ & =
+    s^4 + s^2 \left( \frac{h^2}{I J} - \frac{m g l}{I} \right)
+    =
+    s^2 \left( s^2 + \frac{h^2}{I J} - \frac{m g l}{I} \right)
+\end{align*}
+
+For the system to be stable, the real part of all the eigenvalues of the system matrix \( A \) should be negative.
+The eigenvalues, which are the roots of the characteristic equation are \( s=0, \pm \sqrt{\frac{m g l}{I}-\frac{h^2}{I J}} \).
+Since zero is an eigenvalue above, the necessary condition for stability is not satisfied.
+Hence, the system is always \underline{unstable}.
