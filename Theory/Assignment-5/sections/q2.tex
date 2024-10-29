@@ -45,8 +45,47 @@ The forces exerted by the springs are given by Hooke's law, as
 The equations of motion are given by Newton's second law, as
 \begin{align*}
     m\ddot{x}
-     & = -k_{1}x + F_{x}
+     & = -k_{1}x + F
     \\
     m\ddot{y}
-     & = -k_{2}y + F_{y}
+     & = -k_{2}y + F
 \end{align*}
+
+Taking the displacements \( x, y \) and velocities \( \dot{x}, \dot{y} \) as state variables, we can write the state-space equations as
+\begin{equation*}
+    \boxed{
+        \begin{bmatrix}
+            \dot{x}  \\
+            \ddot{x} \\
+            \dot{y}  \\
+            \ddot{y}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0                & 1 & 0                & 0 \\
+            -\frac{k_{1}}{m} & 0 & 0                & 0 \\
+            0                & 0 & 0                & 1 \\
+            0                & 0 & -\frac{k_{2}}{m} & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x       \\
+            \dot{x} \\
+            y       \\
+            \dot{y}
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0           \\
+            \frac{1}{m} \\
+            0           \\
+            \frac{1}{m}
+        \end{bmatrix}
+        F
+    }
+\end{equation*}
+\begin{equation*}
+    \implies
+    \dot X
+    =
+    AX + BF
+\end{equation*}
