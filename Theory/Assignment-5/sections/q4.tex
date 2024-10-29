@@ -232,6 +232,24 @@ and we have
         -k_3 & -k_1 & -k_2
     \end{bmatrix}
 \end{equation*}
+We check the controllability of the system by checking the rank of the controllability matrix.
+\begin{align*}
+    \mathcal{C}
+     & =
+    \begin{bmatrix}
+        B & AB & A^{2}B
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 0
+    \end{bmatrix}
+    \implies
+    \text{rank}(\mathcal{C}) = 3
+\end{align*}
+Thereby, the system is controllable.
+Now we try to use a state feedback controller to stabilize the system at the origin.
 The characteristic equation of the closed-loop system is given by
 \begin{align*}
      &
