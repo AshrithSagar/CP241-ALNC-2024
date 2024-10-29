@@ -89,3 +89,122 @@ Taking the displacements \( x, y \) and velocities \( \dot{x}, \dot{y} \) as sta
     =
     AX + BF
 \end{equation*}
+
+\subsubsection*{(b) Controllability}
+
+The controllability matrix is given by
+\begin{equation*}
+    \mathcal{C}
+    =
+    \begin{bmatrix}
+        B & AB & A^{2}B & A^{3}B
+    \end{bmatrix}
+\end{equation*}
+\begin{align*}
+    \implies
+    AB
+     & =
+    \begin{bmatrix}
+        0                & 1 & 0                & 0 \\
+        -\frac{k_{1}}{m} & 0 & 0                & 0 \\
+        0                & 0 & 0                & 1 \\
+        0                & 0 & -\frac{k_{2}}{m} & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0           \\
+        \frac{1}{m} \\
+        0           \\
+        \frac{1}{m}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{1}{m} \\
+        0           \\
+        \frac{1}{m} \\
+        0
+    \end{bmatrix}
+    \\
+    \implies
+    A^{2}B
+     & =
+    \begin{bmatrix}
+        -\frac{k_{1}}{m} & 0 & 0 & 0 \\ 0 & -\frac{k_{1}}{m} & 0 & 0\\ 0 & 0 & -\frac{k_{2}}{m} & 0\\ 0 & 0 & 0 & -\frac{k_{2}}{m}
+    \end{bmatrix}
+    \begin{bmatrix}
+        0           \\
+        \frac{1}{m} \\
+        0           \\
+        \frac{1}{m}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0                  \\
+        -\frac{k_{1}}{m^2} \\
+        0                  \\
+        -\frac{k_{2}}{m^2}
+    \end{bmatrix}
+    \\
+    \implies
+    A^{3}B
+     & =
+    \begin{bmatrix}
+        0 & -\frac{k_{1}}{m} & 0 & 0 \\ \frac{{k_{1}}^2}{m^2} & 0 & 0 & 0\\ 0 & 0 & 0 & -\frac{k_{2}}{m}\\ 0 & 0 & \frac{{k_{2}}^2}{m^2} & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0           \\
+        \frac{1}{m} \\
+        0           \\
+        \frac{1}{m}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -\frac{k_1}{m^2} \\
+        0                \\
+        -\frac{k_2}{m^2} \\
+        0
+    \end{bmatrix}
+    \\
+    \implies
+    \mathcal{C}
+     & =
+    \begin{bmatrix}
+        0           & \frac{1}{m} & 0                  & -\frac{k_{1}}{m^2} \\
+        \frac{1}{m} & 0           & -\frac{k_{1}}{m^2} & 0                  \\
+        0           & \frac{1}{m} & 0                  & -\frac{k_{2}}{m^2} \\
+        \frac{1}{m} & 0           & -\frac{k_{2}}{m^2} & 0
+    \end{bmatrix}
+\end{align*}
+For the system to be controllable, the rank of the controllability matrix should be equal to the number of states, i.e., it should be full rank.
+
+We can compute the determinant of the controllability matrix as
+\begin{align*}
+    \det(\mathcal{C})
+     & =
+    \begin{vmatrix}
+        0           & \frac{1}{m} & 0                  & -\frac{k_{1}}{m^2} \\
+        \frac{1}{m} & 0           & -\frac{k_{1}}{m^2} & 0                  \\
+        0           & \frac{1}{m} & 0                  & -\frac{k_{2}}{m^2} \\
+        \frac{1}{m} & 0           & -\frac{k_{2}}{m^2} & 0
+    \end{vmatrix}
+    =
+    {\left( \frac{1}{m} \right)}^{4}
+    \begin{vmatrix}
+        0 & 1 & 0                & -\frac{k_{1}}{m} \\
+        1 & 0 & -\frac{k_{1}}{m} & 0                \\
+        0 & 1 & 0                & -\frac{k_{2}}{m} \\
+        1 & 0 & -\frac{k_{2}}{m} & 0
+    \end{vmatrix}
+    \\ & =
+    {\left( \frac{1}{m} \right)}^{4}
+    {\left( \frac{k_1 - k_2}{m} \right)}^{2}
+    =
+    \frac{{(k_1 - k_2)}^{2}}{m^6}
+\end{align*}
+
+\begin{enumerate}[label= (\roman*)]
+    \item If \( k_{1} \neq k_{2} \), then \( \det(\mathcal{C}) \neq 0 \), and thereby the controllability matrix is full rank. \\
+          The system is \underline{controllable}.
+
+    \item If \( k_{1} = k_{2} \), then \( \det(\mathcal{C}) = 0 \), and thereby the controllability matrix is not full rank. \\
+          The system is \underline{not controllable}.
+\end{enumerate}
