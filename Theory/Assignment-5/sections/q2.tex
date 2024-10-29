@@ -196,8 +196,42 @@ We can compute the determinant of the controllability matrix as
     \end{vmatrix}
     \\ & =
     {\left( \frac{1}{m} \right)}^{4}
-    {\left( \frac{k_1 - k_2}{m} \right)}^{2}
+    \left[
+        - (1)
+        \begin{vmatrix}
+            1 & -\frac{k_{1}}{m} & 0                \\
+            0 & 0                & -\frac{k_{2}}{m} \\
+            1 & -\frac{k_{2}}{m} & 0
+        \end{vmatrix}
+        - \left( -\frac{k_{1}}{m} \right)
+        \begin{vmatrix}
+            1 & 0 & -\frac{k_{1}}{m} \\
+            0 & 1 & 0                \\
+            1 & 0 & -\frac{k_{2}}{m}
+        \end{vmatrix}
+        \right]
+    \\ & =
+    {\left( \frac{1}{m} \right)}^{4}
+    \left[
+        - (1)
+        \left( -\frac{k_{2}^2}{m^2} + \frac{k_{1}k_{2}}{m^2} \right)
+        - \left( -\frac{k_{1}}{m} \right)
+        \left( -\frac{k_{2}}{m} + \frac{k_{1}}{m} \right)
+        \right]
+    \\ & =
+    {\left( \frac{1}{m} \right)}^{4}
+    \left[
+    \frac{k_{2}^2}{m^2} - \frac{k_{1}k_{2}}{m^2} - \frac{k_{1}k_{2}}{m^2} + \frac{k_{1}^2}{m^2}
+    \right]
     =
+    {\left( \frac{1}{m} \right)}^{4}
+    \left[
+        \frac{{(k_1 - k_2)}^{2}}{m^2}
+        \right]
+    \\
+    \implies
+    \det(\mathcal{C})
+     & =
     \frac{{(k_1 - k_2)}^{2}}{m^6}
 \end{align*}
 
