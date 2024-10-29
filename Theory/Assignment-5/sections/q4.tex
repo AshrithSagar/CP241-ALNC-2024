@@ -145,6 +145,14 @@ The eigenvalues are given by
 \end{align*}
 For the system to be stabilisable, the real parts of the eigenvalues must be negative.
 
+By Routh-Hurwitz's stability criterion, we need the coefficients of the characteristic equation to be positive for the system to be stable.
+Thereby, we get
+\begin{align*}
+    -(1-k_2)         & > 0 \implies k_2 < 1
+    \\
+    (-k_2 + k_1 - 1) & > 0 \implies k_1 - k_2 > 1
+\end{align*}
+
 \subsubsection*{(b)}
 
 We will first linearize the system around the origin.\\
@@ -269,4 +277,14 @@ The characteristic equation of the closed-loop system is given by
     \\ &
     \implies
     s^3 + s^2 (k_2 - 1) + s (k_1 - k_2 - 1) + (-k_1 - k_2 + k_3) = 0
+\end{align*}
+
+By Routh-Hurwitz's stability criterion, we need the coefficients of the characteristic equation to be positive for the system to be stable.
+Thereby, we get
+\begin{align*}
+    k_2 - 1          & > 0 \implies k_2 > 1
+    \\
+    k_1 - k_2 - 1    & > 0 \implies k_1 > k_2 + 1
+    \\
+    -k_1 - k_2 + k_3 & > 0 \implies k_3 > k_1 + k_2
 \end{align*}
