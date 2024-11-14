@@ -1,8 +1,7 @@
-%% ALNC Project Team-9
-% TORA system
 clc
 clear
 
+%% TORA system
 % Parameters
 epsilon = 0.1;
 u = 1;
