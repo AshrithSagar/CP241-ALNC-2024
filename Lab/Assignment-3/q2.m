@@ -4,21 +4,20 @@ clear;
 close all;
 
 % Parameters
-tspan = [0 20]; % Simulation time
-x0 = [2; 2]; % Initial conditions
+tspan = [0 100]; % Simulation time
+x0 = [10; 10]; % Initial conditions
 
-% Dynamics with backstepping control
-function dx = dynamics(~, x)
+% System dynamics
+function dx = sys(~, x)
     x1 = x(1);
     x2 = x(2);
 
-    % Backstepping control design
-    v = -x1; % Desired virtual control for x1 subsystem
+    phi = (-3/2) * x1 ^ 2; % Virtual control, to stabilize x1 system
+    z = x2 - phi; % Virtual state
 
-    % Full control law
-    u = -x2 - (x2 - v); % Stabilizes x2 dynamics
+    % Control law
+    u = 5 * x1 + (3/2) * x1 ^ 3;
 
-    % System dynamics
     dx1 = -x2 - (3/2) * x1 ^ 2 - (1/2) * x1 ^ 3;
     dx2 = u;
 
@@ -26,7 +25,7 @@ function dx = dynamics(~, x)
 end
 
 % Simulate the system
-[t, x] = ode45(@(t, x) dynamics(t, x), tspan, x0);
+[t, x] = ode45(@(t, x) sys(t, x), tspan, x0);
 
 % Plot state trajectories
 figure;
