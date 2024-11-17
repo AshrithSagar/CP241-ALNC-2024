@@ -10,6 +10,7 @@ A = [0, 1, 0;
 B = [1; 0; 0];
 C = [0.78e-4, 41.4e-4, 0.01];
 D = 0;
+sys_ol = ss(A, B, C, D);
 
 % Check controllability
 Ctrb = ctrb(A, B);
