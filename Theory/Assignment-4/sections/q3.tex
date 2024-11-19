@@ -139,30 +139,22 @@ Thereby, the \underline{system is Input-to-State Stable}.
 \subsubsection*{(c) System:\( \quad \dot{x}_{1}=-x_{1}-x_{2}+u_{1}, \quad \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \)}
 
 Given the system \( \dot{x}_{1}=-x_{1}-x_{2}+u_{1} \) and \( \dot{x}_{2}=x_{1}-x_{2}^{3}+u_{2} \), we will first check if the corresponding system with zero input is globally asymptotically stable.
-Consider the Lyapunov candidate function as \( V(x)=\frac{1}{2} x_{1}^{2}+\frac{1}{4} x_{2}^{4} \).
+Consider the Lyapunov candidate function as \( V(x)=\frac{1}{2} x_{1}^{2}+\frac{1}{2} x_{2}^{2} \).
 We can see that \( V(x) > 0 \) for all \( x \in \mathbb{R}^2 - \{ 0 \} \), since
-\begin{align*}
-     &
-    x_1 \neq 0
+\begin{equation*}
+    x_i \neq 0
     \implies
-    x_1^2 > 0
+    x_i^2 > 0
     \implies
-    \frac{1}{2} x_1^2 > 0
-    \\
-     &
-    x_2 \neq 0
-    \implies
-    x_2^4 > 0
-    \implies
-    \frac{1}{4} x_2^4 > 0
-    \\
-     &
+    \frac{1}{2} x_i^2 > 0,
+    \;
+    i = 1, 2
     \implies
     V(x)
     =
-    \frac{1}{2} x_1^2 + \frac{1}{4} x_2^4
+    \frac{1}{2} x_1^2 + \frac{1}{2} x_2^2
     > 0
-\end{align*}
+\end{equation*}
 Now, we have,
 \begin{align*}
     \dot{V}(x)
@@ -170,10 +162,10 @@ Now, we have,
     \frac{\partial V}{\partial x_1} \dot{x}_1 + \frac{\partial V}{\partial x_2} \dot{x}_2
     \\
      & =
-    x_1 \left( -x_1 - x_2 + u_1 \right) + x_2^3 \left( x_1 - x_2^3 + u_2 \right)
+    x_1 \left( -x_1 - x_2 + u_1 \right) + x_2 \left( x_1 - x_2^3 + u_2 \right)
     \\
      & =
-    -x_1^2 - x_1 x_2 + u_1 x_1 + x_1 x_2^3 - x_2^6 + u_2 x_2^3
+    -x_1^2 - \cancel{x_1 x_2} + u_1 x_1 + \cancel{x_1 x_2} - x_2^4 + u_2 x_2
 \end{align*}
 For the zero-input condition, we can see that \( \dot{V}(x) = -x_1^2 - x_2^4 < 0 \) for all \( x \in \mathbb{R} - \{ 0 \} \), thereby, the system is globally asymptotically stable under the zero input condition.
 
