@@ -35,6 +35,47 @@ Since the system is real, the only equilibrium point is \( x = (0, 0) \).
 
 \subsubsection*{(b) \( x=0 \) is asymptotically stable}
 
+Linearising the system around the equilibrium point \( x = 0 \), we have
+\begin{align*}
+     &
+    \frac{\partial f_1}{\partial x_1}
+    =
+    -1
+     &
+    \frac{\partial f_1}{\partial x_2}
+    =
+    0
+    \\ &
+    \frac{\partial f_2}{\partial x_1}
+    =
+    x_2^4 + x_2^2 + 2 x_1 x_2
+     &
+    \frac{\partial f_2}{\partial x_2}
+    =
+    4 x_1 x_2^3 - 3 x_2^2 + 2 x_1 x_2 + x_1^2 - 1
+\end{align*}
+\begin{align*}
+    \implies
+    \dot{x}
+     & =
+    A x
+    \implies
+    A
+    =
+    \begin{bmatrix}
+        -1 & 0  \\
+        0  & -1
+    \end{bmatrix},
+    \quad
+    x
+    =
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+\end{align*}
+The eigenvalues of \( A \) are \( \{ -1, -1 \} \), which are both negative, thereby the equilibrium point \( x = 0 \) is stable.
+
 \subsubsection*{(c) \( \Gamma=\left \{ x \in \mathbb{R}^{2} \mid x_{1} x_{2} \geq 2\right \} \) is a positively invariant set}
 
 \subsubsection*{(d) Globally asymptotic stability of \( x=0 \)}
